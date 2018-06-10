@@ -1,0 +1,6 @@
+[
+    {"id": "1", "name": "Manchester United", "manager": "Jose Mourinho"},
+    {"id": "2", "name": "Chelsea", "manager": "Conte"},
+    {"id": "3", "name": "Arsenal", "manager": "Emery"},
+    {"id": "4", "name": "Liverpool", "manager": "Klopp"}    
+]

@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-7">
+    <div class="mr-2">
+    <span style="color: #009ece; font-size: 20px; font-weight: bold;"> Welcome to Ashwin Institute of Football </span>
+    </div>  
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-sm-4"><img src="assets/images/cr7.jpg" height="353"></div>
+    
+    <div class="col-sm-4 mb-4" style="border:1px solid #eff0f1; background-color: #eff0f1; padding: 30px;">
+      <form (submit)="login($event)">
+      <div class="mt-5">
+      <div>
+        <label class="login-label">User Name<span style="color: red;">*</span></label>
+        <input type="text" id="userName" name="userName" [(ngModel)]="userName" class="form-control">
+      </div>
+      <div>
+        <label class="login-label">Password<span style="color: red;">*</span></label>
+        <input type="password" id="password" name="password" [(ngModel)]="password" class="form-control">
+      </div>
+      <div class="row" *ngIf="error"><span style="color: red; font-weight: 700;">{{error}}</span></div>
+      <div class="row mt-5 mb-3 ml-5">          
+        <div class="col-sm-6">
+          <div class="float-right">
+            <button style="width: auto;" class="btn btn-primary">Login</button>
+          </div>
+          </div>
+        <div class="col-sm-6">
+         
+        </div>       
+      </div>
+    </div>
+    </form>
+    </div>
+    
+    <div class="col-sm-4"><img src="assets/images/messi.jpg" height="353" style="margin-left: -15px;"></div>
+  </div>
+
+</div>

@@ -1,0 +1,52 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+.content-panel{
+    border:1px solid #E6E6FA;
+    width:100%;
+    height: auto;
+    border-top:8px solid #009ece;
+}
+
+.content-panel .content-header{
+    padding: 10px;
+    border-bottom: 1px solid black;
+}
+
+.content-panel .content-header .content-header-text{
+    font-size: 16px;
+    font-weight: 700;
+    text-indent: 50px;
+    text-align: justify;
+    letter-spacing: 3px;
+    font-family: roboto;
+    text-transform: uppercase;
+}
+
+.label-text{
+    font-size:16px;
+    font-weight: 600;
+    color: #009ece;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover {background-color: #ffff00;}
+
+.content-panel-label-value{
+    color: #979A9A;
+}
+
+a:hover {
+    cursor: -webkit-grab;
+    cursor: grab;
+}

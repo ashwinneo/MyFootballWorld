@@ -1,0 +1,435 @@
+{
+    "premierLeague": {
+    	"manchesterUnited": [
+    		{
+    			"id": "1",
+    			"name": "David De Gea",
+    			"kitNumber": "1",
+    			"position": "Goal Keeper",
+    			"country": "Spain"
+    		},
+    		{
+    			"id": "2",
+    			"name": "Sergio Romero",
+    			"kitNumber": "20",
+    			"position": "Goal Keeper",
+    			"country": "Spain"
+    		},
+    		{
+    			"id": "3",
+    			"name": "Victor Lindelof",
+    			"kitNumber": "2",
+    			"position": "Defender",
+    			"country": "Sweden"
+    		},
+    		{
+    			"id": "4",
+    			"name": "Eric Bailey",
+    			"kitNumber": "3",
+    			"position": "Defender",
+    			"country": "Ivory"
+    		},
+    		{
+    			"id": "5",
+    			"name": "Phil Jones",
+    			"kitNumber": "4",
+    			"position": "Defender",
+    			"country": "England"
+    		},
+    		{
+    			"id": "6",
+    			"name": "Marcos Rojo",
+    			"kitNumber": "5",
+    			"position": "Defender",
+    			"country": "Argentina"
+    		},
+    		{
+    			"id": "7",
+    			"name": "Chris Smalling",
+    			"kitNumber": "12",
+    			"position": "Defender",
+    			"country": "England"
+    		},
+    		{
+    			"id": "8",
+    			"name": "Paul Pogba",
+    			"kitNumber": "6",
+    			"position": "Midfielder",
+    			"country": "France"
+    		},
+    		{
+    			"id": "9",
+    			"name": "Juan Mata",
+    			"kitNumber": "8",
+    			"position": "Midfielder",
+    			"country": "Spain"
+    		},
+    		{
+    			"id": "10",
+    			"name": "Ander Herrera",
+    			"kitNumber": "21",
+    			"position": "Midfielder",
+    			"country": "England"
+    		},
+    		{
+    			"id": "11",
+    			"name": "Nemanja Matic",
+    			"kitNumber": "31",
+    			"position": "Midfielder",
+    			"country": "England"
+    		},
+    		{
+    			"id": "12",
+    			"name": "Alexis Sanchez",
+    			"kitNumber": "7",
+    			"position": "Forward",
+    			"country": "Egypt"
+    		},
+    		{
+    			"id": "13",
+    			"name": "Romelu Lukaku",
+    			"kitNumber": "9",
+    			"position": "Forward",
+    			"country": "Belgium"
+    		},
+    		{
+    			"id": "14",
+    			"name": "Anthony Martial",
+    			"kitNumber": "11",
+    			"position": "Forward",
+    			"country": "France"
+    		},
+    		{
+    			"id": "15",
+    			"name": "Marcus Rashford",
+    			"kitNumber": "19",
+    			"position": "Forward",
+    			"country": "England"
+    		}
+    	],
+    	"chelsea": [
+    		{
+    			"id": "1",
+    			"name": "Thibaut Courtois",
+    			"kitNumber": "13",
+    			"position": "Goal Keeper",
+    			"country": "Belgium"
+    		},
+    		{
+    			"id": "2",
+    			"name": "Eduardo",
+    			"kitNumber": "37",
+    			"position": "Goal Keeper",
+    			"country": "Portugal"
+    		},
+    		{
+    			"id": "3",
+    			"name": "Azpilicueta",
+    			"kitNumber": "28",
+    			"position": "Defender",
+    			"country": "Spain"
+    		},
+    		{
+    			"id": "4",
+    			"name": "Gary Cahill",
+    			"kitNumber": "24",
+    			"position": "Defender",
+    			"country": "England"
+    		},
+    		{
+    			"id": "5",
+    			"name": "David Luiz",
+    			"kitNumber": "30",
+    			"position": "Defender",
+    			"country": "Brazil"
+    		},
+    		{
+    			"id": "6",
+    			"name": "Emerson",
+    			"kitNumber": "33",
+    			"position": "Defender",
+    			"country": "Italy"
+    		},
+    		{
+    			"id": "7",
+    			"name": "Ethan Ampadu",
+    			"kitNumber": "44",
+    			"position": "Defender",
+    			"country": "Wales"
+    		},
+    		{
+    			"id": "8",
+    			"name": "Tiemoué Bakayoko",
+    			"kitNumber": "14",
+    			"position": "Midfielder",
+    			"country": "France"
+    		},
+    		{
+    			"id": "9",
+    			"name": "Cesc Fàbregas",
+    			"kitNumber": "4",
+    			"position": "Midfielder",
+    			"country": "Spain"
+    		},
+    		{
+    			"id": "10",
+    			"name": "Marcos Alonso",
+    			"kitNumber": "3",
+    			"position": "Midfielder",
+    			"country": "Spain"
+    		},
+    		{
+    			"id": "11",
+    			"name": "Victor Moses",
+    			"kitNumber": "15",
+    			"position": "Midfielder",
+    			"country": "Nigeria"
+    		},
+    		{
+    			"id": "12",
+    			"name": "Olivier Giroud",
+    			"kitNumber": "18",
+    			"position": "Forward",
+    			"country": "France"
+    		},
+    		{
+    			"id": "13",
+    			"name": "Eden Hazard",
+    			"kitNumber": "10",
+    			"position": "Forward",
+    			"country": "Belgium"
+    		},
+    		{
+    			"id": "14",
+    			"name": "Morata",
+    			"kitNumber": "9",
+    			"position": "Forward",
+    			"country": "Spain"
+    		},
+    		{
+    			"id": "15",
+    			"name": "Pedro",
+    			"kitNumber": "22",
+    			"position": "Forward",
+    			"country": "Spain"
+    		}
+    	],
+    	"arsenal": [
+    		{
+    			"id": "1",
+    			"name": "Petr Čech",
+    			"kitNumber": "33",
+    			"position": "Goal Keeper",
+    			"country": "Czech Republic"
+    		},
+    		{
+    			"id": "2",
+    			"name": "David Ospina",
+    			"kitNumber": "13",
+    			"position": "Goal Keeper",
+    			"country": "Colombia"
+    		},
+    		{
+    			"id": "3",
+    			"name": "Laurent Koscielny",
+    			"kitNumber": "6",
+    			"position": "Defender",
+    			"country": "France"
+    		},
+    		{
+    			"id": "4",
+    			"name": "Sead Kolašinac",
+    			"kitNumber": "31",
+    			"position": "Defender",
+    			"country": "Bosnia-Herzegovina"
+    		},
+    		{
+    			"id": "5",
+    			"name": "Per Mertesacker",
+    			"kitNumber": "4",
+    			"position": "Defender",
+    			"country": "Germany"
+    		},
+    		{
+    			"id": "6",
+    			"name": "Shkodran Mustafi",
+    			"kitNumber": "20",
+    			"position": "Defender",
+    			"country": "Germany"
+    		},
+    		{
+    			"id": "7",
+    			"name": "Nacho Monreal",
+    			"kitNumber": "18",
+    			"position": "Defender",
+    			"country": "Spain"
+    		},
+    		{
+    			"id": "8",
+    			"name": "Henrikh Mkhitaryan",
+    			"kitNumber": "7",
+    			"position": "Midfielder",
+    			"country": "Armenia"
+    		},
+    		{
+    			"id": "9",
+    			"name": "Santi Cazorla",
+    			"kitNumber": "19",
+    			"position": "Midfielder",
+    			"country": "Spain"
+    		},
+    		{
+    			"id": "10",
+    			"name": "Mesut Özil",
+    			"kitNumber": "11",
+    			"position": "Midfielder",
+    			"country": "Germany"
+    		},
+    		{
+    			"id": "11",
+    			"name": "Aaron Ramsey",
+    			"kitNumber": "8",
+    			"position": "Midfielder",
+    			"country": "Wales"
+    		},
+    		{
+    			"id": "12",
+    			"name": "Pierre-Emerick Aubameyang",
+    			"kitNumber": "14",
+    			"position": "Forward",
+    			"country": "Gabon"
+    		},
+    		{
+    			"id": "13",
+    			"name": "Alex Iwobi",
+    			"kitNumber": "17",
+    			"position": "Forward",
+    			"country": "Nigeria"
+    		},
+    		{
+    			"id": "14",
+    			"name": "Alexandre Lacazette",
+    			"kitNumber": "9",
+    			"position": "Forward",
+    			"country": "France"
+    		},
+    		{
+    			"id": "15",
+    			"name": "Danny Welbeck",
+    			"kitNumber": "23",
+    			"position": "Forward",
+    			"country": "England"
+    		}
+    	],
+    	"manchesterCity": [
+    		{
+    			"id": "1",
+    			"name": "Claudio Bravo",
+    			"kitNumber": "1",
+    			"position": "Goal Keeper",
+    			"country": "Chile"
+    		},
+    		{
+    			"id": "2",
+    			"name": "Ederson",
+    			"kitNumber": "31",
+    			"position": "Goal Keeper",
+    			"country": "Brazil"
+    		},
+    		{
+    			"id": "3",
+    			"name": "Fabian Delph",
+    			"kitNumber": "18",
+    			"position": "Defender",
+    			"country": "England"
+    		},
+    		{
+    			"id": "4",
+    			"name": "John Stones",
+    			"kitNumber": "5",
+    			"position": "Defender",
+    			"country": "England "
+    		},
+    		{
+    			"id": "5",
+    			"name": "Kyle Walker",
+    			"kitNumber": "2",
+    			"position": "Defender",
+    			"country": "England"
+    		},
+    		{
+    			"id": "6",
+    			"name": "Vincent Kompany",
+    			"kitNumber": "4",
+    			"position": "Defender",
+    			"country": "Belgium"
+    		},
+    		{
+    			"id": "7",
+    			"name": "Nicolás Otamendi",
+    			"kitNumber": "30",
+    			"position": "Defender",
+    			"country": "Argentina"
+    		},
+    		{
+    			"id": "8",
+    			"name": "David Silva",
+    			"kitNumber": "21",
+    			"position": "Midfielder",
+    			"country": "Spain"
+    		},
+    		{
+    			"id": "9",
+    			"name": "Kevin De Bruyne",
+    			"kitNumber": "17",
+    			"position": "Midfielder",
+    			"country": "Belgium"
+    		},
+    		{
+    			"id": "10",
+    			"name": "Fernandinho",
+    			"kitNumber": "25",
+    			"position": "Midfielder",
+    			"country": "Brazil"
+    		},
+    		{
+    			"id": "11",
+    			"name": "İlkay Gündoğan",
+    			"kitNumber": "8",
+    			"position": "Midfielder",
+    			"country": "Germany"
+    		},
+    		{
+    			"id": "12",
+    			"name": "Kun Agüero",
+    			"kitNumber": "10",
+    			"position": "Forward",
+    			"country": "Argentina"
+    		},
+    		{
+    			"id": "13",
+    			"name": "Gabriel Jesus",
+    			"kitNumber": "33",
+    			"position": "Forward",
+    			"country": "Brazil"
+    		},
+    		{
+    			"id": "14",
+    			"name": "Leroy Sané",
+    			"kitNumber": "19",
+    			"position": "Forward",
+    			"country": "Germany"
+    		},
+    		{
+    			"id": "15",
+    			"name": "Raheem Sterling",
+    			"kitNumber": "7",
+    			"position": "Forward",
+    			"country": "England"
+    		}
+    	]
+    },
+    "laLiga": {
+        
+    }
+}
