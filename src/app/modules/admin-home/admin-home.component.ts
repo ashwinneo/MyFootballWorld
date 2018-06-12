@@ -40,7 +40,8 @@ export class AdminHomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.adminService.getAdminDetails().subscribe(data =>{
+    console.log(this.route.url);
+    this.adminService.getAdminDetails().subscribe(data => {
       console.log(data);
       this.adminSuccess = data[0].message;
     });
