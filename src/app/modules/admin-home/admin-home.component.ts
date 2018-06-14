@@ -34,6 +34,8 @@ export class AdminHomeComponent implements OnInit {
   p: number = 1;
   key: String = 'name';
   reverse: Boolean = false;
+  successFlag: Boolean;
+  status: String;
   sort(key) {
     this.key = key;
     this.reverse = !this.reverse;
@@ -44,6 +46,10 @@ export class AdminHomeComponent implements OnInit {
     this.adminService.getAdminDetails().subscribe(data => {
       console.log(data);
       this.adminSuccess = data[0].message;
+      setTimeout(() => {
+        console.log('hide');
+        this.adminSuccess = '';
+      }, 5000);
     });
     this.fetchList();
   }
@@ -75,6 +81,7 @@ export class AdminHomeComponent implements OnInit {
     this.type = 'Create';
     this.deleteLeagueFlag = false;
     this.createLeagueFlag = true;
+    this.successFlag = false;
   }
 
   closePopup(val) {
@@ -103,7 +110,11 @@ export class AdminHomeComponent implements OnInit {
     };
     this.adminService.createLeague(this.leagueObj).subscribe(data => {
       console.log(data);
-      this.display = 'none';
+      this.display = 'block';
+      this.successFlag = true;
+      this.deleteLeagueFlag = false;
+      this.createLeagueFlag = false;
+      this.status = 'Created';
       this.spinner.hide();
       if (val !== undefined) {
         val.name = '';
@@ -156,6 +167,7 @@ export class AdminHomeComponent implements OnInit {
     this.deleteLeagueFlag = true;
     this.type = 'Delete';
     this.createLeagueFlag = false;
+    this.successFlag = false;
     this.display = 'block';
   }
 
@@ -164,7 +176,11 @@ export class AdminHomeComponent implements OnInit {
     this.adminService.deleteLeague(this.id).subscribe(data => {
       console.log(data);
       this.spinner.hide();
-      this.display = 'none';
+      this.display = 'block';
+      this.successFlag = true;
+      this.deleteLeagueFlag = false;
+      this.createLeagueFlag = false;
+      this.status = 'Deleted';
       this.fetchList();
       // this.footballList = data.leagueResponse;
     });

@@ -141,6 +141,14 @@ export class ManchesterUnitedComponent implements OnInit {
       this.squadList = val[0].premierLeague.arsenal;
     } else if (teamInfo[0].teamName === 'Manchester City') {
       this.squadList = val[0].premierLeague.manchesterCity;
+    } else if (teamInfo[0].teamName === 'Real Madrid') {
+      this.squadList = val[0].laLiga.realMadrid;
+    } else if (teamInfo[0].teamName === 'Athletico Madrid') {
+      this.squadList = val[0].laLiga.athleticoMadrid;
+    } else if (teamInfo[0].teamName === 'Barcelona') {
+      this.squadList = val[0].laLiga.barcelona;
+    } else if (teamInfo[0].teamName === 'Sevilla') {
+      this.squadList = val[0].laLiga.sevilla;
     }
 
   }

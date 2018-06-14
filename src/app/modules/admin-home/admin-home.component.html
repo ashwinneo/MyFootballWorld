@@ -2,7 +2,7 @@
 <div class="container">
     <app-header (league)="leagueSelect($event)" (searchText)="searchName($event)"></app-header>
   <div class="row mt-5">
-    <div class="col-sm-12">{{adminSuccess}}</div>
+    <div class="col-sm-12"><span style="color: green">{{adminSuccess}}</span></div>
   </div>
   <div class="row">
     <div class="col-sm-6"></div>
@@ -138,6 +138,22 @@ type = "line-scale-pulse-out"
               </div>
             </div>
           </div>
+
+          <div *ngIf="successFlag">
+            <div class="row mb-3">
+              <div class="col-sm-3"></div>
+            <div class="col-sm-8"><span>Succesfully {{status}}</span></div>  
+            </div>
+  
+            <div class="row">
+              <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                  <div>
+                    <button type="submit" class="btn btn-primary" (click)="closePopup()">Ok</button>
+                  </div>
+                </div>
+              </div>
+            </div>
 
 
 

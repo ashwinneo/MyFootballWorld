@@ -430,6 +430,434 @@
     	]
     },
     "laLiga": {
+		"realMadrid": [
+    		{
+    			"id": "1",
+    			"name": "Keylor Navas",
+    			"kitNumber": "1",
+    			"position": "Goal Keeper",
+    			"country": "Costa Rica"
+    		},
+    		{
+    			"id": "2",
+    			"name": "Kiko Casilla",
+    			"kitNumber": "31",
+    			"position": "Goal Keeper",
+    			"country": "Spain"
+    		},
+    		{
+    			"id": "3",
+    			"name": "Fabian Delph",
+    			"kitNumber": "18",
+    			"position": "Defender",
+    			"country": "England"
+    		},
+    		{
+    			"id": "4",
+    			"name": "Dani Carvajal",
+    			"kitNumber": "2",
+    			"position": "Defender",
+    			"country": "Spain "
+    		},
+    		{
+    			"id": "5",
+    			"name": "Marcelo",
+    			"kitNumber": "12",
+    			"position": "Defender",
+    			"country": "Brazil"
+    		},
+    		{
+    			"id": "6",
+    			"name": "Nacho",
+    			"kitNumber": "6",
+    			"position": "Defender",
+    			"country": "Spain"
+    		},
+    		{
+    			"id": "7",
+    			"name": "Raphaël Varane",
+    			"kitNumber": "5",
+    			"position": "Defender",
+    			"country": "France"
+    		},
+    		{
+    			"id": "8",
+    			"name": "Isco",
+    			"kitNumber": "22",
+    			"position": "Midfielder",
+    			"country": "Spain"
+    		},
+    		{
+    			"id": "9",
+    			"name": "Toni Kroos",
+    			"kitNumber": "8",
+    			"position": "Midfielder",
+    			"country": "Germany"
+    		},
+    		{
+    			"id": "10",
+    			"name": "Luka Modrić",
+    			"kitNumber": "10",
+    			"position": "Midfielder",
+    			"country": "Croatia"
+    		},
+    		{
+    			"id": "11",
+    			"name": "Marco Asensio",
+    			"kitNumber": "20",
+    			"position": "Midfielder",
+    			"country": "Spain"
+    		},
+    		{
+    			"id": "12",
+    			"name": "Cristiano Ronaldo",
+    			"kitNumber": "7",
+    			"position": "Forward",
+    			"country": "Portugal"
+    		},
+    		{
+    			"id": "13",
+    			"name": "Gareth Bale",
+    			"kitNumber": "11",
+    			"position": "Forward",
+    			"country": "Wales"
+    		},
+    		{
+    			"id": "14",
+    			"name": "Lucas Vázquez",
+    			"kitNumber": "17",
+    			"position": "Forward",
+    			"country": "Spain"
+    		},
+    		{
+    			"id": "15",
+    			"name": "Karim Benzema",
+    			"kitNumber": "9",
+    			"position": "Forward",
+    			"country": "France"
+    		}
+		],
+		"athleticoMadrid": [
+    		{
+    			"id": "1",
+    			"name": "Miguel San Román",
+    			"kitNumber": "51",
+    			"position": "Goal Keeper",
+    			"country": "Spain"
+    		},
+    		{
+    			"id": "2",
+    			"name": "Alex Dos Santos",
+    			"kitNumber": "53",
+    			"position": "Goal Keeper",
+    			"country": "Spain"
+    		},
+    		{
+    			"id": "3",
+    			"name": "Filipe Luís",
+    			"kitNumber": "3",
+    			"position": "Defender",
+    			"country": "Brazil"
+    		},
+    		{
+    			"id": "4",
+    			"name": "Diego Godín",
+    			"kitNumber": "2",
+    			"position": "Defender",
+    			"country": "Uruguay "
+    		},
+    		{
+    			"id": "5",
+    			"name": "Rafa",
+    			"kitNumber": "32",
+    			"position": "Defender",
+    			"country": "Spain"
+    		},
+    		{
+    			"id": "6",
+    			"name": "Stefan Savić",
+    			"kitNumber": "15",
+    			"position": "Defender",
+    			"country": "Montenegro"
+    		},
+    		{
+    			"id": "7",
+    			"name": "Lucas Hernández",
+    			"kitNumber": "19",
+    			"position": "Defender",
+    			"country": "France"
+    		},
+    		{
+    			"id": "8",
+    			"name": "Koke",
+    			"kitNumber": "6",
+    			"position": "Midfielder",
+    			"country": "Spain"
+    		},
+    		{
+    			"id": "9",
+    			"name": "Gabi",
+    			"kitNumber": "14",
+    			"position": "Midfielder",
+    			"country": "Spain"
+    		},
+    		{
+    			"id": "10",
+    			"name": "Roberto Olabe",
+    			"kitNumber": "30",
+    			"position": "Midfielder",
+    			"country": "Spain"
+    		},
+    		{
+    			"id": "11",
+    			"name": "Toni Moya",
+    			"kitNumber": "33",
+    			"position": "Midfielder",
+    			"country": "Spain"
+    		},
+    		{
+    			"id": "12",
+    			"name": "Diego Costa",
+    			"kitNumber": "18",
+    			"position": "Forward",
+    			"country": "Portugal"
+    		},
+    		{
+    			"id": "13",
+    			"name": "Fernando Torres",
+    			"kitNumber": "9",
+    			"position": "Forward",
+    			"country": "Spain"
+    		},
+    		{
+    			"id": "14",
+    			"name": "Antoine Griezmann",
+    			"kitNumber": "7",
+    			"position": "Forward",
+    			"country": "France"
+    		},
+    		{
+    			"id": "15",
+    			"name": "Arona Sané",
+    			"kitNumber": "37",
+    			"position": "Forward",
+    			"country": "Senegal"
+    		}
+		],
+		"barcelona": [
+    		{
+    			"id": "1",
+    			"name": "Marc-André ter Stegen",
+    			"kitNumber": "1",
+    			"position": "Goal Keeper",
+    			"country": "Germany"
+    		},
+    		{
+    			"id": "2",
+    			"name": "Jasper Cillessen",
+    			"kitNumber": "13",
+    			"position": "Goal Keeper",
+    			"country": "Netherlands"
+    		},
+    		{
+    			"id": "3",
+    			"name": "Aleix Vidal",
+    			"kitNumber": "22",
+    			"position": "Defender",
+    			"country": "Spain"
+    		},
+    		{
+    			"id": "4",
+    			"name": "Jordi Alba",
+    			"kitNumber": "18",
+    			"position": "Defender",
+    			"country": "Spain "
+    		},
+    		{
+    			"id": "5",
+    			"name": "Piqué",
+    			"kitNumber": "3",
+    			"position": "Defender",
+    			"country": "Spain"
+    		},
+    		{
+    			"id": "6",
+    			"name": "Samuel Umtiti",
+    			"kitNumber": "23",
+    			"position": "Defender",
+    			"country": "France"
+    		},
+    		{
+    			"id": "7",
+    			"name": "Thomas Vermaelen",
+    			"kitNumber": "25",
+    			"position": "Defender",
+    			"country": "Belgium"
+    		},
+    		{
+    			"id": "8",
+    			"name": "Coutinho",
+    			"kitNumber": "14",
+    			"position": "Midfielder",
+    			"country": "Brazil"
+    		},
+    		{
+    			"id": "9",
+    			"name": "Paulinho",
+    			"kitNumber": "15",
+    			"position": "Midfielder",
+    			"country": "Brazil"
+    		},
+    		{
+    			"id": "10",
+    			"name": "Ivan Rakitić",
+    			"kitNumber": "4",
+    			"position": "Midfielder",
+    			"country": "Croatia"
+    		},
+    		{
+    			"id": "11",
+    			"name": "Sergi Roberto",
+    			"kitNumber": "20",
+    			"position": "Midfielder",
+    			"country": "Spain"
+    		},
+    		{
+    			"id": "12",
+    			"name": "Lionel Messi",
+    			"kitNumber": "10",
+    			"position": "Forward",
+    			"country": "Argentina"
+    		},
+    		{
+    			"id": "13",
+    			"name": "Luis Suárez",
+    			"kitNumber": "9",
+    			"position": "Forward",
+    			"country": "Uruguay"
+    		},
+    		{
+    			"id": "14",
+    			"name": "Ousmane Dembélé",
+    			"kitNumber": "11",
+    			"position": "Forward",
+    			"country": "France"
+    		},
+    		{
+    			"id": "15",
+    			"name": "Paco Alcácer",
+    			"kitNumber": "17",
+    			"position": "Forward",
+    			"country": "Spain"
+    		}
+		],
+		"sevilla": [
+    		{
+    			"id": "1",
+    			"name": "Sergio Rico",
+    			"kitNumber": "1",
+    			"position": "Goal Keeper",
+    			"country": "Spain"
+    		},
+    		{
+    			"id": "2",
+    			"name": "David Soria",
+    			"kitNumber": "13",
+    			"position": "Goal Keeper",
+    			"country": "Spain"
+    		},
+    		{
+    			"id": "3",
+    			"name": "Lionel Carole",
+    			"kitNumber": "3",
+    			"position": "Defender",
+    			"country": "France"
+    		},
+    		{
+    			"id": "4",
+    			"name": "Daniel Carriço",
+    			"kitNumber": "6",
+    			"position": "Defender",
+    			"country": "Portugal "
+    		},
+    		{
+    			"id": "5",
+    			"name": "Escudero",
+    			"kitNumber": "18",
+    			"position": "Defender",
+    			"country": "Spain"
+    		},
+    		{
+    			"id": "6",
+    			"name": "Clément Lenglet",
+    			"kitNumber": "5",
+    			"position": "Defender",
+    			"country": "France"
+    		},
+    		{
+    			"id": "7",
+    			"name": "Gabriel Mercado",
+    			"kitNumber": "25",
+    			"position": "Defender",
+    			"country": "Argentina"
+    		},
+    		{
+    			"id": "8",
+    			"name": "Éver Banega",
+    			"kitNumber": "10",
+    			"position": "Midfielder",
+    			"country": "Argentina"
+    		},
+    		{
+    			"id": "9",
+    			"name": "Joaquín Correa",
+    			"kitNumber": "11",
+    			"position": "Midfielder",
+    			"country": "Argentina"
+    		},
+    		{
+    			"id": "10",
+    			"name": "Johannes Geis",
+    			"kitNumber": "12",
+    			"position": "Midfielder",
+    			"country": "Germany"
+    		},
+    		{
+    			"id": "11",
+    			"name": "Pablo Sarabia",
+    			"kitNumber": "17",
+    			"position": "Midfielder",
+    			"country": "Spain"
+    		},
+    		{
+    			"id": "12",
+    			"name": "Luis Muriel",
+    			"kitNumber": "20",
+    			"position": "Forward",
+    			"country": "Colombia"
+    		},
+    		{
+    			"id": "13",
+    			"name": "Sandro",
+    			"kitNumber": "22",
+    			"position": "Forward",
+    			"country": "Spain"
+    		},
+    		{
+    			"id": "14",
+    			"name": "Nolito",
+    			"kitNumber": "24",
+    			"position": "Forward",
+    			"country": "Spain"
+    		},
+    		{
+    			"id": "15",
+    			"name": "Carlos Fernández",
+    			"kitNumber": "30",
+    			"position": "Forward",
+    			"country": "Spain"
+    		}
+    	]
         
     }
 }
