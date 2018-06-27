@@ -33,12 +33,16 @@ export class LoginComponent implements OnInit {
 }
 
 navigate(id, pwd){
-    if(id === this.userName && pwd === this.password) {
+    if (id === this.userName && pwd === this.password) {
       this.route.navigate(['/adminHome', id]);
       this.loginService.setLoggedIn(true);
     } else {
       this.error = 'Invalid Credentials';
     }
+  }
+
+  signUp() {
+    this.route.navigate(['/signUp']);
   }
 }
 

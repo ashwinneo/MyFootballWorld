@@ -12,9 +12,11 @@ import { PremierLeagueModule } from './modules/teams/premier-league/premier-leag
 import { ManchesterUnitedComponent } from './modules/teams/premier-league/manchester-united/manchester-united.component';
 
 import { ManchesterUnitedResolverService } from './modules/teams/premier-league/manchester-united/manchester-united-resolver.service';
+import { SignUpComponent } from './shared/sign-up/sign-up.component';
 const routes: Routes = [
   { path: '', component: LoginComponent },
-  { path: 'adminHome/:id', component: AdminHomeComponent, canActivate: [AuthGuard],
+  { path: 'adminHome/:id', component: AdminHomeComponent, 
+  // canActivate: [AuthGuard],
    resolve: {
     admin: AdminHomeResolveService
    }
@@ -24,6 +26,7 @@ const routes: Routes = [
     teamInfo: ManchesterUnitedResolverService
   }
 },
+  { path: 'signUp', component: SignUpComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 

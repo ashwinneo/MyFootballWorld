@@ -1,5 +1,8 @@
 <div class="container">
     <app-header></app-header>
+    <div class="row mt-3">
+        <div class="col-sm-12"><span class="page-text" (click)="navigateToPrevious()"><</span><span class="page-text">Team Info</span></div>
+    </div>
     <div class="content-panel mt-3">
         <div class="content-header">
             <div *ngIf="teamInfoArr.length > 0; else noTeamName">

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ManchesterUnitedServiceService } from './manchester-united-service.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-manchester-united',
@@ -11,7 +11,8 @@ export class ManchesterUnitedComponent implements OnInit {
 
   constructor(private manutdService: ManchesterUnitedServiceService,
   private router: ActivatedRoute,
-  private spinner: NgxSpinnerService) { }
+  private spinner: NgxSpinnerService,
+  private route: Router) { }
   manutdData = [];
   teamInfoArr = [];
   squadList = [];
@@ -39,8 +40,7 @@ export class ManchesterUnitedComponent implements OnInit {
   bayernMunich: Boolean;
   evonik: Boolean;
   bvb: Boolean;
-  
-  key: String = 'name'; //set default
+  key: String = 'name';
   reverse: Boolean = false;
   sort(key) {
     this.key = key;
@@ -99,7 +99,7 @@ export class ManchesterUnitedComponent implements OnInit {
       this.evonik = true;
     }
 
-    if(val[0].teamKitSponsor === 'Adidas') {
+    if (val[0].teamKitSponsor === 'Adidas') {
       this.adidas = true;
     } else if (val[0].teamKitSponsor === 'Puma') {
       this.puma = true;
@@ -151,6 +151,10 @@ export class ManchesterUnitedComponent implements OnInit {
       this.squadList = val[0].laLiga.sevilla;
     }
 
+  }
+
+  navigateToPrevious() {
+    this.route.navigate(['adminHome', 'admin']);
   }
 
 }

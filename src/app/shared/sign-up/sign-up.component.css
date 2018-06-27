@@ -1,38 +1,29 @@
-.login-label{
-    color: #009ece;
-    font-size: 16px;
-    font-weight: bold;
-    font-family: roboto;
-}
-
-.league{
-background-image: url("assets/league.jpg");
-}
-
-
-
 
 
 
 
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
-/* 
+
 @font-face {
-    font-family: Montserrat-Regular;
-    src: url('../fonts/montserrat/Montserrat-Regular.ttf'); 
+    font-family: Poppins-Regular;
+    src: url('assets/fonts/poppins/Poppins-Regular.ttf'); 
   }
   
   @font-face {
-    font-family: Montserrat-ExtraBold;
-    src: url('../fonts/montserrat/Montserrat-ExtraBold.ttf'); 
+    font-family: Poppins-Medium;
+    src: url('assets/fonts/poppins/Poppins-Medium.ttf'); 
   }
   
   @font-face {
-    font-family: Montserrat-Bold;
-    src: url('../fonts/montserrat/Montserrat-Bold.ttf'); 
-  } */
+    font-family: Poppins-Bold;
+    src: url('assets/fonts/poppins/Poppins-Bold.ttf'); 
+  }
   
+  @font-face {
+    font-family: Poppins-SemiBold;
+    src: url('assets/fonts/poppins/Poppins-SemiBold.ttf'); 
+  }
   
   /*//////////////////////////////////////////////////////////////////
   [ RESTYLE TAG ]*/
@@ -45,12 +36,12 @@ background-image: url("assets/league.jpg");
   
   body, html {
       height: 100%;
-      font-family: Montserrat-Regular, sans-serif;
+      font-family: Poppins-Regular, sans-serif;
   }
   
   /*---------------------------------------------*/
   a {
-      font-family: Montserrat-Regular;
+      font-family: Poppins-Regular;
       font-size: 14px;
       line-height: 1.7;
       color: #666666;
@@ -67,7 +58,6 @@ background-image: url("assets/league.jpg");
   
   a:hover {
       text-decoration: none;
-    color: #fff;
   }
   
   /*---------------------------------------------*/
@@ -76,7 +66,7 @@ background-image: url("assets/league.jpg");
   }
   
   p {
-      font-family: Montserrat-Regular;
+      font-family: Poppins-Regular;
       font-size: 14px;
       line-height: 1.7;
       color: #666666;
@@ -93,6 +83,17 @@ background-image: url("assets/league.jpg");
   input {
       outline: none;
       border: none;
+  }
+  
+  input[type="number"] {
+      -moz-appearance: textfield;
+      appearance: none;
+      -webkit-appearance: none;
+  }
+  
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+      -webkit-appearance: none;
   }
   
   textarea {
@@ -114,15 +115,15 @@ background-image: url("assets/league.jpg");
   textarea:focus::-moz-placeholder { color:transparent; }
   textarea:focus:-ms-input-placeholder { color:transparent; }
   
-  input::-webkit-input-placeholder { color: #999999; }
-  input:-moz-placeholder { color: #999999; }
-  input::-moz-placeholder { color: #999999; }
-  input:-ms-input-placeholder { color: #999999; }
+  input::-webkit-input-placeholder {color: #cccccc;}
+  input:-moz-placeholder {color: #cccccc;}
+  input::-moz-placeholder {color: #cccccc;}
+  input:-ms-input-placeholder {color: #cccccc;}
   
-  textarea::-webkit-input-placeholder { color: #999999; }
-  textarea:-moz-placeholder { color: #999999; }
-  textarea::-moz-placeholder { color: #999999; }
-  textarea:-ms-input-placeholder { color: #999999; }
+  textarea::-webkit-input-placeholder {color: #cccccc;}
+  textarea:-moz-placeholder {color: #cccccc;}
+  textarea::-moz-placeholder {color: #cccccc;}
+  textarea:-ms-input-placeholder {color: #cccccc;}
   
   /*---------------------------------------------*/
   button {
@@ -143,24 +144,34 @@ background-image: url("assets/league.jpg");
   /*//////////////////////////////////////////////////////////////////
   [ Utility ]*/
   .txt1 {
-    font-family: Montserrat-Regular;
-    font-size: 16px;
-    color: #cccccc;
+    font-family: Poppins-Regular;
+    font-size: 15px;
+    color: #999999;
     line-height: 1.4;
   }
   
-  .bo1 {
-    border-bottom: 1px solid #999999;
+  .txt2 {
+    font-family: Poppins-Regular;
+    font-size: 15px;
+    color: #666666;
+    line-height: 1.4;
+  }
+  
+  .txt3 {
+    font-family: Poppins-Regular;
+    font-size: 16px;
+    color: #666666;
+    line-height: 1.4;
   }
   
   .hov1:hover {
-    border-color: #d33f8d;
+    color: #c87ef0;
   }
+  
   
   
   /*//////////////////////////////////////////////////////////////////
   [ login ]*/
-  
   .limiter {
     width: 100%;
     margin: 0 auto;
@@ -168,25 +179,37 @@ background-image: url("assets/league.jpg");
   
   .container-login100 {
     width: 100%;  
-    min-height: 100vh;
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
     display: -ms-flexbox;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    padding: 15px;
+    align-items: stretch;
+    flex-wrap: wrap;
+  }
+  
+  
+  .wrap-login100 {
+    width: 520px;
+    min-height: 100vh;
+    background: #fff;
+    border-radius: 2px;
+    position: relative;
+  }
+  
+  /*------------------------------------------------------------------
+  [ Login100 more ]*/
+  .login100-more {
     background-repeat: no-repeat;
-    background-size: cover;
     background-position: center;
-    
+    background-size: cover;
+    width: calc(100% - 520px);
     position: relative;
     z-index: 1;
   }
   
-  .container-login100::before {
+  .login100-more::before {
     content: "";
     display: block;
     position: absolute;
@@ -195,23 +218,17 @@ background-image: url("assets/league.jpg");
     height: 100%;
     top: 0;
     left: 0;
-    background: #005bea;
-    background: -webkit-linear-gradient(bottom, #005bea, #00c6fb);
-    background: -o-linear-gradient(bottom, #005bea, #00c6fb);
-    background: -moz-linear-gradient(bottom, #005bea, #00c6fb);
-    background: linear-gradient(bottom, #005bea, #00c6fb);
-    opacity: 0.9;
+    background: #e8519e;
+    background: -webkit-linear-gradient(bottom, #e8519e, #c77ff2);
+    background: -o-linear-gradient(bottom, #e8519e, #c77ff2);
+    background: -moz-linear-gradient(bottom, #e8519e, #c77ff2);
+    background: linear-gradient(bottom, #e8519e, #c77ff2);
+    opacity: 0.8;
   }
   
-  .wrap-login100 {
-    width: 390px;
-    background: transparent;
-  }
+  /*==================================================================
+  [ Form ]*/
   
-  
-  
-  /*------------------------------------------------------------------
-  [  ]*/
   .login100-form {
     width: 100%;
     display: -webkit-box;
@@ -219,120 +236,138 @@ background-image: url("assets/league.jpg");
     display: -moz-box;
     display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
+    justify-content: space-between;
   }
   
   .login100-form-title {
-    font-family: Montserrat-ExtraBold;
-    font-size: 24px;
-    color: #fff;
-    line-height: 1.2;
-    text-align: center;
-  
-    width: 100%;
     display: block;
-  }
-  
-  /*---------------------------------------------*/
-  .login100-form-avatar {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin: 0 auto;
-  }
-  .login100-form-avatar img {
     width: 100%;
-  }
-  
-  
-  /*---------------------------------------------*/
-  .wrap-input100 {
-    position: relative;
-    width: 100%;
-    z-index: 1;
-  }
-  
-  .input100 {
-    font-family: Montserrat-Bold;
-    font-size: 15px;
-    line-height: 1.2;
+    font-family: Poppins-Bold;
+    font-size: 39px;
     color: #333333;
-  
-    display: block;
-    width: 100%;
-    background: #fff;
-    height: 50px;
-    border-radius: 25px;
-    padding: 0 30px 0 53px;
+    line-height: 1.2;
+    text-align: left;
   }
+  
   
   
   /*------------------------------------------------------------------
-  [ Focus ]*/
-  .focus-input100 {
+  [ Input ]*/
+  
+  .wrap-input100 {
+    width: 100%;
+    position: relative;
+    border-bottom: 2px solid #dbdbdb;
+    margin-bottom: 45px;
+  }
+  
+  .label-input100 {
+    font-family: Poppins-SemiBold;
+    font-size: 18px;
+    color: #999999;
+    line-height: 1.2;
+    padding-left: 2px;
+  }
+  
+  .input100 {
     display: block;
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    font-family: Poppins-Regular;
+    font-size: 22px;
+    color: #555555;
+    line-height: 1.2;
+    padding: 0 2px;
+  }
+  
+  .focus-input100 {
     position: absolute;
-    border-radius: 25px;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
+    display: block;
     width: 100%;
     height: 100%;
-    box-shadow: 0px 0px 0px 0px;
-    color: rgba(0,91,234, 0.6);
+    top: 0;
+    left: 0;
+    pointer-events: none;
   }
   
-  .input100:focus + .focus-input100 {
-    -webkit-animation: anim-shadow 0.5s ease-in-out forwards;
-    animation: anim-shadow 0.5s ease-in-out forwards;
+  .focus-input100::before {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+  
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+  
+    background: #d5007d;
+    background: -webkit-linear-gradient(45deg, #d5007d, #e53935);
+    background: -o-linear-gradient(45deg, #d5007d, #e53935);
+    background: -moz-linear-gradient(45deg, #d5007d, #e53935);
+    background: linear-gradient(45deg, #d5007d, #e53935);
   }
   
-  @-webkit-keyframes anim-shadow {
-    to {
-      box-shadow: 0px 0px 80px 30px;
-      opacity: 0;
-    }
+  
+  .input100:focus + .focus-input100::before {
+    width: 100%;
   }
   
-  @keyframes anim-shadow {
-    to {
-      box-shadow: 0px 0px 80px 30px;
-      opacity: 0;
-    }
+  .has-val.input100 + .focus-input100::before {
+    width: 100%;
   }
   
-  .symbol-input100 {
-    font-size: 15px;
-    color: #999999;
+  /*==================================================================
+  [ Restyle Checkbox ]*/
+  
+  .input-checkbox100 {
+    display: none;
+  }
+  
+  .label-checkbox100 {
+    margin: 0;
+  
+    display: block;
+    position: relative;
+    padding-left: 26px;
+    cursor: pointer;
+  }
+  
+  .label-checkbox100::before {
+    content: "\f00c";
+    font-family: FontAwesome;
+    font-size: 13px;
+    color: transparent;
   
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
     display: -ms-flexbox;
     display: flex;
+    justify-content: center;
     align-items: center;
     position: absolute;
-    border-radius: 25px;
-    bottom: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 2px;
+    background: #e6e6e6;
     left: 0;
-    width: 100%;
-    height: 100%;
-    padding-left: 30px;
-    pointer-events: none;
-  
-    -webkit-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    transition: all 0.4s;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
   }
   
-  .input100:focus + .focus-input100 + .symbol-input100 {
-    color: #00c6fb;
-    padding-left: 23px;
+  .input-checkbox100:checked + .label-checkbox100::before {
+    color: #c87ef0;
   }
-  
   
   /*------------------------------------------------------------------
   [ Button ]*/
@@ -344,76 +379,38 @@ background-image: url("assets/league.jpg");
     display: -ms-flexbox;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
   }
   
-  .login100-form-btn {
-    font-family: Montserrat-Bold;
-    font-size: 15px;
-    line-height: 1.5;
-    color: #e0e0e0;
-  
-    width: 100%;
-    height: 50px;
-    border-radius: 25px;
-    background: #333333;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 25px;
-  
-    -webkit-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    transition: all 0.4s;
-  
+  .wrap-login100-form-btn {
+    display: block;
     position: relative;
     z-index: 1;
+    border-radius: 25px;
+    overflow: hidden;
   }
   
-  .login100-form-btn::before {
-    content: "";
-    display: block;
+  .login100-form-bgbtn {
     position: absolute;
     z-index: -1;
     width: 100%;
-    height: 100%;
-    border-radius: 25px;
-    top: 0;
+    height: 300%;
+    background: #e8519e;
+    background: -webkit-linear-gradient(top, #e8519e, #c77ff2, #e8519e, #c77ff2);
+    background: -o-linear-gradient(top, #e8519e, #c77ff2, #e8519e, #c77ff2);
+    background: -moz-linear-gradient(top, #e8519e, #c77ff2, #e8519e, #c77ff2);
+    background: linear-gradient(top, #e8519e, #c77ff2, #e8519e, #c77ff2);
+    bottom: -100%;
     left: 0;
-    background: #005bea;
-    background: -webkit-linear-gradient(left, #005bea, #00c6fb);
-    background: -o-linear-gradient(left, #005bea, #00c6fb);
-    background: -moz-linear-gradient(left, #005bea, #00c6fb);
-    background: linear-gradient(left, #005bea, #00c6fb);
+  
     -webkit-transition: all 0.4s;
     -o-transition: all 0.4s;
     -moz-transition: all 0.4s;
     transition: all 0.4s;
-    opacity: 0;
   }
   
-  .login100-form-btn:hover {
-    background: transparent;
-    color: #fff;
-  }
-  
-  .login100-form-btn:hover:before {
-    opacity: 1;
-  }
-  
-  /*------------------------------------------------------------------
-  [ Button sign in with ]*/
-  .btn-face,
-  .btn-google {
-    font-family: Raleway-Bold;
-    font-size: 16px;
-    line-height: 1.2;
-  
+  .login100-form-btn {
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -421,45 +418,19 @@ background-image: url("assets/league.jpg");
     display: flex;
     justify-content: center;
     align-items: center;
-    width: calc((100% - 10px) / 2);
-    height: 40px;
-    border-radius: 3px;
-    border: 1px solid #e6e6e6;
-    background-color: #fff;
+    padding: 0 20px;
+    min-width: 244px;
+    height: 50px;
   
-    -webkit-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    transition: all 0.4s;
+    font-family: Poppins-Medium;
+    font-size: 16px;
+    color: #fff;
+    line-height: 1.2;
   }
   
-  
-  .btn-face {
-    color: #3b5998;
+  .wrap-login100-form-btn:hover .login100-form-bgbtn {
+    bottom: 0;
   }
-  
-  .btn-face i {
-    font-size: 20px;
-    margin-right: 10px;
-    padding-bottom: 1px;
-  }
-  
-  .btn-google {
-    color: #555555;
-  }
-  
-  .btn-google img {
-    width: 19px;
-    margin-right: 10px;
-    padding-bottom: 1px;
-  }
-  
-  
-  .btn-face:hover,
-  .btn-google:hover {
-    border-color: #d33f8d;
-  }
-  
   
   
   /*------------------------------------------------------------------
@@ -473,22 +444,22 @@ background-image: url("assets/league.jpg");
     content: attr(data-validate);
     position: absolute;
     max-width: 70%;
-    background-color: white;
+    background-color: #fff;
     border: 1px solid #c80000;
-    border-radius: 14px;
-    padding: 4px 25px 4px 10px;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-    transform: translateY(-50%);
-    right: 8px;
+    border-radius: 2px;
+    padding: 4px 30px 4px 10px;
+    bottom: calc((100% - 25px) / 2);
+    -webkit-transform: translateY(50%);
+    -moz-transform: translateY(50%);
+    -ms-transform: translateY(50%);
+    -o-transform: translateY(50%);
+    transform: translateY(50%);
+    right: 2px;
     pointer-events: none;
   
-    font-family: Montserrat-Bold;
+    font-family: Poppins-Medium;
     color: #c80000;
-    font-size: 13px;
+    font-size: 14px;
     line-height: 1.4;
     text-align: left;
   
@@ -507,14 +478,14 @@ background-image: url("assets/league.jpg");
     display: block;
     position: absolute;
     color: #c80000;
-    font-size: 15px;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-    transform: translateY(-50%);
-    right: 13px;
+    font-size: 18px;
+    bottom: calc((100% - 25px) / 2);
+    -webkit-transform: translateY(50%);
+    -moz-transform: translateY(50%);
+    -ms-transform: translateY(50%);
+    -o-transform: translateY(50%);
+    transform: translateY(50%);
+    right: 8px;
   }
   
   .alert-validate:hover:before {
@@ -529,12 +500,33 @@ background-image: url("assets/league.jpg");
     }
   }
   
+  .true-validate::after {
+    content: "\f26b";
+    font-family: Material-Design-Iconic-Font;
+    font-size: 22px;
+    color: #00ad5f;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: calc((100% - 25px) / 2);
+    -webkit-transform: translateY(50%);
+    -moz-transform: translateY(50%);
+    -ms-transform: translateY(50%);
+    -o-transform: translateY(50%);
+    transform: translateY(50%);
+    right: 5px;
+  }
+  
   /*//////////////////////////////////////////////////////////////////
-  [ responsive ]*/
+  [ Responsive ]*/
   
   @media (max-width: 576px) {
     .wrap-login100 {
-      padding-top: 80px;
       padding-left: 15px;
       padding-right: 15px;
     }
