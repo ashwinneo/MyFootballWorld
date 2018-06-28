@@ -77,7 +77,7 @@
         </div>
 
         <div class="text-center w-full p-t-25">
-          <a href="#" class="txt1">
+          <a href="#" class="txt1" (click)="openPopup()">
             Forgot Username / Password?
           </a>
         </div>
@@ -92,3 +92,41 @@
     </div>
   </div>
 </div>
+
+<div class="modal" id="myModal" tabindex="-1" role="dialog" [style.display]="display">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: #009ece;">
+          <h5 class="modal-title" style="color: #fff">Forgot Password</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" style="color:#fff" (click)="closePopup()">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-sm-12">
+               <!-- class="input100" -->
+              <div class="text-center">Enter Your Email ID</div>
+              <div class="text-center"><input type="text" style="border: 1px solid gray !important"></div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="col-sm-6">
+            <div class="float-right">
+              <button class="btn btn-success" style="border: 1px solid gray;">
+                Submit
+              </button>
+            </div>
+          </div>
+          <div class="col-sm-6">
+              <div>
+                <button class="btn btn-success" (click)="closePopup()">
+                  Cancel
+                </button>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>

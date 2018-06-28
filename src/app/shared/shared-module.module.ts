@@ -4,6 +4,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HeaderComponent } from './header/header.component';
 import { FormsModule } from '@angular/forms';
 import { SignUpComponent } from './sign-up/sign-up.component';
+
+import { SignUpServiceService } from './sign-up/sign-up-service.service';
 @NgModule({
   imports: [
   CommonModule,
@@ -13,6 +15,9 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     PageNotFoundComponent,
     HeaderComponent,
     SignUpComponent
+  ],
+  providers: [
+    SignUpServiceService
   ],
   exports: [
     PageNotFoundComponent,

@@ -8,7 +8,6 @@ export class LoginServiceService {
 
   loggedInStatus = false;
   constructor(private http: HttpClient) { }
-  _url: string = 'assets/data/login.json';
 
   setLoggedIn(value: boolean) {
     this.loggedInStatus = value;
@@ -18,8 +17,9 @@ export class LoginServiceService {
   get isLoggedIn() {
     return this.loggedInStatus;
   }
-  getUserDetails(): Observable<any> {
-    return this.http.get(this._url);
+  getUserDetails(userName): Observable<any> {
+    let _url: string = 'http://localhost:3000/getLoginDetails?userId=' + userName;
+    return this.http.get<any>(_url);
   }
 
 }

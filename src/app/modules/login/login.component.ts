@@ -17,17 +17,21 @@ export class LoginComponent implements OnInit {
   pwd: String;
   loginData: String;
   error: String;
+  display: String;
+  username: String;
   ngOnInit() {
   }
 
   login(event) {
     console.log(this.userName, this.password);
+    console.log(event);
+    this.username = event.target[0].value;
     event.preventDefault();
-    this.loginService.getUserDetails().subscribe(data =>{
+    this.loginService.getUserDetails(this.username).subscribe(data => {
     console.log(data);
-    this.loginData = data;
-    this.id = data[0].id;
-    this.pwd = data[0].password;
+    this.loginData = data.leagueResponse;
+    this.id = data.leagueResponse[0].userName;
+    this.pwd = data.leagueResponse[0].password;
     this.navigate(this.id, this.pwd);
   });
 }
@@ -43,6 +47,14 @@ navigate(id, pwd){
 
   signUp() {
     this.route.navigate(['/signUp']);
+  }
+
+  openPopup() {
+    this.display = 'block';
+  }
+
+  closePopup() {
+    this.display = 'none';
   }
 }
 

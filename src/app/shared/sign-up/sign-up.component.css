@@ -1,6 +1,15 @@
 
+.error {
+  color: red;
+  font-size: 14px;
+  font-weight: 600;
+}
 
-
+.success {
+  color: green;
+  font-size: 14px;
+  font-weight: 600;
+}
 
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
