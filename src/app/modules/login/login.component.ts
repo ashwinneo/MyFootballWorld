@@ -19,6 +19,15 @@ export class LoginComponent implements OnInit {
   error: String;
   display: String;
   username: String;
+  confirmEmail: Boolean;
+  emailId: String;
+  confirmPassword: Boolean;
+  oldPassword: String;
+  successMessage: String;
+  successMessageFlag: Boolean;
+  failureMessageFlag: Boolean;
+  errorMessage: String;
+  passwordResponse: String;
   ngOnInit() {
   }
 
@@ -51,10 +60,69 @@ navigate(id, pwd){
 
   openPopup() {
     this.display = 'block';
+    this.confirmEmail = true;
+    if (this.confirmPassword === true || this.successMessageFlag === true || this.failureMessageFlag == true) {
+      this.confirmPassword = false;
+      this.successMessageFlag = false ;
+      this.failureMessageFlag = false;
+    }
   }
 
   closePopup() {
     this.display = 'none';
+  }
+
+  submit12(val) {
+    console.log(val);
+    this.emailId = val.target[0].value;
+
+    this.loginService.getUserDetailsByEmailId(this.emailId).subscribe(data => {
+      if (data.appStatus == 0) {
+        if(data.leagueResponse.length === 0) {
+          this.errorMessage = "Invalid EmailId!"
+          this.failureMessageFlag = true;
+          this.successMessageFlag = false;
+          this.confirmEmail = false;
+          this.confirmPassword = false;
+        } else {
+        this.confirmEmail = false;
+        this.confirmPassword = true;
+        this.successMessageFlag = false;
+        this.failureMessageFlag = false;
+        this.passwordResponse = data.leagueResponse[0].password;
+        this.id = data.leagueResponse[0].id;
+      }
+      }
+    })
+
+  }
+
+  submitPassword(val) {
+    this.oldPassword = val.target[0].value;
+    if (this.oldPassword === this.passwordResponse) {
+      console.log('match');
+      let forgotPasswordObj = {
+        'id': this.id,
+        'password': val.target[1].value,
+        'repeatPassword': val.target[2].value
+      }
+      console.log(forgotPasswordObj);
+      this.loginService.updatePassword(forgotPasswordObj).subscribe(data => {
+          if (data.appStatus === 0) {
+            this.successMessage = data.successMessage;
+            this.successMessageFlag = true;
+            this.confirmEmail = false;
+            this.confirmPassword = false;
+            this.failureMessageFlag = false;
+          }
+      })
+    } else {
+      this.failureMessageFlag = true;
+      this.successMessageFlag = false;
+      this.confirmEmail = false;
+      this.confirmPassword = false;
+      this.errorMessage = 'Incorrect Old Password';
+    }
   }
 }
 

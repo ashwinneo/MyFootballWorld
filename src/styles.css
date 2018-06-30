@@ -56,3 +56,11 @@ a:hover {
     font-weight: 600;
     color: #009ece;
 }
+
+.successMessage{
+    color: green;
+}
+
+.errorMessage{
+    color: red;
+}

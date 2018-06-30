@@ -44,7 +44,7 @@
 
 <div class="limiter">
   <div class="container-login100" style="background-image: url('assets/images/img-01.jpg');">
-    <div class="wrap-login100 p-t-190 p-b-30">
+    <div class="wrap-login100 p-t-190 p-b-30" style="padding-top: 0px !important;">
       <form class="login100-form validate-form" (submit)="login($event)">
         <div class="login100-form-avatar">
           <img src="assets/images/football_Login.png" alt="AVATAR">
@@ -54,7 +54,7 @@
           Crazy Football
         </span>
 
-        <div class="wrap-input100 validate-input m-b-10" data-validate = "Username is required">
+        <div class="wrap-input100 validate-input m-b-10" data-validate="Username is required">
           <input class="input100" type="text" name="userName" placeholder="Username" [(ngModel)]="userName">
           <span class="focus-input100"></span>
           <span class="symbol-input100">
@@ -62,7 +62,7 @@
           </span>
         </div>
 
-        <div class="wrap-input100 validate-input m-b-10" data-validate = "Password is required">
+        <div class="wrap-input100 validate-input m-b-10" data-validate="Password is required">
           <input class="input100" type="password" name="password" placeholder="Password" [(ngModel)]="password">
           <span class="focus-input100"></span>
           <span class="symbol-input100">
@@ -82,11 +82,8 @@
           </a>
         </div>
 
-        <div class="text-center w-full">
-          <a class="txt1" (click)="signUp()">
-            Create new account
-            <i class="fa fa-long-arrow-right"></i>						
-          </a>
+        <div class="text-center w-full mt-3">
+          <input type="button" class="btn btn-info" value="Create new account" (click)="signUp()">
         </div>
       </form>
     </div>
@@ -94,39 +91,131 @@
 </div>
 
 <div class="modal" id="myModal" tabindex="-1" role="dialog" [style.display]="display">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header" style="background-color: #009ece;">
-          <h5 class="modal-title" style="color: #fff">Forgot Password</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true" style="color:#fff" (click)="closePopup()">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="row">
-            <div class="col-sm-12">
-               <!-- class="input100" -->
-              <div class="text-center">Enter Your Email ID</div>
-              <div class="text-center"><input type="text" style="border: 1px solid gray !important"></div>
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <div class="col-sm-6">
-            <div class="float-right">
-              <button class="btn btn-success" style="border: 1px solid gray;">
-                Submit
-              </button>
-            </div>
-          </div>
-          <div class="col-sm-6">
-              <div>
-                <button class="btn btn-success" (click)="closePopup()">
-                  Cancel
-                </button>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #009ece;">
+        <h5 class="modal-title" style="color: #fff">Forgot Password</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" style="color:#fff" (click)="closePopup()">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div *ngIf="confirmEmail">
+          <form (submit)="submit12($event)">
+            <div class="row">
+              <div class="col-sm-12">
+                <!-- class="input100" -->
+                <div class="text-center label-text">Enter Your Email ID</div>
+                <div class="text-center mt-3">
+                  <input type="text" class="form-control" [(ngModel)]="email" style="border: 1px solid gray !important">
+                </div>
               </div>
             </div>
+            <div class="row mt-5">
+              <div class="col-sm-6">
+                <div class="float-right">
+                  <!-- <button class="btn btn-success" style="border: 1px solid gray;">
+                  Submit
+                </button> -->
+                  <input type="submit" value="Submit" class="btn btn-success">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div>
+                  <!-- <button class="btn btn-success" (click)="closePopup()">
+                    Cancel
+                  </button> -->
+                  <input type="button" value="Cancel" class="btn" (click)="closePopup()">
+                </div>
+              </div>
+            </div>
+          </form>
         </div>
+
+        <div *ngIf="confirmPassword">
+          <form (submit)="submitPassword($event)">
+            <div class="row">
+              <div class="col-sm-12">
+                <!-- class="input100" -->
+                <div class="text-center mt-2 label-text">Old Password</div>
+                <div class="text-center mt-3">
+                  <input type="text" class="form-control" style="border: 1px solid gray !important">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <!-- class="input100" -->
+                <div class="text-center mt-2 label-text">New Password</div>
+                <div class="text-center mt-3">
+                  <input type="text" class="form-control" style="border: 1px solid gray !important">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <!-- class="input100" -->
+                <div class="text-center mt-2 label-text">Confirm New Password</div>
+                <div class="text-center mt-3">
+                  <input type="text" class="form-control" style="border: 1px solid gray !important">
+                </div>
+              </div>
+            </div>
+            <div class="row mt-5">
+              <div class="col-sm-6">
+                <div class="float-right">
+                  <!-- <button class="btn btn-success" style="border: 1px solid gray;">
+                      Submit
+                    </button> -->
+                  <input type="submit" value="Submit" class="btn btn-success">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div>
+                  <!-- <button class="btn btn-success" (click)="closePopup()">
+                        Cancel
+                      </button> -->
+                  <input type="button" value="Cancel" class="btn" (click)="closePopup()">
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div *ngIf="successMessageFlag">
+              <div class="row">
+                <div class="col-sm-12">
+                  <!-- class="input100" -->
+                  <div class="text-center successMessage">{{successMessage}}</div>
+                  
+                </div>
+              </div>
+              <div class="row mt-5">
+                <div class="col-sm-6">
+                  <div class="float-right">
+                    <input type="button" value="Ok" class="btn btn-success" (click)="closePopup()">
+                  </div>
+                </div>
+              </div>
+        </div>
+
+        <div *ngIf="failureMessageFlag">
+            <div class="row">
+              <div class="col-sm-12">
+                <!-- class="input100" -->
+                <div class="text-center errorMessage">{{errorMessage}}</div>
+                
+              </div>
+            </div>
+            <div class="row mt-5">
+              <div class="col-sm-6">
+                <div class="float-right">
+                  <input type="button" value="Ok" class="btn btn-success" (click)="closePopup()">
+                </div>
+              </div>
+            </div>
       </div>
     </div>
   </div>
+</div>
