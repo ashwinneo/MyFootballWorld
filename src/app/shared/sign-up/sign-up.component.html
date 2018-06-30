@@ -14,7 +14,8 @@
         </div>
 
         <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-          <span class="label-input100">Email</span>
+          <span class="label-input100" [class.error]="emailErrorFlag">Email</span><i class="fa fa-exclamation-triangle" (click)="showDetail('email')" *ngIf="emailErrorFlag" style="color: red;position: relative;top: 40px;left: 350px;"></i>
+          <div *ngIf="emailFlag" class="errorBlock"><span> {{errorLength}}<br></span></div>
           <input class="input100" type="text" name="email" placeholder="Email addess..." [(ngModel)]="email" (change)="setEmail(email)">
           <span class="focus-input100"> </span>
         </div>
@@ -26,17 +27,18 @@
         </div>
 
         <div class="wrap-input100 validate-input" data-validate = "Password is required">
-          <span class="label-input100">Password</span>
+          <span class="label-input100" [class.error]="repeatPasswordFlag">Password</span><i class="fa fa-exclamation-triangle" (click)="showDetail('password')" *ngIf="repeatPasswordFlag" style="color: red;position: relative;top: 40px;left: 310px;"></i>
+          <div *ngIf="passwordDetailFlag" class="errorBlock"><span> {{errorLength}}<br>  {{errorSpecialChar}}<br>  {{errorNumber}}</span></div>
           <input class="input100" type="password" name="pass" placeholder="*************" [(ngModel)]="pass" (change)="setPassword(pass)">
           <span class="focus-input100"></span>
         </div>
 
         <div class="wrap-input100 validate-input" data-validate = "Repeat Password is required" style="margin-bottom: 20px !important;">
-          <span class="label-input100">Repeat Password</span>
+          <span class="label-input100" [class.error]="passwordFlag">Repeat Password</span><i class="fa fa-exclamation-triangle" (click)="showDetail('repeatPassword')" *ngIf="passwordFlag" style="color: red;position: relative;top: 40px;left: 241px;"></i>
+          <div *ngIf="repeatPasswordDetailFlag" class="errorBlock"><span> {{errorLength}}<br></span></div>
           <input class="input100" type="password" name="repeat-pass" placeholder="*************" [(ngModel)]="repeatpass" (change)="setRepeatPassword(repeatpass)">
           <span class="focus-input100"></span>
         </div>
-        <div *ngIf="passwordFlag"><span class="error">* {{ "" }} {{error}}</span></div>
         <div class="flex-m w-full p-b-33 mt-3">
           <div class="contact100-form-checkbox">
             <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me" [(ngModel)]="isChecked" (change)="setChecked(isChecked)">
@@ -61,12 +63,68 @@
             </button>
           </div>
 
-          <!-- <a href="#" class="dis-block txt3 hov1 p-r-30 p-t-10 p-b-10 p-l-30">
+          <a href="#" class="dis-block txt3 hov1 p-r-30 p-t-10 p-b-10 p-l-30" routerLink="/login">
             Sign in
             <i class="fa fa-long-arrow-right m-l-5"></i>
-          </a> -->
+          </a>
         </div>
+        
       </form>
     </div>
   </div>
 </div>
+
+<div class="modal" id="myModal" tabindex="-1" role="dialog" [style.display]="display">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: #009ece;">
+          <h5 class="modal-title" style="color: #fff">Register Account</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" style="color:#fff" (click)="closePopup()">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+  
+          <div *ngIf="successMessageFlag">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <!-- class="input100" -->
+                    <div class="text-center successMessage">{{successMessage}}</div>
+                    
+                  </div>
+                </div>
+                <div class="row mt-5">
+                  <div class="col-sm-6">
+                    <div class="float-right">
+                      <input type="button" value="Ok" class="btn btn-success" (click)="closePopup()">
+                    </div>
+                  </div>
+                </div>
+          </div>
+  
+          <div *ngIf="failureMessageFlag">
+              <div class="row">
+                <div class="col-sm-12">
+                  <!-- class="input100" -->
+                  <div class="text-center errorMessage">{{errorMessage}}</div>
+                  
+                </div>
+              </div>
+              <div class="row mt-5">
+                <div class="col-sm-6">
+                  <div class="float-right">
+                    <input type="button" value="Ok" class="btn btn-success" (click)="closePopup()">
+                  </div>
+                </div>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <ngx-spinner
+bdColor = "rgba(51, 51, 51, 0.8)"
+size = "medium"
+color = "#fff"
+type = "line-scale-pulse-out"
+></ngx-spinner>

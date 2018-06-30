@@ -4,12 +4,13 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HeaderComponent } from './header/header.component';
 import { FormsModule } from '@angular/forms';
 import { SignUpComponent } from './sign-up/sign-up.component';
-
+import { NgxSpinnerModule } from 'ngx-spinner';
 import { SignUpServiceService } from './sign-up/sign-up-service.service';
 @NgModule({
-  imports: [
-  CommonModule,
-  FormsModule
+  imports: [  
+CommonModule,
+  FormsModule,
+  NgxSpinnerModule
   ],
   declarations: [
     PageNotFoundComponent,

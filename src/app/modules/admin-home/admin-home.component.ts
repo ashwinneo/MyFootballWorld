@@ -42,12 +42,12 @@ export class AdminHomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.route.url);
+    //console.log(this.route.url);
     this.adminService.getAdminDetails().subscribe(data => {
-      console.log(data);
+      //console.log(data);
       this.adminSuccess = data[0].message;
       setTimeout(() => {
-        console.log('hide');
+        //console.log('hide');
         this.adminSuccess = '';
       }, 5000);
     });
@@ -55,24 +55,26 @@ export class AdminHomeComponent implements OnInit {
   }
 
   searchName(name) {
-    console.log(name);
+    //console.log(name);
+    this.spinner.show();
     this.adminService.getLeagueByName(name).subscribe(data => {
-      console.log(data);
+      //console.log(data);
       this.footballList = data.leagueResponse;
+      this.spinner.hide();
     });
   }
 
   fetchList() {
     this.spinner.show();
     this.adminService.getTeamList().subscribe(data => {
-      console.log(data);
+      //console.log(data);
       this.spinner.hide();
       this.footballList = data.leagueResponse;
     });
     // this.router.data.forEach((data: {admin: Admin[] }) => {
     //   this.footballList = data.admin.leagueResponse;
     //   this.spinner.hide();
-    //   console.log(data.admin);
+    //   //console.log(data.admin);
     // });
   }
 
@@ -100,7 +102,7 @@ export class AdminHomeComponent implements OnInit {
 
   createLeague(val) {
     this.spinner.show();
-    console.log(val);
+    //console.log(val);
     this.leagueObj = {
       'name': val.name,
       'manager': val.manager,
@@ -109,7 +111,7 @@ export class AdminHomeComponent implements OnInit {
 
     };
     this.adminService.createLeague(this.leagueObj).subscribe(data => {
-      console.log(data);
+      //console.log(data);
       this.display = 'block';
       this.successFlag = true;
       this.deleteLeagueFlag = false;
@@ -127,15 +129,17 @@ export class AdminHomeComponent implements OnInit {
   }
 
   leagueSelect($event) {
-    console.log($event);
+    //console.log($event);
+    this.spinner.show();
     this.adminService.getLeagueById($event).subscribe(data => {
-      console.log(data);
+      //console.log(data);
       this.footballList = data.leagueResponse;
+      this.spinner.hide();
     });
   }
   edit(val) {
 
-    console.log(val);
+    //console.log(val);
     this.name1 = val.name;
     this.manager1 = val.manager;
     this.country1 = val.country;
@@ -145,7 +149,7 @@ export class AdminHomeComponent implements OnInit {
   }
   updateLeague(val) {
     this.spinner.show();
-    console.log(val);
+    //console.log(val);
     this.leagueObj = {
       'id': this.id,
       'name': val.target[0].value,
@@ -155,7 +159,7 @@ export class AdminHomeComponent implements OnInit {
 
     };
     this.adminService.updateLeague(this.leagueObj).subscribe(data => {
-      console.log(data);
+      //console.log(data);
       this.spinner.hide();
       this.fetchList();
       this.display1 = 'none';
@@ -174,7 +178,7 @@ export class AdminHomeComponent implements OnInit {
   deleteLeague() {
     this.spinner.show();
     this.adminService.deleteLeague(this.id).subscribe(data => {
-      console.log(data);
+      //console.log(data);
       this.spinner.hide();
       this.display = 'block';
       this.successFlag = true;

@@ -30,15 +30,16 @@ export class HeaderComponent implements OnInit {
   @Output() league = new EventEmitter<any>();
   @Output() searchText = new EventEmitter<any>();
   ngOnInit() {
+    this.footballLeague = '';
   }
 
   leagueSelect(league) {
-    console.log(league);
+    //console.log(league);
     this.league.emit(league);
   }
 
   searchName(val) {
-    console.log(val.target[0].value);
+    //console.log(val.target[0].value);
     this.searchText.emit(val.target[0].value);
   }
 }

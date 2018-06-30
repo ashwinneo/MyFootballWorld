@@ -32,12 +32,12 @@ export class LoginComponent implements OnInit {
   }
 
   login(event) {
-    console.log(this.userName, this.password);
-    console.log(event);
+    //console.log(this.userName, this.password);
+    //console.log(event);
     this.username = event.target[0].value;
     event.preventDefault();
     this.loginService.getUserDetails(this.username).subscribe(data => {
-    console.log(data);
+    //console.log(data);
     this.loginData = data.leagueResponse;
     this.id = data.leagueResponse[0].userName;
     this.pwd = data.leagueResponse[0].password;
@@ -73,7 +73,7 @@ navigate(id, pwd){
   }
 
   submit12(val) {
-    console.log(val);
+    //console.log(val);
     this.emailId = val.target[0].value;
 
     this.loginService.getUserDetailsByEmailId(this.emailId).subscribe(data => {
@@ -100,13 +100,13 @@ navigate(id, pwd){
   submitPassword(val) {
     this.oldPassword = val.target[0].value;
     if (this.oldPassword === this.passwordResponse) {
-      console.log('match');
+      //console.log('match');
       let forgotPasswordObj = {
         'id': this.id,
         'password': val.target[1].value,
         'repeatPassword': val.target[2].value
       }
-      console.log(forgotPasswordObj);
+      //console.log(forgotPasswordObj);
       this.loginService.updatePassword(forgotPasswordObj).subscribe(data => {
           if (data.appStatus === 0) {
             this.successMessage = data.successMessage;

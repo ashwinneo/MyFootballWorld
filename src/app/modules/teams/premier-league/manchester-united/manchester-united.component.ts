@@ -49,10 +49,10 @@ export class ManchesterUnitedComponent implements OnInit {
   ngOnInit() {
     let name = this.router.snapshot.paramMap.get('name');
     this.teamName = name;
-    console.log(this.teamName);
+    //console.log(this.teamName);
 
     // this.manutdService.getTeamInfo(this.teamName).subscribe(data => {
-    //   console.log(data);
+    //   //console.log(data);
     //   this.spinner.show();
     //   this.teamInfoArr = data.leagueResponse;
     //   this.spinner.hide();
@@ -64,13 +64,13 @@ export class ManchesterUnitedComponent implements OnInit {
       this.spinner.hide();
       this.getTeamSponsor(this.teamInfoArr);
       this.getSquadData();
-      console.log(data.admin);
+      //console.log(data.admin);
     });
   }
 
   getSquadData() {
     this.manutdService.getTeamDetails().subscribe(data => {
-      console.log(data);
+      //console.log(data);
       this.manutdData.push(data);
       this.spinner.hide();
       this.getTeamList(this.manutdData, this.teamInfoArr);
