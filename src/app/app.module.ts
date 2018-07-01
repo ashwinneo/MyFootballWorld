@@ -14,6 +14,7 @@ import { Ng2OrderModule } from 'ng2-order-pipe';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { TeamModuleModule } from './modules/teams/team-module.module';
 import { PremierLeagueModule } from './modules/teams/premier-league/premier-league.module';
+import { ChartModule } from 'angular-highcharts';
 @NgModule({
   declarations: [
     AppComponent
@@ -32,7 +33,8 @@ BrowserModule,
     Ng2OrderModule,
     NgxPaginationModule,
     PremierLeagueModule,
-    TeamModuleModule
+    TeamModuleModule,
+    ChartModule
   ],
   providers: [],
   bootstrap: [AppComponent]

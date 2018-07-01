@@ -8,13 +8,15 @@ import { ManchesterUnitedServiceService } from './manchester-united/manchester-u
 import { SharedModuleModule } from './../../../shared/shared-module.module';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ManchesterUnitedResolverService } from './manchester-united/manchester-united-resolver.service';
+import { ChartModule } from 'angular-highcharts';
 @NgModule({
   imports: [
   CommonModule,
   SharedModuleModule,
   NgxSpinnerModule,
   NgxPaginationModule,
-  Ng2OrderModule
+  Ng2OrderModule,
+  ChartModule
   ],
   declarations: [
     ManchesterUnitedComponent

@@ -105,6 +105,50 @@
             </table>
         </div>
     </div>
+
+    <div class="content-panel mt-5" *ngIf="pieData.length >0 && pieTeamPlayData.length >0">
+        <div class="content-header">
+            <span class="content-header-text">Team Stats - Attack & Defense</span>
+        </div>
+        <div class="row mb-3 mt-3">
+            <div class="col-sm-5"><div [chart]="chart"></div></div>
+            
+            <div class="col-sm-7"><div [chart]="defenseChart"></div></div>
+        </div>
+
+        <div class="row mr-2 mb-3">
+            <div class="col-sm-6"></div>
+            <div class="col-sm-6">
+                <div class="float-right">
+                    <span><span style="color: red; font-size: 18px; font-weight: 700;">*</span> As per Premier League 2017-2018</span>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="content-panel mt-5">
+        <div class="content-header">
+            <span class="content-header-text">Team Stats - Team Play & Discipline</span>
+        </div>
+        <div class="row mb-3 mt-3">
+            
+            <div class="col-sm-5 width"><div [chart]="teamPlayChart"></div></div>
+            <div class="col-sm-7 width"><div [chart]="disciplineChart"></div></div>
+        </div>
+
+        <div class="row mr-2 mb-3">
+                <div class="col-sm-6"></div>
+                <div class="col-sm-6">
+                    <div class="float-right">
+                        <span><span style="color: red; font-size: 18px; font-weight: 700;">*</span> As per Premier League 2017-2018</span>
+                    </div>
+                </div>
+        </div>
+        
+    </div>
+    
+    
     <ngx-spinner
 bdColor = "rgba(51, 51, 51, 0.8)"
 size = "medium"
