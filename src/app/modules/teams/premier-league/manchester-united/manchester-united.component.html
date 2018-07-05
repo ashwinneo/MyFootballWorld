@@ -1,8 +1,62 @@
 <div class="container-fluid">
     <app-header></app-header>
     <div class="row mt-3">
-        <div class="col-sm-12"><span class="page-text" (click)="navigateToPrevious()"><</span><span class="page-text">Team Info</span></div>
+        <div class="col-sm-12" style="border-left: 1px soild #009ece;">
+            <div style="border: 1px solid #E6E6FA;border-left: 7px solid #009ece;"  *ngFor="let list of teamInfoArr">
+                <!-- <span class="page-text" (click)="navigateToPrevious()"><</span> -->
+                <span class="page-text ml-1" style="color: #FF4500 !important;">{{list.teamName}}</span>
+            </div>
+        </div>
     </div>
+    <div class="row mt-3">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <div class="card" style="width: 18rem;" *ngIf="arsenal">
+                <img class="card-img-top" src="assets/images/managers/emery.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text text-justify">Unai Emery Etxegoien is a Spanish football manager and former player. He is the head coach of Premier League club Arsenal.</p>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;" *ngIf="manutd">
+                    <img class="card-img-top" src="assets/images/managers/jose.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text text-justify">José Mário dos Santos Mourinho Félix, GOIH, known as José Mourinho, is a Portuguese football manager and former football player. He is the manager of Premier League club Manchester United.</p>
+                    </div>
+            </div>
+            <div class="card" style="width: 18rem;" *ngIf="chelsea">
+                    <img class="card-img-top" src="assets/images/managers/conte.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text text-justify">Antonio Conte is an Italian professional football manager and former player. He is the head coach of Premier League club Chelsea.</p>
+                    </div>
+            </div>
+            <div class="card" style="width: 18rem;" *ngIf="mancity">
+                    <img class="card-img-top" src="assets/images/managers/pep.webp" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text text-justify">Josep "Pep" Guardiola Sala is a Spanish professional football coach and former player who is the current manager of Manchester City.</p>
+                    </div>
+            </div>
+            <div class="card" style="width: 18rem;" *ngIf="realMadrid">
+                    <img class="card-img-top" src="assets/images/managers/lopetegui.jpeg" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text text-justify">Julen Lopetegui Argote is a Spanish former footballer who played as a goalkeeper and is the head coach of Real Madrid.</p>
+                    </div>
+            </div>
+            <div class="card" style="width: 18rem;" *ngIf="barcelona">
+                <img class="card-img-top" src="assets/images/managers/valverde.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text text-justify">Ernesto Valverde Tejedor is a Spanish former footballer who played as a forward, and is the current manager of Barcelona.</p>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;" *ngIf="sevilla">
+                    <img class="card-img-top" src="assets/images/managers/machin.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text text-justify">Pablo Machín Díez is a Spanish retired footballer who played as a right back, and is the coach of Sevilla FC.</p>
+                    </div>
+            </div>
+        </div> 
+        <div class="col-sm-4"></div>
+    </div>
+     <app-team-stats *ngIf="teamInfoArr.length > 0" [teamInfoArr]="teamInfoArr"></app-team-stats>
     <div class="content-panel mt-3">
         <div class="content-header">
             <div *ngIf="teamInfoArr.length > 0; else noTeamName">
@@ -106,7 +160,7 @@
         </div>
     </div>
 
-    <div class="content-panel mt-5" *ngIf="pieData.length >0 && pieTeamPlayData.length >0">
+    <div class="content-panel mt-5" *ngIf="pieData.length >0 && pieDefenseData.length >0">
         <div class="content-header">
             <span class="content-header-text">Team Stats - Attack & Defense</span>
         </div>
@@ -127,7 +181,7 @@
         
     </div>
 
-    <div class="content-panel mt-5">
+    <div class="content-panel mt-5" *ngIf="pieTeamPlayData.length >0 && pieDisciplineData.length >0">
         <div class="content-header">
             <span class="content-header-text">Team Stats - Team Play & Discipline</span>
         </div>

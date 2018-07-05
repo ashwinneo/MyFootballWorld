@@ -76,7 +76,7 @@ export class ManchesterUnitedComponent implements OnInit {
       this.spinner.hide();
       this.getTeamSponsor(this.teamInfoArr);
       this.getSquadData();
-      //console.log(data.admin);
+      console.log(this.teamInfoArr);
     });
     
   }

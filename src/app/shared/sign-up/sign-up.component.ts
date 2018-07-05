@@ -35,6 +35,16 @@ export class SignUpComponent implements OnInit {
   emailFlag: Boolean;
   emailErrorFlag: Boolean;
   repeatPasswordDetailFlag: Boolean;
+  country: String;
+  countrySelected: String;
+  address: String;
+  addressSelected: String;
+  state: String;
+  stateSelected: String;
+  city: String;
+  citySelected: String;
+  zipCode: String;
+  zipcode: String;
   constructor(private signUpService: SignUpServiceService,
   private router: Router,
   private spinner: NgxSpinnerService) { }
@@ -152,16 +162,44 @@ export class SignUpComponent implements OnInit {
     //console.log(this.checked);
   }
 
+  setAddress(val) {
+    this.addressSelected = val;
+  }
+
+  setCountry(val) {
+    console.log(val);
+    if (val != undefined) {
+      this.countrySelected = val;
+    }
+  }
+
+  setState(val) {
+    this.stateSelected = val;
+  }
+
+  setCity(val) {
+    this.citySelected = val;
+  }
+
+  setZipcode(val) {
+    this.zipcode = val;
+  }
+
   register($event) {
     this.spinner.show();
     //console.log($event);
     if (this.passwordFlag === false && this.checked === true) {
     let registerObj = {
       'fullName': $event.target[0].value,
-      'email': $event.target[1].value,
-      'userName': $event.target[2].value,
-      'password': $event.target[3].value,
-      'repeatPassword': $event.target[4].value
+      'address': $event.target[1].value,
+      'country': $event.target[2].value,
+      'state': $event.target[3].value,
+      'city': $event.target[4].value,
+      'zipCode': $event.target[5].value,
+      'email': $event.target[6].value,
+      'userName': $event.target[7].value,
+      'password': $event.target[8].value,
+      'repeatPassword': $event.target[9].value
     }
     this.signUpService.registerAccount(registerObj).subscribe(data => {
       //console.log(data);

@@ -36,6 +36,7 @@ export class AdminHomeComponent implements OnInit {
   reverse: Boolean = false;
   successFlag: Boolean;
   status: String;
+  alertSuccess: Boolean;
   sort(key) {
     this.key = key;
     this.reverse = !this.reverse;
@@ -43,14 +44,23 @@ export class AdminHomeComponent implements OnInit {
 
   ngOnInit() {
     //console.log(this.route.url);
-    this.adminService.getAdminDetails().subscribe(data => {
-      //console.log(data);
-      this.adminSuccess = data[0].message;
+    // this.adminService.getAdminDetails().subscribe(data => {
+    //   //console.log(data);
+    //   this.adminSuccess = data[0].message;
+    //   this.alertSuccess = true;
+    //   setTimeout(() => {
+    //     //console.log('hide');
+    //     this.alertSuccess = false;
+    //   }, 5000);
+    // });
+
+    let name = this.router.snapshot.paramMap.get('id');
+    this.adminSuccess = 'You have logged in as' + ' ' + name;
+    this.alertSuccess = true;
       setTimeout(() => {
         //console.log('hide');
-        this.adminSuccess = '';
+        this.alertSuccess = false;
       }, 5000);
-    });
     this.fetchList();
   }
 

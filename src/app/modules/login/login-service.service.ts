@@ -28,7 +28,7 @@ export class LoginServiceService {
   }
 
   updatePassword(obj): Observable<any> {
-    let _url2: string = "http://localhost:3000/updatePassword";
+    let _url2: string = "http://localhost:3000/updateUserDetails";
     return this.http.put<any>(_url2,obj);
   }
 
