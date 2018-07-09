@@ -35,13 +35,11 @@ export class LoginComponent implements OnInit {
   }
 
   login(event) {
-    //console.log(this.userName, this.password);
-    //console.log(event);
     this.username = event.target[0].value;
     event.preventDefault();
     this.loginService.getUserDetailsByEmailId(this.username).subscribe(data => {
-    //console.log(data);
-    if (data.leagueResponse.length != 0) {
+        
+    if (data.leagueResponse != undefined && data.appStatus == 0) {
       this.loginData = data.leagueResponse;
       this.id = data.leagueResponse.email;
       this.pwd = data.leagueResponse.password;
@@ -68,6 +66,7 @@ navigate(id, pwd){
       this.errorMessage = "Invalid Credentials";
       this.failureMessageFlag = true;
       this.display = 'block';
+      this.spinner.hide();
       this.confirmEmail = false;
       this.confirmPassword = false;
       this.successMessageFlag = false;
@@ -83,7 +82,7 @@ navigate(id, pwd){
     this.confirmEmail = true;
     if (this.confirmPassword === true || this.successMessageFlag === true || this.failureMessageFlag == true) {
       this.confirmPassword = false;
-      this.successMessageFlag = false ;
+      this.successMessageFlag = false;
       this.failureMessageFlag = false;
     }
   }
@@ -93,13 +92,11 @@ navigate(id, pwd){
   }
 
   submit12(val) {
-    //console.log(val);
     this.spinner.show();
     this.emailId = val.target[0].value;
 
     this.loginService.getUserDetailsByEmailId(this.emailId).subscribe(data => {
-      if (data.appStatus == 0) {
-        if(data.leagueResponse.length === 0) {
+      if (data.appStatus == 1) {
           this.errorMessage = "Invalid EmailId!"
           this.spinner.hide();
           this.failureMessageFlag = true;
@@ -115,21 +112,18 @@ navigate(id, pwd){
         this.passwordResponse = data.leagueResponse.password;
         this.id = data.leagueResponse.id;
       }
-      }
-    })
+      })
+    
 
   }
 
   submitPassword(val) {
     this.spinner.show();
-    //if (this.oldPassword === this.passwordResponse) {
-      //console.log('match');
       let forgotPasswordObj = {
         'id': this.id,
-        'password': val.target[1].value,
-        'repeatPassword': val.target[2].value
+        'password': val.target[0].value,
+        'repeatPassword': val.target[1].value
       }
-      //console.log(forgotPasswordObj);
       this.loginService.updatePassword(forgotPasswordObj).subscribe(data => {
           if (data.appStatus === 0) {
             this.successMessage = data.successMessage;

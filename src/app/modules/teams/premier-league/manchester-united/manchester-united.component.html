@@ -2,7 +2,8 @@
     <app-header></app-header>
     <div class="row mt-3">
         <div class="col-sm-12" style="border-left: 1px soild #009ece;">
-            <div style="border: 1px solid #E6E6FA;border-left: 7px solid #009ece;"  *ngFor="let list of teamInfoArr">
+            <!-- <div style="border: 1px solid #E6E6FA;border-left: 7px solid #009ece;"  *ngFor="let list of teamInfoArr"> -->
+                    <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue"  *ngFor="let list of teamInfoArr">
                 <!-- <span class="page-text" (click)="navigateToPrevious()"><</span> -->
                 <span class="page-text ml-1" style="color: #FF4500 !important;">{{list.teamName}}</span>
             </div>
