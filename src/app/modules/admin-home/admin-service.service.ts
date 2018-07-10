@@ -2,38 +2,35 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { Admin } from './admin';
+import { GetServiceService } from './../../core/common-service/get-service.service';
 @Injectable()
 export class AdminServiceService {
 
-  constructor(private http: HttpClient) { }
-  // _url: string = 'assets/data/adminHome.json';
-  _url: string = 'assets/data/adminHome.json';
-  _url1: string = 'http://localhost:3000/leagues';
-  _url3: string = 'http://localhost:3000/topics';
-  // _url2: string = 'http://localhost:3000/league';
-  getAdminDetails(): Observable<any> {
-    return this.http.get<any>(this._url);
-  }
+  constructor(private http: HttpClient,
+  private getService: GetServiceService) { }
+  queryParams: String;
+  // getAdminDetails(): Observable<any> {
+  //   return this.http.get<any>(this._url);
+  // }
   getTeamList(): Observable<Admin> {
-    return this.http.get<Admin>(this._url1);
+    return this.getService.proccessGetRequest('leagues', 'leagues', 'get');
   }
   getLeagueById(val): Observable<any> {
-    let _url2 = 'http://localhost:3000/league?league=' + val;
-    return this.http.get<any>(_url2);
+    this.queryParams = '?league=' + val;
+    return this.getService.proccessGetRequest('leagues', 'league', 'get', this.queryParams);
   }
   getLeagueByName(val) {
-    let _url6 = 'http://localhost:3000/league?name=' + val;
-    return this.http.get<any>(_url6);
+    this.queryParams = '?name=' + val;
+    return this.getService.proccessGetRequest('leagues','league', 'get', this.queryParams);
   }
   createLeague(val): Observable<any> {
-    return this.http.post<any>(this._url3, val);
+    return this.getService.proccessGetRequest('leagues', 'addLeague', 'post', val);
   }
   updateLeague(val): Observable<any> {
-    let _url4 = 'http://localhost:3000/editLeague';
-    return this.http.put<any>(_url4 , val);
+    return this.getService.proccessGetRequest('leagues', 'editLeague', 'put', val);
   }
   deleteLeague(id): Observable<any> {
-    let _url5 = 'http://localhost:3000/deleteLeague?id=' + id;
-    return this.http.delete<any>(_url5);
+    this.queryParams = '?id=' + id;
+    return this.getService.proccessGetRequest('leagues', 'deleteLeague', 'delete', this.queryParams);
   }
 }

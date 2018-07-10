@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { HeaderServiceService } from './header-service.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { LoginServiceService } from '../../modules/login/login-service.service';
@@ -26,6 +26,7 @@ export class HeaderComponent implements OnInit {
   successFlag: Boolean;
   successMessage: String;
   confirmPassword: Boolean;
+  @Input('footballList') footballList;
   constructor(private headerService: HeaderServiceService,
   private spinner: NgxSpinnerService,
   private loginService: LoginServiceService) { }

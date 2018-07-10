@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { GetServiceService } from './../../../../core/common-service/get-service.service';
 
 @Injectable()
 export class ManchesterUnitedServiceService {
 
   _url: string = 'assets/data/manchesterUnited.json';
-  constructor(private http: HttpClient) { }
+  queryParams: String;
+  constructor(private http: HttpClient,
+  private getService: GetServiceService) { }
 
 
   getTeamDetails(): Observable<any> {
@@ -14,7 +17,7 @@ export class ManchesterUnitedServiceService {
   }
 
   getTeamInfo(name): Observable<any> {
-    let _url1 = 'http://localhost:3000/teamInfo?name=' + name;
-    return this.http.get<any>(_url1);
+    this.queryParams = '?name=' + name;
+    return this.getService.proccessGetRequest('team', 'teamInfo', 'get', this.queryParams);
   }
 }

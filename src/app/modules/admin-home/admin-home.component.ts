@@ -66,20 +66,25 @@ export class AdminHomeComponent implements OnInit {
 
   searchName(name) {
     //console.log(name);
+    this.footballList = [];
     this.spinner.show();
     this.adminService.getLeagueByName(name).subscribe(data => {
       //console.log(data);
-      this.footballList = data.leagueResponse;
+      this.footballList.push(data.leagueResponse);
       this.spinner.hide();
     });
   }
 
   fetchList() {
     this.spinner.show();
+    this.footballList = [];
     this.adminService.getTeamList().subscribe(data => {
       //console.log(data);
       this.spinner.hide();
-      this.footballList = data.leagueResponse;
+      this.footballList.push(data.leagueResponse);
+      let list = data.leagueResponse;
+      console.log('equal = ',list);
+      console.log('push' , this.footballList);
     });
     // this.router.data.forEach((data: {admin: Admin[] }) => {
     //   this.footballList = data.admin.leagueResponse;
@@ -140,10 +145,11 @@ export class AdminHomeComponent implements OnInit {
 
   leagueSelect($event) {
     //console.log($event);
+    this.footballList = [];
     this.spinner.show();
     this.adminService.getLeagueById($event).subscribe(data => {
       //console.log(data);
-      this.footballList = data.leagueResponse;
+      this.footballList.push(data.leagueResponse);
       this.spinner.hide();
     });
   }

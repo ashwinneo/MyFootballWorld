@@ -23,6 +23,9 @@ export class GetServiceService {
   } else if (method === 'post') {
     let url = this.uService.formUrl(modules, service);    
     return this.callService.serviceCall(url, method, paramObj); 
+  } else if (method === 'delete') {
+    let url = this.uService.formUrl(modules, service) + paramObj;
+    return this.callService.serviceCall(url, method);
   }
     
   }

@@ -14,7 +14,14 @@ export const environment = {
     signUp: 'signUp'
   },
   leagues: {
-
+    leagues: 'leagues',
+    league: 'league',
+    addLeague: 'createLeague',
+    editLeague: 'editLeague',
+    deleteLeague: 'deleteLeague'
+  },
+  team:{
+    teamInfo: 'teamInfo'
   }
 }
 };
