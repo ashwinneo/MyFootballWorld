@@ -1,19 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { GetServiceService } from './../../core/common-service/get-service.service';
 
 @Injectable()
 export class HeaderServiceService {
 
-  constructor(private http: HttpClient) { }
-
+  constructor(private http: HttpClient,
+  private getService: GetServiceService) { }
+  queryParams: String;
   getUserDetails(val): Observable<any> {
-    let _url = 'http://localhost:3000/getLoginDetails?emailId=' + val;
-    return this.http.get<any>(_url);
+    this.queryParams = '?emailId=' + val;
+    return this.getService.proccessGetRequest('login', 'login', 'get', this.queryParams);
+
   }
 
   updateUserDetails(val): Observable<any> {
-    let _url1 = 'http://localhost:3000/updateUserDetails';
-    return this.http.put<any>(_url1, val);
+    return this.getService.proccessGetRequest('login', 'updatePassword', 'put', val);
   }
 }
