@@ -18,4 +18,8 @@ export class HeaderServiceService {
   updateUserDetails(val): Observable<any> {
     return this.getService.proccessGetRequest('login', 'updatePassword', 'put', val);
   }
+
+  getLeagueDetails() {
+    return this.getService.proccessGetRequest('leagues', 'getLeague','get');
+  }
 }

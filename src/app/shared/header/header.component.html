@@ -30,7 +30,7 @@
         </div> -->
           <select class="form-control" name="footballLeague" style="height: 40px !important" [(ngModel)]="footballLeague" (change)="leagueSelect(footballLeague)">
             <option value="" disabled selected>Select Your League</option>
-            <option *ngFor="let league of leagueList" [value]="league.id">{{league.name}}</option>
+            <option *ngFor="let league of leagueArray" [value]="league.league">{{league.league}}</option>
           </select>
         </li>
         <li class="nav-item">

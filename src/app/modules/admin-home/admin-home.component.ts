@@ -3,6 +3,7 @@ import { AdminServiceService } from './admin-service.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Admin } from './admin';
+import { HeaderServiceService } from './../../shared/header/header-service.service';
 @Component({
   selector: 'app-admin-home',
   templateUrl: './admin-home.component.html',
@@ -13,7 +14,8 @@ export class AdminHomeComponent implements OnInit {
   constructor(private adminService: AdminServiceService,
   private spinner: NgxSpinnerService,
   private route: Router,
-  private router: ActivatedRoute) { }
+  private router: ActivatedRoute,
+  private headerService: HeaderServiceService) { }
   adminSuccess: String;
   footballList = [];
   footballLeague: String;
@@ -37,6 +39,7 @@ export class AdminHomeComponent implements OnInit {
   successFlag: Boolean;
   status: String;
   alertSuccess: Boolean;
+  leagueList = [];
   sort(key) {
     this.key = key;
     this.reverse = !this.reverse;
@@ -53,6 +56,10 @@ export class AdminHomeComponent implements OnInit {
     //     this.alertSuccess = false;
     //   }, 5000);
     // });
+    this.headerService.getLeagueDetails().subscribe(data => {
+      this.leagueList = data.leagueResponse;
+      console.log(this.leagueList);
+    })
 
     let name = this.router.snapshot.paramMap.get('id');
     this.adminSuccess = 'You have logged in as' + ' ' + name;
@@ -114,6 +121,8 @@ export class AdminHomeComponent implements OnInit {
   closeEditPopup() {
     this.display1 = 'none';
   }
+
+  
 
   createLeague(val) {
     this.spinner.show();

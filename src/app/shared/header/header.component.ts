@@ -26,28 +26,29 @@ export class HeaderComponent implements OnInit {
   successFlag: Boolean;
   successMessage: String;
   confirmPassword: Boolean;
-  @Input('footballList') footballList;
+  @Input('leagueList') leagueList;
   constructor(private headerService: HeaderServiceService,
   private spinner: NgxSpinnerService,
   private loginService: LoginServiceService) { }
-  leagueList = [
-    {
-      id: 'Premier League',
-      name: 'Premier League'
-    },
-    {
-      id: 'Spanish Premier League',
-      name: 'La Liga (Spanish)'
-    },
-    {
-      id: 'BUNDESLIGA',
-      name: 'Bundesliga'
-    },
-    {
-      id: 'Indian Super League',
-      name: 'Indian Super League'
-    }
-  ];
+  leagueArray = [];
+  // leagueList = [
+  //   {
+  //     id: 'Premier League',
+  //     name: 'Premier League'
+  //   },
+  //   {
+  //     id: 'Spanish Premier League',
+  //     name: 'La Liga (Spanish)'
+  //   },
+  //   {
+  //     id: 'BUNDESLIGA',
+  //     name: 'Bundesliga'
+  //   },
+  //   {
+  //     id: 'Indian Super League',
+  //     name: 'Indian Super League'
+  //   }
+  // ];
 
   profileArray = [
     {
@@ -68,6 +69,8 @@ export class HeaderComponent implements OnInit {
   @Output() searchText = new EventEmitter<any>();
   ngOnInit() {
     this.footballLeague = '';
+    this.leagueArray = this.leagueList;
+    console.log(this.leagueList);
     console.log(window.localStorage.getItem('emailId'));
   }
 

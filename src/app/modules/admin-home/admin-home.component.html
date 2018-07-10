@@ -1,6 +1,6 @@
 
 <div class="container-fluid">
-    <app-header (league)="leagueSelect($event)" [footballList]="footballList" (searchText)="searchName($event)"></app-header>
+    <app-header (league)="leagueSelect($event)" *ngIf="leagueList.length>0"  [leagueList]="leagueList" (searchText)="searchName($event)"></app-header>
   <!-- <div class="row mt-5">
     <div class="col-sm-12"><span style="color: green">{{adminSuccess}}</span></div>
   </div> -->

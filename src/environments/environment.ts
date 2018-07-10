@@ -18,7 +18,8 @@ export const environment = {
     league: 'league',
     addLeague: 'createLeague',
     editLeague: 'editLeague',
-    deleteLeague: 'deleteLeague'
+    deleteLeague: 'deleteLeague',
+    getLeague: 'getLeague'
   },
   team:{
     teamInfo: 'teamInfo'
