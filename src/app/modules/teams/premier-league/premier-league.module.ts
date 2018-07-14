@@ -10,9 +10,15 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { ManchesterUnitedResolverService } from './manchester-united/manchester-united-resolver.service';
 import { ChartModule } from 'angular-highcharts';
 import { TeamSquadComponent } from './team-squad/team-squad.component';
+import { TeamHeaderComponent } from './team-header/team-header.component';
+import { TeamStatsAdComponent } from './team-stats-ad/team-stats-ad.component';
+import { TeamStatsTdComponent } from './team-stats-td/team-stats-td.component';
+
+import { TeamManagerComponent } from './team-manager/team-manager.component';
+import { TeamStatsComponent } from './team-stats/team-stats.component';
 @NgModule({
   imports: [
-  CommonModule,
+CommonModule,
   SharedModuleModule,
   NgxSpinnerModule,
   NgxPaginationModule,
@@ -21,14 +27,20 @@ import { TeamSquadComponent } from './team-squad/team-squad.component';
   ],
   declarations: [
     ManchesterUnitedComponent,
-    TeamSquadComponent
+    TeamSquadComponent,
+    TeamHeaderComponent,
+    TeamStatsAdComponent,
+    TeamStatsTdComponent,
+    TeamManagerComponent,
+    TeamStatsComponent
   ],
   providers: [
     ManchesterUnitedServiceService,
     ManchesterUnitedResolverService
   ],
   exports: [
-    ManchesterUnitedComponent
+    ManchesterUnitedComponent,
+    TeamHeaderComponent
   ]
 })
 export class PremierLeagueModule { }

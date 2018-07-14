@@ -23,7 +23,7 @@ const routes: Routes = [
    }
   },
   { path: 'teamInfo', component: ManchesterUnitedComponent,
-  canActivate: [AuthGuard],
+  //canActivate: [AuthGuard],
   resolve: {
     teamInfo: ManchesterUnitedResolverService
   }

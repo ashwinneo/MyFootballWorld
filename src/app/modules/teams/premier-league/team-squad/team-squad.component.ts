@@ -9,8 +9,6 @@ import { Validators } from '@angular/forms';
 export class TeamSquadComponent implements OnInit {
 
   @Input("manutdData") manutdData;
-  @Input("teamInfoArr") teamInfoArr;
-  teamInfo = [];
   squadList = [];
   constructor() { }
   
@@ -21,28 +19,10 @@ export class TeamSquadComponent implements OnInit {
     this.reverse = !this.reverse;
   }
   ngOnInit() {
-    this.teamInfo = this.teamInfoArr;
-    //console.log(this.teamInfoArr);
-    this.getSquadData(this.manutdData, this.teamInfo);
+    
+    this.squadList = this.manutdData;
+    
   }
 
-  getSquadData(val, teamInfo) {
-    if (this.teamInfo[0].teamName === 'Manchester United') {
-      this.squadList = val;
-    } else if (teamInfo[0].teamName === 'Chelsea') {
-      this.squadList = val;
-    } else if (teamInfo[0].teamName === 'Arsenal') {
-      this.squadList = val;
-    } else if (teamInfo[0].teamName === 'Manchester City') {
-      this.squadList = val;
-    } else if (teamInfo[0].teamName === 'Real Madrid') {
-      this.squadList = val;
-    } else if (teamInfo[0].teamName === 'Athletico Madrid') {
-      this.squadList = val;
-    } else if (teamInfo[0].teamName === 'Barcelona') {
-      this.squadList = val;
-    } else if (teamInfo[0].teamName === 'Sevilla') {
-      this.squadList = val;
-    }
-  }
+  
 }

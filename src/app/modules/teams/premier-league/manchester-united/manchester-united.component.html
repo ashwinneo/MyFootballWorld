@@ -1,16 +1,8 @@
 <div class="container-fluid">
     <app-header></app-header>
-    <div class="row mt-3">
-        <div class="col-sm-12" style="border-left: 1px soild #009ece;">
-            <!-- <div style="border: 1px solid #E6E6FA;border-left: 7px solid #009ece;"  *ngFor="let list of teamInfoArr"> -->
-                    <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue"  *ngFor="let list of teamInfoArr">
-                <!-- <span class="page-text" (click)="navigateToPrevious()"><</span> -->
-                <span class="page-text ml-1" style="color: #FF4500 !important;">{{list.teamName}}</span>
-            </div>
-        </div>
-    </div>
-     <app-team-manager *ngIf="teamManager.length>0" [teamManager]="teamManager"></app-team-manager>
-     <app-team-stats *ngIf="teamInfoArr.length > 0" [teamInfoArr]="teamInfoArr"></app-team-stats>
+    <app-team-header *ngIf="teamInfoArr.length > 0" [teamInfoArr]="teamInfoArr"></app-team-header>
+    <app-team-manager *ngIf="teamManager.length>0" [teamManager]="teamManager"></app-team-manager>
+    <app-team-stats *ngIf="teamInfoArr.length > 0" [teamInfoArr]="teamInfoArr"></app-team-stats>
     <div class="content-panel mt-3">
         <div class="content-header">
             <div *ngIf="teamInfoArr.length > 0; else noTeamName">
@@ -77,7 +69,6 @@
                 </div>            
             </div>
         </div>
-
         <ng-template #noData>
             <div class="row">
                 <div class="col-sm-4"></div>
@@ -88,61 +79,12 @@
                 <span class="content-header-text">Team Information</span>
         </ng-template>
     </div>
-
+    <app-team-squad *ngIf="manutdData.length>0" [manutdData]="manutdData"></app-team-squad>
     
-    <app-team-squad *ngIf="teamInfoArr.length>0 && manutdData.length>0" [teamInfoArr]="teamInfoArr" [manutdData]="manutdData"></app-team-squad>
-
-
-
-    <div class="content-panel mt-5" *ngIf="pieData.length >0 && pieDefenseData.length >0">
-        <div class="content-header">
-            <span class="content-header-text">Team Stats - Attack & Defense</span>
-        </div>
-        <div class="row mb-3 mt-3">
-            <div class="col-sm-5"><div [chart]="chart"></div></div>
-            
-            <div class="col-sm-7"><div [chart]="defenseChart"></div></div>
-        </div>
-
-        <div class="row mr-2 mb-3">
-            <div class="col-sm-6"></div>
-            <div class="col-sm-6">
-                <div class="float-right">
-                    <span><span style="color: red; font-size: 18px; font-weight: 700;">*</span> As per Premier League 2017-2018</span>
-                </div>
-            </div>
-        </div>
-        
-    </div>
-
-    <div class="content-panel mt-5" *ngIf="pieTeamPlayData.length >0 && pieDisciplineData.length >0">
-        <div class="content-header">
-            <span class="content-header-text">Team Stats - Team Play & Discipline</span>
-        </div>
-        <div class="row mb-3 mt-3">
-            
-            <div class="col-sm-5 width"><div [chart]="teamPlayChart"></div></div>
-            <div class="col-sm-7 width"><div [chart]="disciplineChart"></div></div>
-        </div>
-
-        <div class="row mr-2 mb-3">
-                <div class="col-sm-6"></div>
-                <div class="col-sm-6">
-                    <div class="float-right">
-                        <span><span style="color: red; font-size: 18px; font-weight: 700;">*</span> As per Premier League 2017-2018</span>
-                    </div>
-                </div>
-        </div>
-        
-    </div>
+    <app-team-stats-ad *ngIf="teamInfoArr.length>0" [teamInfoArr]="teamInfoArr"></app-team-stats-ad>
+    <app-team-stats-td *ngIf="teamInfoArr.length>0" [teamInfoArr]="teamInfoArr"></app-team-stats-td>
     
-    
-    <ngx-spinner
-bdColor = "rgba(51, 51, 51, 0.8)"
-size = "medium"
-color = "#fff"
-type = "line-scale-pulse-out"
-></ngx-spinner>
+    <ngx-spinner bdColor = "rgba(51, 51, 51, 0.8)" size = "medium" color = "#fff" type = "line-scale-pulse-out"></ngx-spinner>
 </div>
 
 

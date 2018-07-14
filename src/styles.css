@@ -64,3 +64,8 @@ a:hover {
 .errorMessage{
     color: red;
 }
+
+.card1 {
+    position: relative;
+    left: 80px !important;
+}
