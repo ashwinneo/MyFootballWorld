@@ -167,7 +167,7 @@ export class SignUpComponent implements OnInit {
   }
 
   setCountry(val) {
-    console.log(val);
+    // console.log(val);
     if (val != undefined) {
       this.countrySelected = val;
     }

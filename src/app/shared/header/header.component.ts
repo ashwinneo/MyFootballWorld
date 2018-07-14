@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { HeaderServiceService } from './header-service.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { LoginServiceService } from '../../modules/login/login-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -29,7 +30,8 @@ export class HeaderComponent implements OnInit {
   @Input('leagueList') leagueList;
   constructor(private headerService: HeaderServiceService,
   private spinner: NgxSpinnerService,
-  private loginService: LoginServiceService) { }
+  private loginService: LoginServiceService,
+  private route: Router) { }
   leagueArray = [];
   // leagueList = [
   //   {
@@ -70,8 +72,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.footballLeague = '';
     this.leagueArray = this.leagueList;
-    console.log(this.leagueList);
-    console.log(window.localStorage.getItem('emailId'));
+    // console.log(this.leagueList);
+    // console.log(window.localStorage.getItem('emailId'));
   }
 
   leagueSelect(league) {
@@ -85,11 +87,11 @@ export class HeaderComponent implements OnInit {
   }
 
   selectedOption(val) {
-    console.log(val);
+    //console.log(val);
     this.spinner.show();
     let emailId = window.localStorage.getItem('emailId');
     this.headerService.getUserDetails(emailId).subscribe( data=> {
-      console.log(data);
+      //console.log(data);
       this.spinner.hide();
       this.name = data.leagueResponse.fullName;
       this.email = data.leagueResponse.email;
@@ -114,6 +116,8 @@ export class HeaderComponent implements OnInit {
       this.confirmPassword = true;
       this.updateUserFlag = false;
       this.successFlag = false;
+    } else if (val.value === 'About') {
+      this.route.navigate(['aboutUs']);
     }
   }
 

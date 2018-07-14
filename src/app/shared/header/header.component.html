@@ -28,7 +28,7 @@
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="">Something else here</a>
         </div> -->
-          <select class="form-control" name="footballLeague" style="height: 40px !important" [(ngModel)]="footballLeague" (change)="leagueSelect(footballLeague)">
+          <select class="form-control" name="footballLeague" style="height: 40px !important" name="footballLeague" [(ngModel)]="footballLeague" (change)="leagueSelect(footballLeague)">
             <option value="" disabled selected>Select Your League</option>
             <option *ngFor="let league of leagueArray" [value]="league.league">{{league.league}}</option>
           </select>

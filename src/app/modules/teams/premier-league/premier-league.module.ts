@@ -9,6 +9,7 @@ import { SharedModuleModule } from './../../../shared/shared-module.module';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ManchesterUnitedResolverService } from './manchester-united/manchester-united-resolver.service';
 import { ChartModule } from 'angular-highcharts';
+import { TeamSquadComponent } from './team-squad/team-squad.component';
 @NgModule({
   imports: [
   CommonModule,
@@ -19,7 +20,8 @@ import { ChartModule } from 'angular-highcharts';
   ChartModule
   ],
   declarations: [
-    ManchesterUnitedComponent
+    ManchesterUnitedComponent,
+    TeamSquadComponent
   ],
   providers: [
     ManchesterUnitedServiceService,

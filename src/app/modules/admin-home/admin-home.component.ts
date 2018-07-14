@@ -4,6 +4,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Admin } from './admin';
 import { HeaderServiceService } from './../../shared/header/header-service.service';
+import { CommonServiceService } from './../../core/common-service/common-service.service';
 @Component({
   selector: 'app-admin-home',
   templateUrl: './admin-home.component.html',
@@ -15,7 +16,8 @@ export class AdminHomeComponent implements OnInit {
   private spinner: NgxSpinnerService,
   private route: Router,
   private router: ActivatedRoute,
-  private headerService: HeaderServiceService) { }
+  private headerService: HeaderServiceService,
+  private commonService: CommonServiceService) { }
   adminSuccess: String;
   footballList = [];
   footballLeague: String;
@@ -58,10 +60,11 @@ export class AdminHomeComponent implements OnInit {
     // });
     this.headerService.getLeagueDetails().subscribe(data => {
       this.leagueList = data.leagueResponse;
-      console.log(this.leagueList);
+      //console.log(this.leagueList);
     })
 
-    let name = this.router.snapshot.paramMap.get('id');
+    // let name = this.router.snapshot.paramMap.get('id');
+    let name = this.commonService.getLoggedInName();
     this.adminSuccess = 'You have logged in as' + ' ' + name;
     this.alertSuccess = true;
       setTimeout(() => {
@@ -90,8 +93,8 @@ export class AdminHomeComponent implements OnInit {
       this.spinner.hide();
       this.footballList.push(data.leagueResponse);
       let list = data.leagueResponse;
-      console.log('equal = ',list);
-      console.log('push' , this.footballList);
+      // console.log('equal = ',list);
+      // console.log('push' , this.footballList);
     });
     // this.router.data.forEach((data: {admin: Admin[] }) => {
     //   this.footballList = data.admin.leagueResponse;
@@ -217,6 +220,8 @@ export class AdminHomeComponent implements OnInit {
   }
 
   teamDetail(val) {
-    this.route.navigate(['/teamInfo', val]);
+    this.commonService.setTeamName(val);
+    this.route.navigate(['/teamInfo']);
+    this.commonService.setLoggedIn(true);
   }
 }

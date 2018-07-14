@@ -8,6 +8,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { SignUpServiceService } from './sign-up/sign-up-service.service';
 import { TeamStatsComponent } from './team-stats/team-stats.component';
 import { HeaderServiceService } from './header/header-service.service';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { TeamManagerComponent } from './team-manager/team-manager.component';
 @NgModule({
   imports: [    
   CommonModule,
@@ -18,7 +20,9 @@ import { HeaderServiceService } from './header/header-service.service';
     PageNotFoundComponent,
     HeaderComponent,
     SignUpComponent,
-    TeamStatsComponent
+    TeamStatsComponent,
+    AboutUsComponent,
+    TeamManagerComponent
   ],
   providers: [
     SignUpServiceService,
@@ -28,7 +32,8 @@ import { HeaderServiceService } from './header/header-service.service';
     PageNotFoundComponent,
     HeaderComponent,
     SignUpComponent,
-    TeamStatsComponent
+    TeamStatsComponent,
+    TeamManagerComponent
   ]
 })
 export class SharedModuleModule { }

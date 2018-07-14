@@ -3,6 +3,7 @@ import { ManchesterUnitedServiceService } from './manchester-united-service.serv
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Chart } from 'angular-highcharts';
+import { CommonServiceService } from './../../../../core/common-service/common-service.service';
 @Component({
   selector: 'app-manchester-united',
   templateUrl: './manchester-united.component.html',
@@ -13,7 +14,8 @@ export class ManchesterUnitedComponent implements OnInit {
   constructor(private manutdService: ManchesterUnitedServiceService,
   private router: ActivatedRoute,
   private spinner: NgxSpinnerService,
-  private route: Router) { }
+  private route: Router,
+  private cs: CommonServiceService) { }
   manutdData = [];
   teamInfoArr = [];
   squadList = [];
@@ -41,7 +43,6 @@ export class ManchesterUnitedComponent implements OnInit {
   bayernMunich: Boolean;
   evonik: Boolean;
   bvb: Boolean;
-  key: String = 'name';
   chart: Chart;
   teamPlayChart: Chart;
   defenseChart: Chart;
@@ -50,19 +51,13 @@ export class ManchesterUnitedComponent implements OnInit {
   pieTeamPlayData = [];
   pieDefenseData = [];
   pieDisciplineData = [];
-  reverse: Boolean = false;
-  sort(key) {
-    this.key = key;
-    this.reverse = !this.reverse;
-  }
-
+  teamManager = [];
   
-
   ngOnInit() {
     let name = this.router.snapshot.paramMap.get('name');
     this.teamName = name;
     //console.log(this.teamName);
-
+    
     // this.manutdService.getTeamInfo(this.teamName).subscribe(data => {
     //   //console.log(data);
     //   this.spinner.show();
@@ -79,12 +74,14 @@ export class ManchesterUnitedComponent implements OnInit {
       console.log(this.teamInfoArr);
     });
     
+    
   }
 
   getSquadData() {
-    this.manutdService.getTeamDetails().subscribe(data => {
+    let teamName = this.cs.getTeamName();
+    this.manutdService.getTeamDetails(teamName).subscribe(data => {
       //console.log(data);
-      this.manutdData.push(data);
+      this.manutdData.push(data.leagueResponse);
       this.spinner.hide();
       this.getTeamList(this.manutdData, this.teamInfoArr);
     });
@@ -227,12 +224,11 @@ export class ManchesterUnitedComponent implements OnInit {
     } else if (val[0].teamName === 'Borussia Dortmund') {
       this.bvb = true;
     }
+    this.teamManager = val;
   }
 
   getTeamList(val, teamInfo) {
-    if (teamInfo[0].teamName === 'Manchester United') {
-      this.squadList = val[0].premierLeague.manchesterUnited;
-      
+    if (teamInfo[0].teamName === 'Manchester United') {      
       this.pieData = [
         [
           'Goals',1924,
@@ -323,7 +319,6 @@ export class ManchesterUnitedComponent implements OnInit {
         ]
       ]
     } else if (teamInfo[0].teamName === 'Chelsea') {
-      this.squadList = val[0].premierLeague.chelsea;
       this.pieData = [
         [
           'Goals',1707,
@@ -414,7 +409,6 @@ export class ManchesterUnitedComponent implements OnInit {
         ]
       ]
     } else if (teamInfo[0].teamName === 'Arsenal') {
-      this.squadList = val[0].premierLeague.arsenal;
       this.pieData = [
         [
           'Goals',1772,
@@ -505,7 +499,6 @@ export class ManchesterUnitedComponent implements OnInit {
         ]
       ]
     } else if (teamInfo[0].teamName === 'Manchester City') {
-      this.squadList = val[0].premierLeague.manchesterCity;
       this.pieData = [
         [
           'Goals',1279,
@@ -596,13 +589,9 @@ export class ManchesterUnitedComponent implements OnInit {
         ]
       ]
     } else if (teamInfo[0].teamName === 'Real Madrid') {
-      this.squadList = val[0].laLiga.realMadrid;
     } else if (teamInfo[0].teamName === 'Athletico Madrid') {
-      this.squadList = val[0].laLiga.athleticoMadrid;
     } else if (teamInfo[0].teamName === 'Barcelona') {
-      this.squadList = val[0].laLiga.barcelona;
     } else if (teamInfo[0].teamName === 'Sevilla') {
-      this.squadList = val[0].laLiga.sevilla;
     }
     this.getCharts();
   }

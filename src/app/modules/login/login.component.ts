@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginServiceService } from './login-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { CommonServiceService } from './../../core/common-service/common-service.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private loginService: LoginServiceService,
   private route: Router,
-  private spinner: NgxSpinnerService) { }
+  private spinner: NgxSpinnerService,
+  private commonservice: CommonServiceService) { }
   userName: String;
   password: String;
   id: String;
@@ -60,8 +62,9 @@ export class LoginComponent implements OnInit {
 
 navigate(id, pwd){
     if (id === this.userName && pwd === this.password) {
-      this.route.navigate(['/adminHome', this.loggedInName]);
-      this.loginService.setLoggedIn(true);
+      this.commonservice.setLoggedInName(this.loggedInName);
+      this.route.navigate(['/adminHome']);
+      this.commonservice.setLoggedIn(true);
     } else {
       this.errorMessage = "Invalid Credentials";
       this.failureMessageFlag = true;

@@ -12,8 +12,9 @@ export class ManchesterUnitedServiceService {
   private getService: GetServiceService) { }
 
 
-  getTeamDetails(): Observable<any> {
-    return this.http.get<any>(this._url);
+  getTeamDetails(val): Observable<any> {
+    this.queryParams = '?teamName=' + val;
+    return this.getService.proccessGetRequest('team', 'squadList','get', this.queryParams);
   }
 
   getTeamInfo(name): Observable<any> {

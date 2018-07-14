@@ -10,29 +10,32 @@ import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.co
 import { AdminHomeResolveService } from './modules/admin-home/admin-home-resolve.service';
 import { PremierLeagueModule } from './modules/teams/premier-league/premier-league.module';
 import { ManchesterUnitedComponent } from './modules/teams/premier-league/manchester-united/manchester-united.component';
-
+import { AboutUsComponent } from './shared/about-us/about-us.component';
 import { ManchesterUnitedResolverService } from './modules/teams/premier-league/manchester-united/manchester-united-resolver.service';
 import { SignUpComponent } from './shared/sign-up/sign-up.component';
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'adminHome/:id', component: AdminHomeComponent, 
-  // canActivate: [AuthGuard],
+  { path: 'adminHome', component: AdminHomeComponent, 
+   canActivate: [AuthGuard],
    resolve: {
     admin: AdminHomeResolveService
    }
   },
-  { path: 'teamInfo/:name', component: ManchesterUnitedComponent,
+  { path: 'teamInfo', component: ManchesterUnitedComponent,
+  canActivate: [AuthGuard],
   resolve: {
     teamInfo: ManchesterUnitedResolverService
   }
 },
   { path: 'signUp', component: SignUpComponent },
+  { path: 'aboutUs', component: AboutUsComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
 imports: [RouterModule.forRoot(routes)],
+
 exports: [RouterModule, ModuleModule, SharedModuleModule, PremierLeagueModule]
 })
 export class AppRoutingModule { }

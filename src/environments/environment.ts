@@ -22,7 +22,8 @@ export const environment = {
     getLeague: 'getLeague'
   },
   team:{
-    teamInfo: 'teamInfo'
+    teamInfo: 'teamInfo',
+    squadList: 'getTeamSquad'
   }
 }
 };
