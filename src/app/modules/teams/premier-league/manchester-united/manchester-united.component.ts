@@ -42,6 +42,8 @@ export class ManchesterUnitedComponent implements OnInit {
   bayernMunich: Boolean;
   evonik: Boolean;
   bvb: Boolean;
+  liverpool: Boolean;
+  scharted: Boolean;
   teamManager = [];
   
   ngOnInit() {
@@ -100,6 +102,8 @@ export class ManchesterUnitedComponent implements OnInit {
       this.telekom = true;
     } else if (val[0].teamSponsor === 'Evonik') {
       this.evonik = true;
+    } else if (val[0].teamSponsor === 'Standard Charted') {
+      this.scharted = true;
     }
 
     if (val[0].teamKitSponsor === 'Adidas') {
@@ -132,6 +136,8 @@ export class ManchesterUnitedComponent implements OnInit {
       this.bayernMunich = true;
     } else if (val[0].teamName === 'Borussia Dortmund') {
       this.bvb = true;
+    } else if (val[0].teamName === 'Liverpool') {
+      this.liverpool = true;
     }
     this.teamManager = val;
   }

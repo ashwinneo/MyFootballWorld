@@ -178,7 +178,34 @@ export class TeamStatsTdComponent implements OnInit {
     } else if (teamInfo[0].teamName === 'Athletico Madrid') {
     } else if (teamInfo[0].teamName === 'Barcelona') {
     } else if (teamInfo[0].teamName === 'Sevilla') {
-    }
+    } else if (teamInfo[0].teamName === 'Liverpool') {
+      this.pieTeamPlayData = [
+        [
+          'Passes',230879,
+        ],
+        [
+          'Passes per match',230.88
+        ],
+        [
+          'Crosses',10,435
+        ]
+      ]
+
+      this.pieDisciplineData = [
+        [
+          'Yellow cards',1263
+        ],
+        [
+          'Red cards',56
+        ],
+        [
+          'Fouls',1013
+        ],
+        [
+          'Offsides',1089
+        ]
+      ]
+    } 
     this.getCharts();
   }
 

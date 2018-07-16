@@ -20,11 +20,11 @@ export class TeamManagerComponent implements OnInit {
   sevilla: Boolean;
   bvb: Boolean;
   bayernMunich: Boolean;
+  liverpool: Boolean;
   teamManagerList = [];
   constructor() { }
 
   ngOnInit() {
-    // console.log(this.teamManager);
     this.teamManagerList = this.teamManager;
     this.getManagerList(this.teamManagerList);
   }
@@ -50,6 +50,8 @@ export class TeamManagerComponent implements OnInit {
       this.bayernMunich = true;
     } else if (val[0].teamName === 'Borussia Dortmund') {
       this.bvb = true;
+    } else if (val[0].teamName === 'Liverpool') {
+      this.liverpool = true;
     }
   }
 

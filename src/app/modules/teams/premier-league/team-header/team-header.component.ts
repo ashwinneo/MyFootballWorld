@@ -12,7 +12,6 @@ export class TeamHeaderComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.teamInfoArr);
     this.teamName = this.teamInfoArr[0].teamName;
   }
 

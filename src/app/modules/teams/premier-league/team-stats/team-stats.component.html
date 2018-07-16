@@ -44,7 +44,7 @@
                          
                      <div class="card-body">
                                 <p class="card-text label-text text-center">Goals Conceded</p>
-                                <p class="card-text content-panel-label-value text-center" *ngIf="list.goalsConceded > 0; else noData">{{list.goalsConceded}}</p>
+                                <p class="card-text content-panel-label-value text-center" *ngIf="list.goalsConceded; else noData">{{list.goalsConceded}}</p>
                      </div>
                  </div>
             </div>

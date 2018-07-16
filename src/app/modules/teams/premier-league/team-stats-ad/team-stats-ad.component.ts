@@ -319,6 +319,69 @@ export class TeamStatsAdComponent implements OnInit {
     } else if (teamInfo[0].teamName === 'Athletico Madrid') {
     } else if (teamInfo[0].teamName === 'Barcelona') {
     } else if (teamInfo[0].teamName === 'Sevilla') {
+    } else if (teamInfo[0].teamName === 'Liverpool') {
+      this.pieData = [
+        [
+          'Goals',1685,
+        ],
+        [
+          'Goals per match',1.69
+        ],
+        [
+          'Shots',7868
+        ],
+        [
+          'Shots on target',2606
+        ],
+        [
+          'Penalties scored',57
+        ],
+        [
+          'Big chances created',500
+        ],
+        [
+          'Hit woodwork',227
+        ]
+      ]
+      this.pieDefenseData = [
+        [
+          'Clean Sheets',373
+        ],
+        [
+          'Goals conceded',1024
+        ],
+        [
+          'Goals conceded per match',1.02
+        ],
+        [
+          'Saves',422
+        ],
+        [
+          'Tackles',10247
+        ],
+        [
+          'Blocked shots',2006
+        ],
+        [
+          'Interceptions',6148
+        ],
+        [
+          'Clearances',13145
+        ],
+        [
+          'Headed Clearance',4506
+        ],
+        [
+          'Aerial Battles/Duels Won',31913
+        ],
+        [
+          'Errors leading to goal',83
+        ],
+        [
+          'Own goals',39
+        ]
+      ]
+
     }
     this.getCharts();
   }
