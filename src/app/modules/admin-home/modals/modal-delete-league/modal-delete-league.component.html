@@ -1,0 +1,46 @@
+<div class="modal" id="myModal" tabindex="-1" role="dialog" [style.display]="display">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #009ece;">
+        <h5 class="modal-title" style="color: #fff">Delete League</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" style="color:#fff" (click)="closePopup(league)">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div *ngIf="deleteLeagueFlag">
+          <div class="row mb-3">
+          <div class="col-sm-12"><div class="text-center">Are you sure you want to delete this league?</div>  </div>
+          </div>
+
+          <div class="row mt-5">
+              <div class="col-sm-6">
+                <div class="float-right">
+                  <button type="submit" class="btn btn-primary" (click)="deleteLeague()">Confirm</button>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <button type="button" class="btn btn-secondary" (click)="closePopup()" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="successFlag">
+            <div class="row mb-3">
+              
+            <div class="col-sm-12"><div class="text-center"><span class="text-success">Succesfully Deleted</span></div></div>  
+            </div>
+  
+            <div class="row mt-5">
+                <div class="col-sm-12">
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-primary" (click)="goToLeagueList()">Ok</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+      </div>
+    </div>
+  </div>
+  
+</div>

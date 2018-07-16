@@ -63,11 +63,16 @@
         </div>
 
         <div class="wrap-input100 validate-input m-b-10" data-validate="Password is required">
-          <input class="input100" type="password" name="password" placeholder="Password" [(ngModel)]="password">
+          <input class="input100" type="{{type}}" name="password" placeholder="Password" [(ngModel)]="password">
+          
           <span class="focus-input100"></span>
-          <span class="symbol-input100">
+          <span class="symbol-input100" style="bottom: 10px !important;">
             <i class="fa fa-lock"></i>
           </span>
+          <span (click)="toggleShow()"><i class="fa fa-eye faEye"></i></span>
+          <!-- <span class="symbol-password">
+            <i class="fa fa-eye" (click)="toggleShow()"></i>
+          </span> -->
         </div>
 
         <div class="container-login100-form-btn p-t-10">

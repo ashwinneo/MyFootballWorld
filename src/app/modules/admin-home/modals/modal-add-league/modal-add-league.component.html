@@ -1,0 +1,83 @@
+<div class="modal" id="myModal" tabindex="-1" role="dialog" [style.display]="display">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #009ece;">
+        <h5 class="modal-title" style="color: #fff">Create League</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" style="color:#fff" (click)="closePopup(league)">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <div *ngIf="createLeagueFlag">
+        <div class="row mb-3">
+          <div class="col-sm-4">
+            <div class="ml-5">
+              <label>Name</label>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <input class="form-control" name="name" [(ngModel)]="league.name">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-sm-4">
+            <div class="ml-5">
+              <label>Manager</label>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <input class="form-control" name="manager" [(ngModel)]="league.manager">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-sm-4">
+            <div class="ml-5">
+              <label>Country</label>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <input class="form-control" name="country" [(ngModel)]="league.country">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-sm-4">
+            <div class="ml-5">
+              <label>League</label>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <input class="form-control" name="league" [(ngModel)]="league.league">
+          </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-sm-6">
+              <div class="float-right">
+                  <button type="button" class="btn btn-primary" (click)="createLeague(league)">Save changes</button>
+              </div>
+            </div>
+            <div class="col-sm-6">
+                <button type="button" class="btn btn-secondary" (click)="closePopup(league)" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>  
+
+          <div *ngIf="successFlag">
+            <div class="row mb-3">
+              
+            <div class="col-sm-12"><div class="text-center"><span class="text-success">Succesfully {{status}}</span></div></div>  
+            </div>
+  
+            <div class="row mt-5">
+                <div class="col-sm-12">
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-primary" (click)="goToLeagueList()">Ok</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+      </div>
+    </div>
+  </div>
+  
+</div>

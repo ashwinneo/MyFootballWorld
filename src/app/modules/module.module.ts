@@ -15,6 +15,9 @@ import { PremierLeagueModule } from './teams/premier-league/premier-league.modul
 import { SharedModuleModule } from './../shared/shared-module.module';
 import { Admin } from './admin-home/admin';
 import { AdminHomeResolveService } from './admin-home/admin-home-resolve.service';
+import { ModalAddLeagueComponent } from './admin-home/modals/modal-add-league/modal-add-league.component';
+import { ModalEditLeagueComponent } from './admin-home/modals/modal-edit-league/modal-edit-league.component';
+import { ModalDeleteLeagueComponent } from './admin-home/modals/modal-delete-league/modal-delete-league.component';
 @NgModule({
   imports: [
   CommonModule,
@@ -30,7 +33,10 @@ import { AdminHomeResolveService } from './admin-home/admin-home-resolve.service
   ],
   declarations: [
     LoginComponent,
-    AdminHomeComponent
+    AdminHomeComponent,
+    ModalAddLeagueComponent,
+    ModalEditLeagueComponent,
+    ModalDeleteLeagueComponent
   ],
   providers: [
     LoginServiceService,

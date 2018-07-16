@@ -1,0 +1,85 @@
+<div class="modal" id="myModal" tabindex="-1" role="dialog" [style.display]="display">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #009ece;">
+        <h5 class="modal-title" style="color: #fff">Edit League</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" style="color:#fff" (click)="closeEditPopup()">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div *ngIf="editLeagueFlag">
+        <form (submit)="updateLeague($event)">
+          <div class="row mb-3">
+            <div class="col-sm-4">
+              <div class="ml-5">
+                <label>Name</label>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <input class="form-control" name="name1" [(ngModel)]="name1">
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-sm-4">
+              <div class="ml-5">
+                <label>Manager</label>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <input class="form-control" name="manager1" [(ngModel)]="manager1">
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-sm-4">
+              <div class="ml-5">
+                <label>Country</label>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <input class="form-control" name="country1" [(ngModel)]="country1">
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-sm-4">
+              <div class="ml-5">
+                <label>League</label>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <input class="form-control" name="league1" [(ngModel)]="league2">
+            </div>
+          </div>
+
+          <div class="row mt-5">
+            <div class="col-sm-6">
+              <div class="float-right">
+                <button type="submit" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <button type="button" class="btn btn-secondary" (click)="closeEditPopup()" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div *ngIf="successFlag">
+          <div class="row mb-3">
+            
+          <div class="col-sm-12"><div class="text-center"><span class="text-success">Succesfully {{status}}</span></div></div>  
+          </div>
+
+          <div class="row mt-5">
+              <div class="col-sm-12">
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary" (click)="goToLeagueList()">Ok</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+      </div>
+    </div>
+  </div>
+</div>

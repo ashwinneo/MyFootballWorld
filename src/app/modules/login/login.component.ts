@@ -33,8 +33,23 @@ export class LoginComponent implements OnInit {
   errorMessage: String;
   passwordResponse: String;
   loggedInName: String;
+  type: String;
+  show: Boolean;
   ngOnInit() {
+    this.type = "password";
+    this.show = false;
   }
+
+  toggleShow()
+    {
+        this.show = !this.show;
+        if (this.show){
+            this.type = "text";
+        }
+        else {
+            this.type = "password";
+        }
+    }
 
   login(event) {
     this.username = event.target[0].value;
@@ -52,6 +67,7 @@ export class LoginComponent implements OnInit {
       this.errorMessage = "Invalid Credentials";
       this.failureMessageFlag = true;
       this.display = 'block';
+      this.password = '';
       this.confirmEmail = false;
       this.confirmPassword = false;
       this.successMessageFlag = false;
@@ -69,6 +85,7 @@ navigate(id, pwd){
       this.errorMessage = "Invalid Credentials";
       this.failureMessageFlag = true;
       this.display = 'block';
+      this.password = '';
       this.spinner.hide();
       this.confirmEmail = false;
       this.confirmPassword = false;

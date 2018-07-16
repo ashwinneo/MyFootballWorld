@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   { path: 'adminHome', component: AdminHomeComponent, 
-   canActivate: [AuthGuard],
+  // canActivate: [AuthGuard],
    resolve: {
     admin: AdminHomeResolveService
    }
