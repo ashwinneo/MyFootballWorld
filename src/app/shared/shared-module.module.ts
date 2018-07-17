@@ -8,6 +8,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { SignUpServiceService } from './sign-up/sign-up-service.service';
 import { HeaderServiceService } from './header/header-service.service';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { ModalUpdatePasswordComponent } from './header/modal-update-password/modal-update-password.component';
+import { ModalUpdateProfileComponent } from './header/modal-update-profile/modal-update-profile.component';
 @NgModule({
   imports: [    
   CommonModule,
@@ -18,7 +20,9 @@ import { AboutUsComponent } from './about-us/about-us.component';
     PageNotFoundComponent,
     HeaderComponent,
     SignUpComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    ModalUpdatePasswordComponent,
+    ModalUpdateProfileComponent
   ],
   providers: [
     SignUpServiceService,

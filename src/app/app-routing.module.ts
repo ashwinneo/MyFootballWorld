@@ -17,13 +17,13 @@ const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   { path: 'adminHome', component: AdminHomeComponent, 
-  // canActivate: [AuthGuard],
+  canActivate: [AuthGuard],
    resolve: {
     admin: AdminHomeResolveService
    }
   },
   { path: 'teamInfo', component: ManchesterUnitedComponent,
-  //canActivate: [AuthGuard],
+  canActivate: [AuthGuard],
   resolve: {
     teamInfo: ManchesterUnitedResolverService
   }

@@ -27,30 +27,13 @@ export class HeaderComponent implements OnInit {
   successFlag: Boolean;
   successMessage: String;
   confirmPassword: Boolean;
+  userList =  [];
   @Input('leagueList') leagueList;
   constructor(private headerService: HeaderServiceService,
   private spinner: NgxSpinnerService,
   private loginService: LoginServiceService,
   private route: Router) { }
   leagueArray = [];
-  // leagueList = [
-  //   {
-  //     id: 'Premier League',
-  //     name: 'Premier League'
-  //   },
-  //   {
-  //     id: 'Spanish Premier League',
-  //     name: 'La Liga (Spanish)'
-  //   },
-  //   {
-  //     id: 'BUNDESLIGA',
-  //     name: 'Bundesliga'
-  //   },
-  //   {
-  //     id: 'Indian Super League',
-  //     name: 'Indian Super League'
-  //   }
-  // ];
 
   profileArray = [
     {
@@ -93,6 +76,7 @@ export class HeaderComponent implements OnInit {
     this.headerService.getUserDetails(emailId).subscribe( data=> {
       //console.log(data);
       this.spinner.hide();
+      this.userList = data.leagueResponse;
       this.name = data.leagueResponse.fullName;
       this.email = data.leagueResponse.email;
       this.userName = data.leagueResponse.userName;
@@ -103,81 +87,27 @@ export class HeaderComponent implements OnInit {
       this.country = data.leagueResponse.userDetails.country;
       this.id = data.leagueResponse.id;
       this.password = data.leagueResponse.password;
-    })
-    if (val.value === 'Update Profile') {
-      
-      this.display = 'block';
-      this.updateUserFlag = true;
-      this.successFlag = false;
-      this.confirmPassword = false;
-      
-    } else if(val.value === 'Update Password') {
-      this.display = 'block';
-      this.confirmPassword = true;
-      this.updateUserFlag = false;
-      this.successFlag = false;
-    } else if (val.value === 'About') {
-      this.route.navigate(['aboutUs']);
-    }
-  }
-
-  submitPassword(val) {
-    this.spinner.show();
-    this.oldPassword = val.target[0].value;
-    if (this.oldPassword === this.password) {
-      //console.log('match');
-      let forgotPasswordObj = {
-        'id': this.id,
-        'password': val.target[1].value,
-        'repeatPassword': val.target[2].value
-      }
-      //console.log(forgotPasswordObj);
-      this.loginService.updatePassword(forgotPasswordObj).subscribe(data => {
-          if (data.appStatus === 0) {
-            this.successMessage = "Password Updated Successfully";
-            this.spinner.hide();
-            this.successFlag = true;
-            this.confirmPassword = false;
-            this.updateUserFlag = false;
-          }
-      })
-    } else {
-      this.spinner.hide();
-      //this.failureMessageFlag = true;
-      this.successFlag = false;
-      this.updateUserFlag = false;
-      this.confirmPassword = false;
-      //this.errorMessage = 'Incorrect Old Password';
-    }
-  }
-
-  closePopup() {
-    this.display = 'none';
-  }
-
-  updateProfile(val) {
-
-    let userDetailsObj = {
-      "id": this.id,
-      "fullName" : val.target[0].value,
-      "email" : val.target[1].value,
-      "userName" : val.target[2].value,
-      "address" : val.target[3].value,
-      "country" : val.target[4].value,
-      "state" : val.target[5].value,      
-      "city" : val.target[6].value,
-      "zipCode" : val.target[7].value    
-    }
-    console.log(userDetailsObj);
-
-    this.headerService.updateUserDetails(userDetailsObj).subscribe(data => {
-      if (data.appStatus === 0) {
-        this.updateUserFlag = false;
-        this.successFlag = true;
-        this.confirmPassword = false;
-        this.successMessage = 'Updated Successfully';
+      if (val.value === 'Update Profile') {
+        this.updateUserFlag = true;        
+      } else if(val.value === 'Update Password' && this.id != undefined && this.password != undefined ) {
+        this.confirmPassword = true;
+        this.spinner.hide();
+      } else if (val.value === 'About') {
+        this.route.navigate(['aboutUs']);
       }
     })
-
+   
   }
+
+ 
+
+  closePopup(val) {
+    if (this.confirmPassword === true) {
+      this.confirmPassword = val;
+    } else if (this.updateUserFlag === true) {
+      this.updateUserFlag = val;
+    }
+  }
+
+  
 }

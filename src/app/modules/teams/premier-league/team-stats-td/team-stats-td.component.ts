@@ -187,7 +187,7 @@ export class TeamStatsTdComponent implements OnInit {
           'Passes per match',230.88
         ],
         [
-          'Crosses',10,435
+          'Crosses',10435
         ]
       ]
 
