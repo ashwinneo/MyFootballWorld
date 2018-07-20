@@ -1,0 +1,46 @@
+<div class="modal" id="myModal" tabindex="-1" role="dialog" [style.display]="display">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #009ece;">
+        <h5 class="modal-title" style="color: #fff">Forgot Password</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" style="color:#fff" (click)="closePopup()">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+      
+          <form (submit)="submit12($event)">
+            <div class="row">
+              <div class="col-sm-12">
+                <!-- class="input100" -->
+                <div class="text-center label-text">Enter Your Email ID</div>
+                <div class="text-center mt-3">
+                  <input type="text" class="form-control" name="email" [(ngModel)]="email" style="border: 1px solid gray !important">
+                </div>
+              </div>
+            </div>
+            <div class="row mt-5">
+              <div class="col-sm-6">
+                <div class="float-right">
+                  <!-- <button class="btn btn-success" style="border: 1px solid gray;">
+                  Submit
+                </button> -->
+                  <input type="submit" value="Submit" class="btn btn-success">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div>
+                  <!-- <button class="btn btn-success" (click)="closePopup()">
+                    Cancel
+                  </button> -->
+                  <input type="button" value="Cancel" class="btn" (click)="closePopup()">
+                </div>
+              </div>
+            </div>
+          </form>
+        
+    </div>
+  </div>
+</div>
+</div>

@@ -10,12 +10,12 @@
 
         <div class="wrap-input100 validate-input" data-validate="Name is required">
           <span class="label-input100">Full Name</span>
-          <input class="input100" type="text" name="name" placeholder="Name..." [(ngModel)]="name" (change)="setFullName(name)">
+          <input class="input100" type="text" name="name" placeholder="Name..." [(ngModel)]="name" (keyup)="setFullName(name)">
         </div>
 
         <div class="wrap-input100 validate-input" data-validate="Name is required">
             <span class="label-input100">Address</span>
-            <textarea class="input100" name="address" placeholder="Address..." [(ngModel)]="address" (change)="setAddress(address)"></textarea>
+            <textarea class="input100" name="address" placeholder="Address..." [(ngModel)]="address" (keyup)="setAddress(address)"></textarea>
         </div>
 
         <div class="wrap-input100 validate-input" data-validate="Name is required">
@@ -273,48 +273,48 @@
 
         <div class="wrap-input100 validate-input" data-validate="Name is required">
             <span class="label-input100">State</span>
-            <input class="input100" type="text" name="state" placeholder="State..." [(ngModel)]="state" (change)="setState(state)">
+            <input class="input100" type="text" name="state" placeholder="State..." [(ngModel)]="state" (keyup)="setState(state)">
         </div>
 
         <div class="wrap-input100 validate-input" data-validate="Name is required">
             <span class="label-input100">City</span>
-            <input class="input100" type="text" name="city" placeholder="City..." [(ngModel)]="city" (change)="setCity(city)">
+            <input class="input100" type="text" name="city" placeholder="City..." [(ngModel)]="city" (keyup)="setCity(city)">
         </div>
 
         <div class="wrap-input100 validate-input" data-validate="Name is required">
             <span class="label-input100">Zip / Postal Code</span>
-            <input class="input100" type="text" name="zipCode" placeholder="Zip Code..." [(ngModel)]="zipCode" (change)="setZipcode(zipCode)">
+            <input class="input100" type="text" name="zipCode" placeholder="Zip Code..." [(ngModel)]="zipCode" (keyup)="setZipcode(zipCode)">
         </div>
 
         <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
           <span class="label-input100" [class.error]="emailErrorFlag">Email</span><i class="fa fa-exclamation-triangle" (click)="showDetail('email')" *ngIf="emailErrorFlag" style="color: red;position: relative;top: 40px;left: 350px;"></i>
           <div *ngIf="emailFlag" class="errorBlock"><span> {{errorLength}}<br></span></div>
-          <input class="input100" type="text" name="email" placeholder="Email addess..." [(ngModel)]="email" (change)="setEmail(email)">
+          <input class="input100" type="text" name="email" placeholder="Email addess..." [(ngModel)]="email" (keyup)="setEmail(email)">
           <span class="focus-input100"> </span>
         </div>
 
         <div class="wrap-input100 validate-input" data-validate="Username is required">
           <span class="label-input100">Username</span>
-          <input class="input100" type="text" name="username" placeholder="Username..." [(ngModel)]="username" (change)="setUserName(username)">
+          <input class="input100" type="text" name="username" placeholder="Username..." [(ngModel)]="username" (keyup)="setUserName(username)">
           <span class="focus-input100"></span>
         </div>
 
         <div class="wrap-input100 validate-input" data-validate = "Password is required">
           <span class="label-input100" [class.error]="repeatPasswordFlag">Password</span><i class="fa fa-exclamation-triangle" (click)="showDetail('password')" *ngIf="repeatPasswordFlag" style="color: red;position: relative;top: 40px;left: 310px;"></i>
           <div *ngIf="passwordDetailFlag" class="errorBlock"><span> {{errorLength}}<br>  {{errorSpecialChar}}<br>  {{errorNumber}}</span></div>
-          <input class="input100" type="password" name="pass" placeholder="*************" [(ngModel)]="pass" (change)="setPassword(pass)">
+          <input class="input100" type="password" name="pass" placeholder="*************" [(ngModel)]="pass" (keyup)="setPassword(pass)">
           <span class="focus-input100"></span>
         </div>
 
         <div class="wrap-input100 validate-input" data-validate = "Repeat Password is required" style="margin-bottom: 20px !important;">
           <span class="label-input100" [class.error]="passwordFlag">Repeat Password</span><i class="fa fa-exclamation-triangle" (click)="showDetail('repeatPassword')" *ngIf="passwordFlag" style="color: red;position: relative;top: 40px;left: 241px;"></i>
           <div *ngIf="repeatPasswordDetailFlag" class="errorBlock"><span> {{errorLength}}<br></span></div>
-          <input class="input100" type="password" name="repeat-pass" placeholder="*************" [(ngModel)]="repeatpass" (change)="setRepeatPassword(repeatpass)">
+          <input class="input100" type="password" name="repeat-pass" placeholder="*************" [(ngModel)]="repeatpass" (keyup)="setRepeatPassword(repeatpass)">
           <span class="focus-input100"></span>
         </div>
         <div class="flex-m w-full p-b-33 mt-3">
           <div class="contact100-form-checkbox">
-            <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me" [(ngModel)]="isChecked" (change)="setChecked(isChecked)">
+            <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me" [(ngModel)]="isChecked" (keyup)="setChecked(isChecked)">
             <label class="label-checkbox100" for="ckb1">
               <span class="txt1">
                 I agree to the

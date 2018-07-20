@@ -99,7 +99,9 @@ export class HeaderComponent implements OnInit {
    
   }
 
- 
+  navigateTo() {
+    this.route.navigate['/adminHome'];
+  }
 
   closePopup(val) {
     if (this.confirmPassword === true) {

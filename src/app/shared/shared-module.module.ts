@@ -10,9 +10,12 @@ import { HeaderServiceService } from './header/header-service.service';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ModalUpdatePasswordComponent } from './header/modal-update-password/modal-update-password.component';
 import { ModalUpdateProfileComponent } from './header/modal-update-profile/modal-update-profile.component';
+
+import { ModalSuccessComponent } from './modal/modal-success/modal-success.component';
+import { ModalFailureComponent } from './modal/modal-failure/modal-failure.component';
 @NgModule({
   imports: [    
-  CommonModule,
+CommonModule,
   FormsModule,
   NgxSpinnerModule
   ],
@@ -22,7 +25,9 @@ import { ModalUpdateProfileComponent } from './header/modal-update-profile/modal
     SignUpComponent,
     AboutUsComponent,
     ModalUpdatePasswordComponent,
-    ModalUpdateProfileComponent
+    ModalUpdateProfileComponent,
+    ModalSuccessComponent,
+    ModalFailureComponent
   ],
   providers: [
     SignUpServiceService,
@@ -31,7 +36,8 @@ import { ModalUpdateProfileComponent } from './header/modal-update-profile/modal
   exports: [
     PageNotFoundComponent,
     HeaderComponent,
-    SignUpComponent
+    SignUpComponent,
+    ModalFailureComponent
   ]
 })
 export class SharedModuleModule { }

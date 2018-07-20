@@ -35,6 +35,18 @@ export class LoginComponent implements OnInit {
   loggedInName: String;
   type: String;
   show: Boolean;
+  errorFlag: Boolean;
+  radio = [
+    {
+      "label": "YES",
+      "value": "Yes"
+    },
+    {
+      "label": "NO",
+      "value": "No"
+    }
+  ]
+
   ngOnInit() {
     this.type = "password";
     this.show = false;
@@ -83,13 +95,9 @@ navigate(id, pwd){
       this.commonservice.setLoggedIn(true);
     } else {
       this.errorMessage = "Invalid Credentials";
-      this.failureMessageFlag = true;
-      this.display = 'block';
       this.password = '';
       this.spinner.hide();
-      this.confirmEmail = false;
-      this.confirmPassword = false;
-      this.successMessageFlag = false;
+      this.errorFlag = true;
     }
   }
 
@@ -98,7 +106,7 @@ navigate(id, pwd){
   }
 
   openPopup() {
-    this.display = 'block';
+    //this.display = 'block';
     this.confirmEmail = true;
     if (this.confirmPassword === true || this.successMessageFlag === true || this.failureMessageFlag == true) {
       this.confirmPassword = false;
@@ -107,62 +115,35 @@ navigate(id, pwd){
     }
   }
 
-  closePopup() {
-    this.display = 'none';
+  closePopup(val) {
+   if (this.confirmEmail === true) {
+     this.confirmEmail = val;
+   } else if (this.confirmPassword === true) {
+     this.confirmPassword = val;
+   } else if (this.errorFlag === true) {
+     this.errorFlag = false;
+   }
   }
 
-  submit12(val) {
-    this.spinner.show();
-    this.emailId = val.target[0].value;
-
-    this.loginService.getUserDetailsByEmailId(this.emailId).subscribe(data => {
-      if (data.appStatus == 1) {
-          this.errorMessage = "Invalid EmailId!"
-          this.spinner.hide();
-          this.failureMessageFlag = true;
-          this.successMessageFlag = false;
-          this.confirmEmail = false;
-          this.confirmPassword = false;
-        } else {
-        this.spinner.hide();
-        this.confirmEmail = false;
-        this.confirmPassword = true;
-        this.successMessageFlag = false;
-        this.failureMessageFlag = false;
-        this.passwordResponse = data.leagueResponse.password;
-        this.id = data.leagueResponse.id;
-      }
-      })
-    
-
+  navigateToNet(val) {
+    this.confirmPassword = val;
+    this.confirmEmail = false;
   }
 
-  submitPassword(val) {
-    this.spinner.show();
-      let forgotPasswordObj = {
-        'id': this.id,
-        'password': val.target[0].value,
-        'repeatPassword': val.target[1].value
-      }
-      this.loginService.updatePassword(forgotPasswordObj).subscribe(data => {
-          if (data.appStatus === 0) {
-            this.successMessage = data.successMessage;
-            this.spinner.hide();
-            this.successMessageFlag = true;
-            this.confirmEmail = false;
-            this.confirmPassword = false;
-            this.failureMessageFlag = false;
-          }
-      })
-    // } else {
-    //   this.spinner.hide();
-    //   this.failureMessageFlag = true;
-    //   this.successMessageFlag = false;
-    //   this.confirmEmail = false;
-    //   this.confirmPassword = false;
-    //   this.errorMessage = 'Incorrect Old Password';
-    // }
+  getId(val) {
+    this.id = val;
   }
+
+  getError(val) {
+    this.confirmEmail = false;
+    this.errorFlag = true;
+  }
+
+  setErrorMessage(val) {
+    this.errorMessage = val;
+    console.log(this.errorMessage);
+  }
+
 }
 
 

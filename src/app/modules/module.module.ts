@@ -18,6 +18,8 @@ import { AdminHomeResolveService } from './admin-home/admin-home-resolve.service
 import { ModalAddLeagueComponent } from './admin-home/modals/modal-add-league/modal-add-league.component';
 import { ModalEditLeagueComponent } from './admin-home/modals/modal-edit-league/modal-edit-league.component';
 import { ModalDeleteLeagueComponent } from './admin-home/modals/modal-delete-league/modal-delete-league.component';
+import { ModalChangePasswordComponent } from './login/modal-change-password/modal-change-password.component';
+import { ModalConfirmEmailComponent } from './login/modal-confirm-email/modal-confirm-email.component';
 @NgModule({
   imports: [
   CommonModule,
@@ -36,7 +38,9 @@ import { ModalDeleteLeagueComponent } from './admin-home/modals/modal-delete-lea
     AdminHomeComponent,
     ModalAddLeagueComponent,
     ModalEditLeagueComponent,
-    ModalDeleteLeagueComponent
+    ModalDeleteLeagueComponent,
+    ModalChangePasswordComponent,
+    ModalConfirmEmailComponent
   ],
   providers: [
     LoginServiceService,
