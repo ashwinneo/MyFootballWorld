@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
   confirmPassword: Boolean;
   oldPassword: String;
   successMessage: String;
-  successMessageFlag: Boolean;
+  successFlag: Boolean;
   failureMessageFlag: Boolean;
   errorMessage: String;
   passwordResponse: String;
@@ -82,7 +82,7 @@ export class LoginComponent implements OnInit {
       this.password = '';
       this.confirmEmail = false;
       this.confirmPassword = false;
-      this.successMessageFlag = false;
+      //this.successMessageFlag = false;
     }
     
   });
@@ -108,9 +108,9 @@ navigate(id, pwd){
   openPopup() {
     //this.display = 'block';
     this.confirmEmail = true;
-    if (this.confirmPassword === true || this.successMessageFlag === true || this.failureMessageFlag == true) {
+    if (this.confirmPassword === true || this.failureMessageFlag == true) {
       this.confirmPassword = false;
-      this.successMessageFlag = false;
+      //this.successMessageFlag = false;
       this.failureMessageFlag = false;
     }
   }
@@ -121,7 +121,9 @@ navigate(id, pwd){
    } else if (this.confirmPassword === true) {
      this.confirmPassword = val;
    } else if (this.errorFlag === true) {
-     this.errorFlag = false;
+     this.errorFlag = val;
+   } else if (this.successFlag === true) {
+     this.successFlag = val;
    }
   }
 
@@ -142,6 +144,15 @@ navigate(id, pwd){
   setErrorMessage(val) {
     this.errorMessage = val;
     console.log(this.errorMessage);
+  }
+
+  getSuccess(val) {
+    this.confirmPassword = false;
+    this.successFlag = true;
+  }
+
+  setSuccessMessage(val) {
+    this.successMessage = val;
   }
 
 }

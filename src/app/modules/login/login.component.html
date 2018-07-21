@@ -76,7 +76,7 @@
         </div>
 
         <div class="container-login100-form-btn p-t-10">
-          <button class="login100-form-btn">
+          <button class="login100-form-btn" [disabled]="false">
             Login
           </button>
         </div>
@@ -95,9 +95,9 @@
   </div>
 </div>
 <app-modal-confirm-email *ngIf="confirmEmail" (close)="closePopup($event)" (emitId)="getId($event)" (errorText)="setErrorMessage($event)" (error)="getError($event)" (nextScreen)="navigateToNet($event)"></app-modal-confirm-email>
-<app-modal-change-password *ngIf="confirmPassword" [id]="id" (close)="closePopup($event)"></app-modal-change-password>
+<app-modal-change-password *ngIf="confirmPassword" [id]="id" (success)="setSuccessMessage($event)" (successFlag)="getSuccess($event)" (close)="closePopup($event)"></app-modal-change-password>
 <app-modal-failure *ngIf="errorFlag"  (close)="closePopup($event)" [errorMessage]="errorMessage"></app-modal-failure>
-
+<app-modal-success *ngIf="successFlag" [successMessage]="successMessage"  (close)="closePopup($event)"></app-modal-success>
 <ngx-spinner
 bdColor = "rgba(51, 51, 51, 0.8)"
 size = "medium"

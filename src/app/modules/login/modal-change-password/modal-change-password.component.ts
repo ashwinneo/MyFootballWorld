@@ -13,7 +13,10 @@ export class ModalChangePasswordComponent implements OnInit {
 
   display: String;
   @Output() close = new EventEmitter<any>();
+  @Output() success = new EventEmitter<any>();
+  @Output() successFlag = new EventEmitter<any>();
   @Input("id") id;
+  successMessage: String;
   constructor(private loginService: LoginServiceService,
     private route: Router,
     private spinner: NgxSpinnerService,
@@ -36,9 +39,10 @@ export class ModalChangePasswordComponent implements OnInit {
       }
       this.loginService.updatePassword(forgotPasswordObj).subscribe(data => {
           if (data.appStatus === 0) {
-            // this.successMessage = data.successMessage;
+            this.successMessage = data.successMessage;
             this.spinner.hide();
-            this.close.emit(false);
+            this.successFlag.emit(true);
+            this.success.emit(this.successMessage);
             // this.successMessageFlag = true;
             // this.confirmEmail = false;
             // this.confirmPassword = false;

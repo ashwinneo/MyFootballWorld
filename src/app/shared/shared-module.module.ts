@@ -37,7 +37,8 @@ CommonModule,
     PageNotFoundComponent,
     HeaderComponent,
     SignUpComponent,
-    ModalFailureComponent
+    ModalFailureComponent,
+    ModalSuccessComponent
   ]
 })
 export class SharedModuleModule { }

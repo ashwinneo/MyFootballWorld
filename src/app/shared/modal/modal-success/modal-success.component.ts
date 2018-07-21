@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 
 @Component({
   selector: 'app-modal-success',
@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModalSuccessComponent implements OnInit {
 
+  display: String;
   constructor() { }
-
+  @Input('successMessage') successMessage;
+  successText: String;
+  @Output() close = new EventEmitter<any>();
   ngOnInit() {
+    this.display = 'block';
+    this.successText = this.successMessage;
+  }
+
+  closePopup() {
+    this.close.emit(false);
   }
 
 }
