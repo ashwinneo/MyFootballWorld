@@ -17,7 +17,7 @@
               <td>{{list.playerName}}</td>
               <td>{{list.kitNumber}}</td>
               <td>{{list.position}}</td>
-              <td>{{list.country}}</td>
+              <td><span [ngClass]="'flag-icon flag-icon-' + list.country"></span></td>
           </tr>
           <tr *ngIf="squadList[0].length == 0">
               <td></td>

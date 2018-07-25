@@ -37,7 +37,8 @@
               </div>
             </div>
             <div class="col-sm-6">
-              <input class="form-control" name="country1" [(ngModel)]="country1">
+              <!-- <input class="form-control" name="country1" [disabled]="true" [(ngModel)]="country1"> -->
+              <span [ngClass]="'flag-icon flag-icon-' + country1"></span>
             </div>
           </div>
           <div class="row mb-3">

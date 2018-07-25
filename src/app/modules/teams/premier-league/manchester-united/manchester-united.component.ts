@@ -53,6 +53,7 @@ export class ManchesterUnitedComponent implements OnInit {
   heightSrc: String;
   widthSponsor: String;
   heightSponsor: String;
+  everton: Boolean;
   teamKitArray = [
     {
       'label': 'Adidas',
@@ -77,6 +78,12 @@ export class ManchesterUnitedComponent implements OnInit {
       'teamKit': '/assets/images/team-kit-sponsor/newBalance.png',
       'width': '50',
       'height': '50'
+    },
+    {
+      'label': 'Umbro',
+      'teamKit': '/assets/images/team-kit-sponsor/umbro.png',
+      'width': '30',
+      'height': '30'
     }
   ]
 
@@ -146,6 +153,12 @@ export class ManchesterUnitedComponent implements OnInit {
       'teamSponsor': '/assets/images/team-sponsor/aia.png',
       'width': '80',
       'height': '20'
+    },
+    {
+      'label': 'Sportpesa',
+      'teamSponsor': '/assets/images/team-sponsor/sportpesa.jpg',
+      'width': '60',
+      'height': '30'
     }
   ]
 
@@ -230,6 +243,8 @@ export class ManchesterUnitedComponent implements OnInit {
       this.liverpool = true;
     } else if (val[0].teamName === 'Tottenham Hotspur') {
       this.tottenham = true;
+    } else if (val[0].teamName === 'Everton') {
+      this.everton = true;
     }
     this.teamManager = val;
   }

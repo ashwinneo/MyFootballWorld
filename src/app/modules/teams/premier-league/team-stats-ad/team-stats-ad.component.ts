@@ -445,6 +445,69 @@ export class TeamStatsAdComponent implements OnInit {
         ]
       ]
 
+    } else if (teamInfo[0].teamName === 'Everton') {
+      this.pieData = [
+        [
+          'Goals',1303,
+        ],
+        [
+          'Goals per match',1.30
+        ],
+        [
+          'Shots',6153
+        ],
+        [
+          'Shots on target',2086
+        ],
+        [
+          'Penalties scored',47
+        ],
+        [
+          'Big chances created',419
+        ],
+        [
+          'Hit woodwork',140
+        ]
+      ]
+      this.pieDefenseData = [
+        [
+          'Clean Sheets',307
+        ],
+        [
+          'Goals conceded',1265
+        ],
+        [
+          'Goals conceded per match',1.26
+        ],
+        [
+          'Saves',552
+        ],
+        [
+          'Tackles',8818
+        ],
+        [
+          'Blocked shots',1639
+        ],
+        [
+          'Interceptions',6358
+        ],
+        [
+          'Clearances',16016
+        ],
+        [
+          'Headed Clearance',5419
+        ],
+        [
+          'Aerial Battles/Duels Won',31034
+        ],
+        [
+          'Errors leading to goal',74
+        ],
+        [
+          'Own goals',48
+        ]
+      ]
+
     }
     this.getCharts();
   }

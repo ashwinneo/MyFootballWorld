@@ -27,7 +27,7 @@
       <div class="row ml-3 mt-3 mb-3" *ngFor="let list of managerInfoArray">
           <div class="col-sm-4">
               <label class="label-text">Country</label>
-              <div><span class="content-panel-label-value">{{list.country}}</span></div>
+              <div><span [ngClass]="'flag-icon flag-icon-' + list.country"></span></div>
           </div>
           <div class="col-sm-4">
               <label class="label-text">Date Joined</label>

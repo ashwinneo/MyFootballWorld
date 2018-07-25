@@ -232,6 +232,33 @@ export class TeamStatsTdComponent implements OnInit {
           'Offsides',1078
         ]
       ]
+    } else if (teamInfo[0].teamName === 'Everton') {
+      this.pieTeamPlayData = [
+        [
+          'Passes',187182,
+        ],
+        [
+          'Passes per match',187.18
+        ],
+        [
+          'Crosses',10389
+        ]
+      ]
+
+      this.pieDisciplineData = [
+        [
+          'Yellow cards',1516
+        ],
+        [
+          'Red cards',89
+        ],
+        [
+          'Fouls',1059
+        ],
+        [
+          'Offsides',1023
+        ]
+      ]
     }
     this.getCharts();
   }
