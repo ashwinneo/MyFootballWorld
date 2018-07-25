@@ -8,11 +8,17 @@ import { Component, OnInit, Input } from '@angular/core';
 export class TeamHeaderComponent implements OnInit {
 
   teamName = [];
+  managerName = [];
   @Input("teamInfoArr") teamInfoArr;
+  @Input("managerInfoArray") managerInfoArray;
   constructor() { }
 
   ngOnInit() {
-    this.teamName = this.teamInfoArr[0].teamName;
+    if (this.teamInfoArr) {
+      this.teamName = this.teamInfoArr[0].teamName;
+    } else if(this.managerInfoArray) {
+    this.managerName = this.managerInfoArray[0].name;
+    }
   }
 
 }

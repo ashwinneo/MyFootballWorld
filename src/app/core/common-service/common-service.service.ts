@@ -5,6 +5,7 @@ export class CommonServiceService {
 
   name: String;
   teamName: String;
+  managerName: String;
   loggedInStatus = false;
   constructor() { }
 
@@ -31,6 +32,14 @@ export class CommonServiceService {
 
   getTeamName() {
     return this.teamName;
+  }
+
+  setManagerName(name) {
+    this.managerName = name;
+  }
+
+  getManagerName() {
+    return this.managerName;
   }
 }
 

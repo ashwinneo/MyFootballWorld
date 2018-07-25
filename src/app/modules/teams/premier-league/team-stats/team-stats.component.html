@@ -4,7 +4,7 @@
                 
                  <div class="card-body">
                      <p class="card-text label-text text-center">Matches Played</p>
-                     <p class="card-text content-panel-label-value text-center" *ngIf="list.matchPlayed > 0; else noData">{{list.matchPlayed}}</p>
+                     <p class="card-text content-panel-label-value text-center" *ngIf="list.matchPlayed; else noData">{{list.matchPlayed}}</p>
                  </div>
          </div>
     </div>

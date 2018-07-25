@@ -16,9 +16,12 @@ import { TeamStatsTdComponent } from './team-stats-td/team-stats-td.component';
 
 import { TeamManagerComponent } from './team-manager/team-manager.component';
 import { TeamStatsComponent } from './team-stats/team-stats.component';
+import { TeamManagerInfoComponent } from './team-manager/team-manager-info/team-manager-info.component';
+import { TeamManagerInfoResolverServiceService } from './team-manager/team-manager-info/team-manager-info-resolver-service.service';
+import { TeamManagerInfoServiceService } from './team-manager/team-manager-info/team-manager-info-service.service';
 @NgModule({
   imports: [
-CommonModule,
+  CommonModule,
   SharedModuleModule,
   NgxSpinnerModule,
   NgxPaginationModule,
@@ -32,11 +35,14 @@ CommonModule,
     TeamStatsAdComponent,
     TeamStatsTdComponent,
     TeamManagerComponent,
-    TeamStatsComponent
+    TeamStatsComponent,
+    TeamManagerInfoComponent
   ],
   providers: [
     ManchesterUnitedServiceService,
-    ManchesterUnitedResolverService
+    ManchesterUnitedResolverService,
+    TeamManagerInfoResolverServiceService,
+    TeamManagerInfoServiceService
   ],
   exports: [
     ManchesterUnitedComponent,

@@ -382,6 +382,69 @@ export class TeamStatsAdComponent implements OnInit {
         ]
       ]
 
+    } else if (teamInfo[0].teamName === 'Tottenham Hotspur') {
+      this.pieData = [
+        [
+          'Goals',1480,
+        ],
+        [
+          'Goals per match',1.48
+        ],
+        [
+          'Shots',7405
+        ],
+        [
+          'Shots on target',2532
+        ],
+        [
+          'Penalties scored',46
+        ],
+        [
+          'Big chances created',477
+        ],
+        [
+          'Hit woodwork',166
+        ]
+      ]
+      this.pieDefenseData = [
+        [
+          'Clean Sheets',281
+        ],
+        [
+          'Goals conceded',1267
+        ],
+        [
+          'Goals conceded per match',1.27
+        ],
+        [
+          'Saves',507
+        ],
+        [
+          'Tackles',9461
+        ],
+        [
+          'Blocked shots',2014
+        ],
+        [
+          'Interceptions',7028
+        ],
+        [
+          'Clearances',15224
+        ],
+        [
+          'Headed Clearance',5276
+        ],
+        [
+          'Aerial Battles/Duels Won',31864
+        ],
+        [
+          'Errors leading to goal',102
+        ],
+        [
+          'Own goals',33
+        ]
+      ]
+
     }
     this.getCharts();
   }

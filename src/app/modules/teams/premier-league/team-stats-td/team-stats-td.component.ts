@@ -205,7 +205,34 @@ export class TeamStatsTdComponent implements OnInit {
           'Offsides',1089
         ]
       ]
-    } 
+    } else if (teamInfo[0].teamName === 'Tottenham Hotspur') {
+      this.pieTeamPlayData = [
+        [
+          'Passes',212293,
+        ],
+        [
+          'Passes per match',212.29
+        ],
+        [
+          'Crosses',10306
+        ]
+      ]
+
+      this.pieDisciplineData = [
+        [
+          'Yellow cards',1447
+        ],
+        [
+          'Red cards',61
+        ],
+        [
+          'Fouls',1047
+        ],
+        [
+          'Offsides',1078
+        ]
+      ]
+    }
     this.getCharts();
   }
 

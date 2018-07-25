@@ -13,6 +13,9 @@ import { ManchesterUnitedComponent } from './modules/teams/premier-league/manche
 import { AboutUsComponent } from './shared/about-us/about-us.component';
 import { ManchesterUnitedResolverService } from './modules/teams/premier-league/manchester-united/manchester-united-resolver.service';
 import { SignUpComponent } from './shared/sign-up/sign-up.component';
+import { TeamManagerInfoComponent } from './modules/teams/premier-league/team-manager/team-manager-info/team-manager-info.component';
+import { TeamManagerInfoResolverServiceService } from './modules/teams/premier-league/team-manager/team-manager-info/team-manager-info-resolver-service.service';
+
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
@@ -30,12 +33,16 @@ const routes: Routes = [
 },
   { path: 'signUp', component: SignUpComponent },
   { path: 'aboutUs', component: AboutUsComponent },
+  { path: 'managerInfo', component: TeamManagerInfoComponent,
+    resolve: {
+      managerInfo: TeamManagerInfoResolverServiceService
+    }
+  },
   { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
 imports: [RouterModule.forRoot(routes)],
-
 exports: [RouterModule, ModuleModule, SharedModuleModule, PremierLeagueModule]
 })
 export class AppRoutingModule { }

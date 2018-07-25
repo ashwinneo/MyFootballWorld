@@ -140,4 +140,9 @@ export class AdminHomeComponent implements OnInit {
       this.deleteFlag = false;
     }
   }
+
+  getManagerInfo(val) {
+    this.commonService.setManagerName(val);
+    this.route.navigate(['managerInfo']);
+  }
 }

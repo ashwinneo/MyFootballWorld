@@ -29,7 +29,7 @@
                 <option value="Angola">Angola</option>
                 <option value="Anguilla">Anguilla</option>
                 <option value="Antigua &amp; Barbuda">Antigua &amp; Barbuda</option>
-                <option value="Argentina">Argentina</option>
+                <option value="AG">Argentina</option>
                 <option value="Armenia">Armenia</option>
                 <option value="Aruba">Aruba</option>
                 <option value="Australia">Australia</option>
@@ -314,7 +314,7 @@
         </div>
         <div class="flex-m w-full p-b-33 mt-3">
           <div class="contact100-form-checkbox">
-            <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me" [(ngModel)]="isChecked" (keyup)="setChecked(isChecked)">
+            <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me" [(ngModel)]="isChecked" (change)="setChecked(isChecked)">
             <label class="label-checkbox100" for="ckb1">
               <span class="txt1">
                 I agree to the
@@ -331,7 +331,7 @@
         <div class="container-login100-form-btn">
           <div class="wrap-login100-form-btn">
             <div class="login100-form-bgbtn"></div>
-            <button class="login100-form-btn" [disabled]="isDisabled">
+            <button class="login100-form-btn">
               Sign Up
             </button>
           </div>

@@ -44,8 +44,112 @@ export class ManchesterUnitedComponent implements OnInit {
   bvb: Boolean;
   liverpool: Boolean;
   scharted: Boolean;
+  aia: Boolean;
+  tottenham: Boolean;
   teamManager = [];
-  
+  src: String;
+  teamKitSrc: String;
+  widthSrc: String;
+  heightSrc: String;
+  widthSponsor: String;
+  heightSponsor: String;
+  teamKitArray = [
+    {
+      'label': 'Adidas',
+      'teamKit': '/assets/images/team-kit-sponsor/adidas.png',
+      'width': '30',
+      'height': '20'
+    },
+    {
+      'label': 'Puma',
+      'teamKit': '/assets/images/team-kit-sponsor/puma.png',
+      'width': '30',
+      'height': '20'
+    },
+    {
+      'label': 'Nike',
+      'teamKit': '/assets/images/team-kit-sponsor/nike.png',
+      'width': '50',
+      'height': '30'
+    },
+    {
+      'label': 'New Balance',
+      'teamKit': '/assets/images/team-kit-sponsor/newBalance.png',
+      'width': '50',
+      'height': '50'
+    }
+  ]
+
+  teamJerseyArray = [
+    {
+      'label': 'Chevrolet',
+      'teamSponsor': '/assets/images/team-sponsor/chevrolet.png',
+      'width': '',
+      'height': ''
+    },
+    {
+      'label': 'Yokohama Tyres',
+      'teamSponsor': '/assets/images/team-sponsor/yokohama.png',
+      'width': '',
+      'height': ''
+    },
+    {
+      'label': 'Fly Emirates',
+      'teamSponsor': '/assets/images/team-sponsor/flyEmirates.png',
+      'width': '50',
+      'height': '50'
+    },
+    {
+      'label': 'Ethihad Airways',
+      'teamSponsor': '/assets/images/team-sponsor/ethihad.png',
+      'width': '70',
+      'height': '50'
+    },
+    {
+      'label': 'Rakuten',
+      'teamSponsor': '/assets/images/team-sponsor/rakuten.png',
+      'width': '50',
+      'height': '40'
+    },
+    {
+      'label': 'Plus 500',
+      'teamSponsor': '/assets/images/team-sponsor/plus500.png',
+      'width': '80',
+      'height': '80'
+    },
+    {
+      'label': 'Playtika',
+      'teamSponsor': '/assets/images/team-sponsor/playTika.png',
+      'width': '30',
+      'height': '30'
+    },
+    {
+      'label': 'Telekom',
+      'teamSponsor': '/assets/images/team-sponsor/telekom.png',
+      'width': '30',
+      'height': '30'
+    },
+    {
+      'label': 'Evonik',
+      'teamSponsor': '/assets/images/team-sponsor/evonik.png',
+      'width': '80',
+      'height': '20'
+    },
+    {
+      'label': 'Standard Charted',
+      'teamSponsor': '/assets/images/team-sponsor/standardCharted.gif',
+      'width': '80',
+      'height': '20'
+    },
+    {
+      'label': 'AIA',
+      'teamSponsor': '/assets/images/team-sponsor/aia.png',
+      'width': '80',
+      'height': '20'
+    }
+  ]
+
+
   ngOnInit() {
     let name = this.router.snapshot.paramMap.get('name');
     this.teamName = name;
@@ -84,36 +188,22 @@ export class ManchesterUnitedComponent implements OnInit {
 
 
   getTeamSponsor(val) {
-    if (val[0].teamSponsor === 'Chevrolet') {
-      this.chevrolet = true;
-    } else if (val[0].teamSponsor === 'Yokohama Tyres') {
-      this.yokohama = true;
-    } else if (val[0].teamSponsor === 'Fly Emirates') {
-      this.flyEmirates = true;
-    } else if (val[0].teamSponsor === 'Ethihad Airways') {
-      this.ethihad = true;
-    } else if (val[0].teamSponsor === 'Rakuten') {
-      this.rakuten = true;
-    } else if (val[0].teamSponsor === 'Plus 500') {
-      this.plus500 = true;
-    } else if (val[0].teamSponsor === 'Playtika') {
-      this.playTika = true;
-    } else if (val[0].teamSponsor === 'Telekom') {
-      this.telekom = true;
-    } else if (val[0].teamSponsor === 'Evonik') {
-      this.evonik = true;
-    } else if (val[0].teamSponsor === 'Standard Charted') {
-      this.scharted = true;
-    }
 
-    if (val[0].teamKitSponsor === 'Adidas') {
-      this.adidas = true;
-    } else if (val[0].teamKitSponsor === 'Puma') {
-      this.puma = true;
-    } else if (val[0].teamKitSponsor === 'Nike') {
-      this.nike = true;
-    } else if (val[0].teamKitSponsor === 'New Balance') {
-      this.newBalance = true;
+    for (let i=0; i< this.teamJerseyArray.length; i++) {
+      if (val[0].teamSponsor === this.teamJerseyArray[i].label) {
+        this.teamKitSrc = this.teamJerseyArray[i].teamSponsor;
+        this.widthSrc = this.teamJerseyArray[i].width;
+        this.heightSrc = this.teamJerseyArray[i].height;
+      }
+    }
+    
+
+    for (let i=0;i< this.teamKitArray.length; i++ ) {
+      if (val[0].teamKitSponsor === this.teamKitArray[i].label) {
+        this.src = this.teamKitArray[i].teamKit;
+        this.widthSponsor = this.teamKitArray[i].width;
+        this.heightSponsor = this.teamKitArray[i].height;
+      }
     }
 
     if (val[0].teamName === 'Chelsea') {
@@ -138,6 +228,8 @@ export class ManchesterUnitedComponent implements OnInit {
       this.bvb = true;
     } else if (val[0].teamName === 'Liverpool') {
       this.liverpool = true;
+    } else if (val[0].teamName === 'Tottenham Hotspur') {
+      this.tottenham = true;
     }
     this.teamManager = val;
   }

@@ -23,7 +23,8 @@ export const environment = {
   },
   team:{
     teamInfo: 'teamInfo',
-    squadList: 'getTeamSquad'
+    squadList: 'getTeamSquad',
+    managerInfo: 'getManagerDetails'
   }
 }
 };

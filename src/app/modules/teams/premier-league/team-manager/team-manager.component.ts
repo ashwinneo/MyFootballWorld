@@ -21,6 +21,7 @@ export class TeamManagerComponent implements OnInit {
   bvb: Boolean;
   bayernMunich: Boolean;
   liverpool: Boolean;
+  tottenham: Boolean;
   teamManagerList = [];
   constructor() { }
 
@@ -52,7 +53,9 @@ export class TeamManagerComponent implements OnInit {
       this.bvb = true;
     } else if (val[0].teamName === 'Liverpool') {
       this.liverpool = true;
+    } else if (val[0].teamName === 'Tottenham Hotspur') {
+      this.tottenham = true;
     }
   }
-
+  
 }

@@ -23,7 +23,6 @@ export class SignUpComponent implements OnInit {
   checked: any;
   passwordFlag: Boolean;
   error: String;
-  isDisabled: Boolean;
   display: String;
   successMessage: String;
   successMessageFlag: Boolean;
@@ -50,7 +49,6 @@ export class SignUpComponent implements OnInit {
   private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
-    this.isDisabled = true;
   }
 
   setFullName(val) {
@@ -147,7 +145,6 @@ export class SignUpComponent implements OnInit {
     if (this.repeatPassword != '') {
     if (this.password === this.repeatPassword) {
       this.passwordFlag = false;
-      this.isDisabled = false;
     } else {
       this.passwordFlag = true;
       this.errorLength = 'Passwords do not match';
@@ -158,7 +155,6 @@ export class SignUpComponent implements OnInit {
 
   setChecked(val) {
     this.checked = val;
-    this.isDisabled = false;
     //console.log(this.checked);
   }
 
@@ -167,7 +163,7 @@ export class SignUpComponent implements OnInit {
   }
 
   setCountry(val) {
-    // console.log(val);
+     console.log(val);
     if (val != undefined) {
       this.countrySelected = val;
     }
@@ -210,7 +206,6 @@ export class SignUpComponent implements OnInit {
       //this.router.navigate(['/login']);
     });
   } else {
-    this.isDisabled = true;
     this.spinner.hide();
     this.error = 'Please Confirm Before You Register';
   }
