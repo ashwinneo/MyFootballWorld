@@ -508,6 +508,69 @@ export class TeamStatsAdComponent implements OnInit {
         ]
       ]
 
+    } else if (teamInfo[0].teamName === 'Leicester City F.C') {
+      this.pieData = [
+        [
+          'Goals',572
+        ],
+        [
+          'Goals per match',1.24
+        ],
+        [
+          'Shots',1834
+        ],
+        [
+          'Shots on target',610
+        ],
+        [
+          'Penalties scored',22
+        ],
+        [
+          'Big chances created',212
+        ],
+        [
+          'Hit woodwork',39
+        ]
+      ]
+      this.pieDefenseData = [
+        [
+          'Clean Sheets',120
+        ],
+        [
+          'Goals conceded',670
+        ],
+        [
+          'Goals conceded per match',1.46
+        ],
+        [
+          'Saves',461
+        ],
+        [
+          'Tackles',2967
+        ],
+        [
+          'Blocked shots',479
+        ],
+        [
+          'Interceptions',2520
+        ],
+        [
+          'Clearances',4162
+        ],
+        [
+          'Headed Clearance',2196
+        ],
+        [
+          'Aerial Battles/Duels Won',12136
+        ],
+        [
+          'Errors leading to goal',16
+        ],
+        [
+          'Own goals',26
+        ]
+      ]
+
     }
     this.getCharts();
   }

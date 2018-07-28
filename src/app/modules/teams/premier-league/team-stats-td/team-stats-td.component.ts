@@ -259,6 +259,33 @@ export class TeamStatsTdComponent implements OnInit {
           'Offsides',1023
         ]
       ]
+    } else if (teamInfo[0].teamName === 'Leicester City F.C') {
+      this.pieTeamPlayData = [
+        [
+          'Passes',55584,
+        ],
+        [
+          'Passes per match',120.83
+        ],
+        [
+          'Crosses',3149
+        ]
+      ]
+
+      this.pieDisciplineData = [
+        [
+          'Yellow cards',671
+        ],
+        [
+          'Red cards',42
+        ],
+        [
+          'Fouls',860
+        ],
+        [
+          'Offsides',267
+        ]
+      ]
     }
     this.getCharts();
   }

@@ -27,7 +27,7 @@
     <tbody>
       <tr *ngFor="let record of footballList[0] | orderBy: key : reverse| paginate: { itemsPerPage: 5, currentPage: p }">
         <td>{{record.id}}</td>
-        <td><a (click)="teamDetail(record.name)" style="color: #009ece;">{{record.name}}</a></td>
+        <td><a (click)="teamDetail(record)" style="color: #009ece;">{{record.name}}</a></td>
         <td><a (click)="getManagerInfo(record.manager)" style="color: #009ece;">{{record.manager}}</a></td>
         <td>
           <!-- {{record.country}}  -->

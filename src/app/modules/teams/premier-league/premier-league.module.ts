@@ -14,6 +14,7 @@ import { TeamHeaderComponent } from './team-header/team-header.component';
 import { TeamStatsAdComponent } from './team-stats-ad/team-stats-ad.component';
 import { TeamStatsTdComponent } from './team-stats-td/team-stats-td.component';
 
+import { FormsModule } from '@angular/forms';
 import { TeamManagerComponent } from './team-manager/team-manager.component';
 import { TeamStatsComponent } from './team-stats/team-stats.component';
 import { TeamManagerInfoComponent } from './team-manager/team-manager-info/team-manager-info.component';
@@ -26,7 +27,8 @@ import { TeamManagerInfoServiceService } from './team-manager/team-manager-info/
   NgxSpinnerModule,
   NgxPaginationModule,
   Ng2OrderModule,
-  ChartModule
+  ChartModule,
+  FormsModule
   ],
   declarations: [
     ManchesterUnitedComponent,

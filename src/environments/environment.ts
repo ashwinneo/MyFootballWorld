@@ -19,12 +19,14 @@ export const environment = {
     addLeague: 'createLeague',
     editLeague: 'editLeague',
     deleteLeague: 'deleteLeague',
-    getLeague: 'getLeague'
+    getLeague: 'getLeague',
+    updateteamName: 'updateTeamName'
   },
   team:{
     teamInfo: 'teamInfo',
     squadList: 'getTeamSquad',
-    managerInfo: 'getManagerDetails'
+    managerInfo: 'getManagerDetails',
+    updateTeam: 'updateTeamInfo'
   }
 }
 };

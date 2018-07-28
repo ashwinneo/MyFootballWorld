@@ -54,6 +54,13 @@ export class ManchesterUnitedComponent implements OnInit {
   widthSponsor: String;
   heightSponsor: String;
   everton: Boolean;
+  psg: Boolean;
+  isEditable: Boolean = false;
+  isNonEdit: Boolean = false;
+  id: String;
+  teamname: String;
+  adminSuccess: String;
+  alertSuccess: Boolean;
   teamKitArray = [
     {
       'label': 'Adidas',
@@ -91,14 +98,14 @@ export class ManchesterUnitedComponent implements OnInit {
     {
       'label': 'Chevrolet',
       'teamSponsor': '/assets/images/team-sponsor/chevrolet.png',
-      'width': '',
-      'height': ''
+      'width': '30',
+      'height': '20'
     },
     {
       'label': 'Yokohama Tyres',
       'teamSponsor': '/assets/images/team-sponsor/yokohama.png',
-      'width': '',
-      'height': ''
+      'width': '70',
+      'height': '50'
     },
     {
       'label': 'Fly Emirates',
@@ -159,11 +166,24 @@ export class ManchesterUnitedComponent implements OnInit {
       'teamSponsor': '/assets/images/team-sponsor/sportpesa.jpg',
       'width': '60',
       'height': '30'
+    },
+    {
+      'label': 'Jeep',
+      'teamSponsor': '/assets/images/team-sponsor/jeep.png',
+      'width': '60',
+      'height': '30'
+    },
+    {
+      'label': 'King Power',
+      'teamSponsor': '/assets/images/team-sponsor/kingPower.webp',
+      'width': '60',
+      'height': '30'
     }
   ]
 
 
   ngOnInit() {
+    this.isNonEdit = true;
     let name = this.router.snapshot.paramMap.get('name');
     this.teamName = name;
     //console.log(this.teamName);
@@ -178,6 +198,7 @@ export class ManchesterUnitedComponent implements OnInit {
     // });
     this.router.data.forEach((data) => {
       this.teamInfoArr = data.teamInfo.leagueResponse;
+      this.id = this.teamInfoArr[0].id;
       this.spinner.hide();
       this.getTeamSponsor(this.teamInfoArr);
       this.getSquadData();
@@ -245,6 +266,8 @@ export class ManchesterUnitedComponent implements OnInit {
       this.tottenham = true;
     } else if (val[0].teamName === 'Everton') {
       this.everton = true;
+    } else if (val[0].teamName === 'Paris Saint-Germain') {
+      this.psg = true;
     }
     this.teamManager = val;
   }
@@ -253,6 +276,57 @@ export class ManchesterUnitedComponent implements OnInit {
     this.route.navigate(['adminHome', 'admin']);
   }
 
+  editTeamInfo() {
+    if (this.isEditable === false) {
+      this.isEditable = true;
+      this.isNonEdit = false;
+    }
+  }
+
+  closeEdit() {
+    this.isEditable = false;
+    this.isNonEdit = true;
+  }
+
+  updateTeamInfo(val) {
+    this.spinner.show();
+    console.log(val);
+    this.teamname = val.target[0].value;
+    let id = this.cs.getleagueId();
+    let obj = {
+      'id': this.id,
+      'teamName': val.target[0].value,
+      'manager': val.target[1].value,
+      'stadium': val.target[2].value,
+      'location': val.target[3].value
+    }
+    console.log(obj);
+    this.manutdService.updateTeamInfo(obj).subscribe(data => {
+      console.log(data);
+      if (data.appStatus === 0) {
+        this.adminSuccess = data.successMessage;
+        this.alertSuccess = true;
+        setTimeout(() => {
+          this.alertSuccess = false;
+        }, 5000);
+        this.isEditable = false;
+        this.isNonEdit = true;
+      this.updateLeagueTeamName(this.teamname,id);
+      }
+      this.spinner.hide();
+    })
+  }
+
+  updateLeagueTeamName(teamName,id) {
+    let obj = {
+      "id": id,
+      "name": teamName
+    }
+    this.manutdService.updateTeamName(obj).subscribe(data => {
+      console.log(data);
+    })
+    
+  }
   
 
 }

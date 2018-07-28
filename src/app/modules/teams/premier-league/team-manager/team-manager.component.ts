@@ -23,6 +23,9 @@ export class TeamManagerComponent implements OnInit {
   liverpool: Boolean;
   tottenham: Boolean;
   everton: Boolean;
+  juventus: Boolean;
+  psg: Boolean;
+  leifc: Boolean;
   teamManagerList = [];
   constructor() { }
 
@@ -58,7 +61,14 @@ export class TeamManagerComponent implements OnInit {
       this.tottenham = true;
     } else if (val[0].teamName === 'Everton') {
       this.everton = true;
+    } else if (val[0].teamName === 'Juventus') {
+      this.juventus = true;
+    } else if (val[0].teamName === 'Paris Saint-Germain') {
+      this.psg = true;
+    } else if (val[0].teamName === 'Leicester City F.C') {
+      this.leifc = true;
     }
+    
   }
   
 }

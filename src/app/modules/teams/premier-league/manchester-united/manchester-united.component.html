@@ -1,8 +1,19 @@
 <div class="container-fluid">
     <app-header></app-header>
+
     <app-team-header *ngIf="teamInfoArr.length > 0" [teamInfoArr]="teamInfoArr"></app-team-header>
     <app-team-manager *ngIf="teamManager.length>0" [teamManager]="teamManager"></app-team-manager>
     <app-team-stats *ngIf="teamInfoArr.length > 0" [teamInfoArr]="teamInfoArr"></app-team-stats>
+    <div *ngIf="alertSuccess" class="alert alert-success mt-5" role="alert">
+            {{adminSuccess}}
+    </div>
+    <div class="row" *ngIf="isNonEdit">
+        <div class="col-sm-12">
+            <div class="float-right">
+                <button name="edit" class="btn-edit" (click)="editTeamInfo()">Edit</button>
+            </div>
+        </div>
+    </div>
     <div class="content-panel mt-3">
         <div class="content-header">
             <div *ngIf="teamInfoArr.length > 0; else noTeamName">
@@ -21,33 +32,39 @@
                     <img *ngIf="liverpool" src="assets/images/team-logo/liverpool.png" style="margin-top: -8px;" width="30" height="30">
                     <img *ngIf="tottenham" src="assets/images/team-logo/tottenham.png" style="margin-top: -8px;" width="30" height="30">
                     <img *ngIf="everton" src="assets/images/team-logo/everton.svg" style="margin-top: -8px;" width="30" height="30">
+                    <img *ngIf="psg" src="assets/images/team-logo/psg.png" style="margin-top: -8px;" width="30" height="30">
                 </span>
             </div>
         </div>
         <div *ngIf="teamInfoArr.length > 0; else noData">
+                <form name="submit" (submit)="updateTeamInfo($event)">
             <div class="row ml-3 mt-3" *ngFor="let list of teamInfoArr">
                 <div class="col-sm-4">
                     <label class="label-text">Team Name</label>
-                    <div><span class="content-panel-label-value">{{list.teamName}}</span></div>
+                    <div *ngIf="isNonEdit"><span class="content-panel-label-value">{{list.teamName}}</span></div>
+                    <input *ngIf="isEditable" class="form-control w3-input w3-animate-input formControl" type="text" name="teamName" [(ngModel)]="list.teamName">
                 </div>
                 <div class="col-sm-4">
                     <label class="label-text">Manager</label>
-                    <div><span class="content-panel-label-value">{{list.manager}}</span></div>
+                    <div *ngIf="isNonEdit"><span class="content-panel-label-value">{{list.manager}}</span></div>
+                    <input *ngIf="isEditable" class="form-control w3-input w3-animate-input formControl" type="text" name="manager" [(ngModel)]="list.manager">
                 </div>
                 <div class="col-sm-4">
                     <label class="label-text">Stadium</label>
-                    <div><span class="content-panel-label-value">{{list.stadium}}</span></div>
+                    <div *ngIf="isNonEdit"><span class="content-panel-label-value">{{list.stadium}}</span></div>
+                    <input *ngIf="isEditable" class="form-control w3-input w3-animate-input formControl" type="text" name="stadium" [(ngModel)]="list.stadium">
                 </div>
             </div>
 
-            <div class="row ml-3 mt-3 mb-3" *ngFor="let list of teamInfoArr">
+            <div class="row ml-3 mt-3 mb-3" *ngFor="let list of teamInfoArr">               
                 <div class="col-sm-4">
                     <label class="label-text">Location</label>
-                    <div><span class="content-panel-label-value">{{list.location}}</span></div>
+                    <div *ngIf="isNonEdit"><span class="content-panel-label-value">{{list.location}}</span></div>
+                    <input *ngIf="isEditable" class="form-control w3-input w3-animate-input formControl" type="text" name="location" [(ngModel)]="list.location">
                 </div>
                 <div class="col-sm-4">
                     <label class="label-text">Team Sponsor</label>
-                    <div><span class="content-panel-label-value">{{list.teamSponsor}} </span>
+                    <div *ngIf="isNonEdit"><span class="content-panel-label-value">{{list.teamSponsor}} </span>
                         <span>
                         <img src="{{teamKitSrc}}" width="{{widthSrc}}" height="{{heightSrc}}" style=" margin-top: -11px;margin-left: 8px;">
                         <!-- <img src="/assets/images/Yokohama.webp" *ngIf="yokohama" width="100" height="50" style=" margin-top: -11px;margin-left: 8px;"> -->
@@ -63,18 +80,33 @@
                     </span>
                     
                     </div>
+                    <input *ngIf="isEditable" class="form-control w3-input w3-animate-input formControl" type="text" name="teamSponsor" [(ngModel)]="list.teamSponsor">
                 </div>
                 <div class="col-sm-4">
                     <label class="label-text">Team Kit Sponsor</label>
-                    <div><span class="content-panel-label-value">{{list.teamKitSponsor}} 
+                    <div *ngIf="isNonEdit"><span class="content-panel-label-value">{{list.teamKitSponsor}} 
                         <img src="{{src}}" width="{{widthSponsor}}" height="{{heightSponsor}}" style=" margin-top: -11px;margin-left: 8px;">
                         <!-- <img src="/assets/images/team-kit-sponsor/puma.png" *ngIf="puma" width="30" height="20" style=" margin-top: -11px;margin-left: 8px;">
                         <img src="/assets/images/team-kit-sponsor/nike.png" *ngIf="nike" width="50" height="30" style=" margin-top: -11px;margin-left: 8px;">
                         <img src="/assets/images/team-kit-sponsor/newBalance.png" *ngIf="newBalance" width="50" height="50" style=" margin-top: -11px;margin-left: 8px;"> -->
                     </span>
                     </div>
+                    <input *ngIf="isEditable" class="form-control w3-input w3-animate-input formControl" type="text" name="teamKitSponsor" [(ngModel)]="list.teamKitSponsor">
                 </div>            
             </div>
+            <div class="row ml-3 mt-3 mb-3" *ngIf="isEditable">
+                    <div class="col-sm-4">
+                        
+                    </div>
+                    <div class="col-sm-4">
+                       <button name="edit" class="btn btn-primary" type="submit">Edit</button>
+                       <button name="cancel" class="btn btn-primary" (click)="closeEdit()">Cancel</button>
+                    </div>
+                    <div class="col-sm-4">
+                        
+                    </div>            
+                </div>
+            </form>
         </div>
         <ng-template #noData>
             <div class="row">

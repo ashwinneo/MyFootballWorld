@@ -1,3 +1,16 @@
 .width{
     width: 643px !important;
 }
+
+ .btn-edit{
+    background-color: #009ece;
+    border: none;
+    /* border-radius: 0px; */
+    width: 135px;
+    height: 34px;
+ }
+
+ .formControl {
+    border: 1px solid #009ece !important;
+    width: 218px !important;
+ }

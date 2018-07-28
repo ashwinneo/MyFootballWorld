@@ -77,7 +77,7 @@ export class AdminHomeComponent implements OnInit {
     this.spinner.show();
     this.footballList = [];
     this.adminService.getTeamList().subscribe(data => {
-      //console.log(data);
+      console.log(data);
       this.spinner.hide();
       this.footballList.push(data.leagueResponse);
       let list = data.leagueResponse;
@@ -126,7 +126,8 @@ export class AdminHomeComponent implements OnInit {
   }
 
   teamDetail(val) {
-    this.commonService.setTeamName(val);
+    this.commonService.setTeamName(val.name);
+    this.commonService.setLeagueId(val.id);
     this.route.navigate(['/teamInfo']);
     this.commonService.setLoggedIn(true);
   }

@@ -21,4 +21,12 @@ export class ManchesterUnitedServiceService {
     this.queryParams = '?name=' + name;
     return this.getService.proccessGetRequest('team', 'teamInfo', 'get', this.queryParams);
   }
+
+  updateTeamInfo(val) {
+    return this.getService.proccessGetRequest('team','updateTeam', 'put',val);
+  }
+
+  updateTeamName(obj) {
+    return this.getService.proccessGetRequest('leagues','updateteamName','put',obj);
+  }
 }
