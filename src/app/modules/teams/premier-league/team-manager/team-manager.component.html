@@ -1,7 +1,13 @@
 <div class="row mt-3">
   <div class="col-sm-4"></div>
     <div class="col-sm-4" style="position: relative !important; left: 80px !important;">
-        <div class="card" style="width: 18rem;" *ngIf="arsenal">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{{src}}" alt="Card image cap">
+            <div class="card-body">
+                <p class="card-text text-justify">{{managerData}}</p>
+            </div>
+        </div>
+        <!-- <div class="card" style="width: 18rem;" *ngIf="arsenal">
             <img class="card-img-top" src="assets/images/managers/emery.jpg" alt="Card image cap">
             <div class="card-body">
                 <p class="card-text text-justify">Unai Emery Etxegoien is a Spanish football manager and former player. He is the head coach of Premier League club Arsenal.</p>
@@ -96,7 +102,7 @@
                 <div class="card-body">
                     <p class="card-text text-justify">Claude Puel is a French football manager and former player who is currently the manager of Premier League club Leicester City..</p>
                 </div>
-        </div>
+        </div> -->
     </div> 
     <div class="col-sm-4"></div>
 </div>
