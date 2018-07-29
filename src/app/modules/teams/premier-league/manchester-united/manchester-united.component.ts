@@ -61,6 +61,8 @@ export class ManchesterUnitedComponent implements OnInit {
   teamname: String;
   adminSuccess: String;
   alertSuccess: Boolean;
+  teamPlayDiscipline = [];
+  attackDefense = [];
   teamKitArray = [
     {
       'label': 'Adidas',
@@ -197,8 +199,11 @@ export class ManchesterUnitedComponent implements OnInit {
     //   this.getSquadData();
     // });
     this.router.data.forEach((data) => {
-      this.teamInfoArr = data.teamInfo.leagueResponse;
+      this.teamInfoArr.push(data.teamInfo.leagueResponse);
       this.id = this.teamInfoArr[0].id;
+      this.teamPlayDiscipline = this.teamInfoArr[0].teamPlayDiscipline;
+      this.attackDefense = this.teamInfoArr[0].attackDefense;
+      console.log(this.teamPlayDiscipline);
       this.spinner.hide();
       this.getTeamSponsor(this.teamInfoArr);
       this.getSquadData();

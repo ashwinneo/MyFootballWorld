@@ -119,8 +119,8 @@
         </ng-template>
     </div>
     <app-team-squad *ngIf="manutdData.length>0" [manutdData]="manutdData"></app-team-squad>
-    <app-team-stats-ad *ngIf="teamInfoArr.length>0" [teamInfoArr]="teamInfoArr"></app-team-stats-ad>
-    <app-team-stats-td *ngIf="teamInfoArr.length>0" [teamInfoArr]="teamInfoArr"></app-team-stats-td>
+    <app-team-stats-ad *ngIf="attackDefense" [attackDefense]="attackDefense"></app-team-stats-ad>
+    <app-team-stats-td *ngIf="teamPlayDiscipline" [teamPlayDiscipline]="teamPlayDiscipline"></app-team-stats-td>
     <ngx-spinner bdColor = "rgba(51, 51, 51, 0.8)" size = "medium" color = "#fff" type = "line-scale-pulse-out"></ngx-spinner>
 </div>
 

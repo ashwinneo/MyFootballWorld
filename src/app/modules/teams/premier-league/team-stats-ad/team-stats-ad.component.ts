@@ -8,7 +8,7 @@ import { Chart } from 'angular-highcharts';
 })
 export class TeamStatsAdComponent implements OnInit {
 
-  @Input("teamInfoArr") teamInfoArr;
+  @Input("attackDefense") attackDefense;
   pieData = [];
   pieTeamPlayData = [];
   pieDefenseData = [];
@@ -18,7 +18,7 @@ export class TeamStatsAdComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.getTeamList(this.teamInfoArr);
+    this.getTeamList(this.attackDefense);
   }
 
   drawAttackPiechart() {
@@ -63,515 +63,68 @@ export class TeamStatsAdComponent implements OnInit {
      this.defenseChart = chart1;
    }
 
-  getTeamList(teamInfo) {
-    if (teamInfo[0].teamName === 'Manchester United') {      
-      this.pieData = [
-        [
-          'Goals',1924,
-        ],
-        [
-          'Goals per match',1.92
-        ],
-        [
-          'Shots',7200
-        ],
-        [
-          'Shots on target',2530
-        ],
-        [
-          'Penalties scored',52
-        ],
-        [
-          'Big chances created',518
-        ],
-        [
-          'Hit woodwork',185
+  getTeamList(val) {
+    this.pieData = [
+          [
+            'Goals',val.totalGoals,
+          ],
+          [
+            'Goals per match',val.goalsPerMatch
+          ],
+          [
+            'Shots',val.shots
+          ],
+          [
+            'Shots on target',val.shotsOnTarget
+          ],
+          [
+            'Penalties scored',val.penaltiesScored
+          ],
+          [
+            'Big chances created',val.bigChancesCreated
+          ],
+          [
+            'Hit woodwork',val.hitWoodWork
+          ]
         ]
-      ]
-      this.pieDefenseData = [
-        [
-          'Clean Sheets',437
-        ],
-        [
-          'Goals conceded',875
-        ],
-        [
-          'Goals conceded per match',0.88
-        ],
-        [
-          'Saves',501
-        ],
-        [
-          'Tackles',9093
-        ],
-        [
-          'Blocked shots',1885
-        ],
-        [
-          'Interceptions',6609
-        ],
-        [
-          'Clearances',14306
-        ],
-        [
-          'Headed Clearance',5292
-        ],
-        [
-          'Aerial Battles/Duels Won',30106
-        ],
-        [
-          'Errors leading to goal',46
-        ],
-        [
-          'Own goals',35
+        this.pieDefenseData = [
+          [
+            'Clean Sheets',val.cleanSheets
+          ],
+          [
+            'Goals conceded',val.goalsConceded
+          ],
+          [
+            'Goals conceded per match',val.goalsConcededPerMatch
+          ],
+          [
+            'Saves',val.saves
+          ],
+          [
+            'Tackles',val.tackles
+          ],
+          [
+            'Blocked shots',val.blockedShots
+          ],
+          [
+            'Interceptions',val.interception
+          ],
+          [
+            'Clearances',val.clearances
+          ],
+          [
+            'Headed Clearance',val.headedClearance
+          ],
+          [
+            'Aerial Battles/Duels Won',val.arielBattles
+          ],
+          [
+            'Errors leading to goal',val.errorsLeading
+          ],
+          [
+            'Own goals',val.ownGoals
+          ]
         ]
-      ]
-    } else if (teamInfo[0].teamName === 'Chelsea') {
-      this.pieData = [
-        [
-          'Goals',1707,
-        ],
-        [
-          'Goals per match',1.71
-        ],
-        [
-          'Shots',7882
-        ],
-        [
-          'Shots on target',2667
-        ],
-        [
-          'Penalties scored',60
-        ],
-        [
-          'Big chances created',463
-        ],
-        [
-          'Hit woodwork',170
-        ]
-      ]
-
-      this.pieDefenseData = [
-        [
-          'Clean Sheets',404
-        ],
-        [
-          'Goals conceded',963
-        ],
-        [
-          'Goals conceded per match',0.96
-        ],
-        [
-          'Saves',475
-        ],
-        [
-          'Tackles',9191
-        ],
-        [
-          'Blocked shots',2068
-        ],
-        [
-          'Interceptions',5971
-        ],
-        [
-          'Clearances',12206
-        ],
-        [
-          'Headed Clearance',4461
-        ],
-        [
-          'Aerial Battles/Duels Won',31366
-        ],
-        [
-          'Errors leading to goal',61
-        ],
-        [
-          'Own goals',34
-        ]
-      ]
-    } else if (teamInfo[0].teamName === 'Arsenal') {
-      this.pieData = [
-        [
-          'Goals',1772,
-        ],
-        [
-          'Goals per match',1.77
-        ],
-        [
-          'Shots',7339
-        ],
-        [
-          'Shots on target',2652
-        ],
-        [
-          'Penalties scored',52
-        ],
-        [
-          'Big chances created',618
-        ],
-        [
-          'Hit woodwork',206
-        ]
-      ]
-
-      this.pieDefenseData = [
-        [
-          'Clean Sheets',393
-        ],
-        [
-          'Goals conceded',962
-        ],
-        [
-          'Goals conceded per match',0.96
-        ],
-        [
-          'Saves',563
-        ],
-        [
-          'Tackles',9298
-        ],
-        [
-          'Blocked shots',1902
-        ],
-        [
-          'Interceptions',7380
-        ],
-        [
-          'Clearances',12858
-        ],
-        [
-          'Headed Clearance',4551
-        ],
-        [
-          'Aerial Battles/Duels Won',32588
-        ],
-        [
-          'Errors leading to goal',97
-        ],
-        [
-          'Own goals',39
-        ]
-      ]
-    } else if (teamInfo[0].teamName === 'Manchester City') {
-      this.pieData = [
-        [
-          'Goals',1279,
-        ],
-        [
-          'Goals per match',1.58
-        ],
-        [
-          'Shots',7175
-        ],
-        [
-          'Shots on target',2502
-        ],
-        [
-          'Penalties scored',65
-        ],
-        [
-          'Big chances created',601
-        ],
-        [
-          'Hit woodwork',178
-        ]
-      ]
-
-      this.pieDefenseData = [
-        [
-          'Clean Sheets',257
-        ],
-        [
-          'Goals conceded',952
-        ],
-        [
-          'Goals conceded per match',1.18
-        ],
-        [
-          'Saves',401
-        ],
-        [
-          'Tackles',9288
-        ],
-        [
-          'Blocked shots',1854
-        ],
-        [
-          'Interceptions',6558
-        ],
-        [
-          'Clearances',13277
-        ],
-        [
-          'Headed Clearance',4435
-        ],
-        [
-          'Aerial Battles/Duels Won',30136
-        ],
-        [
-          'Errors leading to goal',56
-        ],
-        [
-          'Own goals',37
-        ]
-      ]
-    } else if (teamInfo[0].teamName === 'Real Madrid') {
-    } else if (teamInfo[0].teamName === 'Athletico Madrid') {
-    } else if (teamInfo[0].teamName === 'Barcelona') {
-    } else if (teamInfo[0].teamName === 'Sevilla') {
-    } else if (teamInfo[0].teamName === 'Liverpool') {
-      this.pieData = [
-        [
-          'Goals',1685,
-        ],
-        [
-          'Goals per match',1.69
-        ],
-        [
-          'Shots',7868
-        ],
-        [
-          'Shots on target',2606
-        ],
-        [
-          'Penalties scored',57
-        ],
-        [
-          'Big chances created',500
-        ],
-        [
-          'Hit woodwork',227
-        ]
-      ]
-      this.pieDefenseData = [
-        [
-          'Clean Sheets',373
-        ],
-        [
-          'Goals conceded',1024
-        ],
-        [
-          'Goals conceded per match',1.02
-        ],
-        [
-          'Saves',422
-        ],
-        [
-          'Tackles',10247
-        ],
-        [
-          'Blocked shots',2006
-        ],
-        [
-          'Interceptions',6148
-        ],
-        [
-          'Clearances',13145
-        ],
-        [
-          'Headed Clearance',4506
-        ],
-        [
-          'Aerial Battles/Duels Won',31913
-        ],
-        [
-          'Errors leading to goal',83
-        ],
-        [
-          'Own goals',39
-        ]
-      ]
-
-    } else if (teamInfo[0].teamName === 'Tottenham Hotspur') {
-      this.pieData = [
-        [
-          'Goals',1480,
-        ],
-        [
-          'Goals per match',1.48
-        ],
-        [
-          'Shots',7405
-        ],
-        [
-          'Shots on target',2532
-        ],
-        [
-          'Penalties scored',46
-        ],
-        [
-          'Big chances created',477
-        ],
-        [
-          'Hit woodwork',166
-        ]
-      ]
-      this.pieDefenseData = [
-        [
-          'Clean Sheets',281
-        ],
-        [
-          'Goals conceded',1267
-        ],
-        [
-          'Goals conceded per match',1.27
-        ],
-        [
-          'Saves',507
-        ],
-        [
-          'Tackles',9461
-        ],
-        [
-          'Blocked shots',2014
-        ],
-        [
-          'Interceptions',7028
-        ],
-        [
-          'Clearances',15224
-        ],
-        [
-          'Headed Clearance',5276
-        ],
-        [
-          'Aerial Battles/Duels Won',31864
-        ],
-        [
-          'Errors leading to goal',102
-        ],
-        [
-          'Own goals',33
-        ]
-      ]
-
-    } else if (teamInfo[0].teamName === 'Everton') {
-      this.pieData = [
-        [
-          'Goals',1303,
-        ],
-        [
-          'Goals per match',1.30
-        ],
-        [
-          'Shots',6153
-        ],
-        [
-          'Shots on target',2086
-        ],
-        [
-          'Penalties scored',47
-        ],
-        [
-          'Big chances created',419
-        ],
-        [
-          'Hit woodwork',140
-        ]
-      ]
-      this.pieDefenseData = [
-        [
-          'Clean Sheets',307
-        ],
-        [
-          'Goals conceded',1265
-        ],
-        [
-          'Goals conceded per match',1.26
-        ],
-        [
-          'Saves',552
-        ],
-        [
-          'Tackles',8818
-        ],
-        [
-          'Blocked shots',1639
-        ],
-        [
-          'Interceptions',6358
-        ],
-        [
-          'Clearances',16016
-        ],
-        [
-          'Headed Clearance',5419
-        ],
-        [
-          'Aerial Battles/Duels Won',31034
-        ],
-        [
-          'Errors leading to goal',74
-        ],
-        [
-          'Own goals',48
-        ]
-      ]
-
-    } else if (teamInfo[0].teamName === 'Leicester City F.C') {
-      this.pieData = [
-        [
-          'Goals',572
-        ],
-        [
-          'Goals per match',1.24
-        ],
-        [
-          'Shots',1834
-        ],
-        [
-          'Shots on target',610
-        ],
-        [
-          'Penalties scored',22
-        ],
-        [
-          'Big chances created',212
-        ],
-        [
-          'Hit woodwork',39
-        ]
-      ]
-      this.pieDefenseData = [
-        [
-          'Clean Sheets',120
-        ],
-        [
-          'Goals conceded',670
-        ],
-        [
-          'Goals conceded per match',1.46
-        ],
-        [
-          'Saves',461
-        ],
-        [
-          'Tackles',2967
-        ],
-        [
-          'Blocked shots',479
-        ],
-        [
-          'Interceptions',2520
-        ],
-        [
-          'Clearances',4162
-        ],
-        [
-          'Headed Clearance',2196
-        ],
-        [
-          'Aerial Battles/Duels Won',12136
-        ],
-        [
-          'Errors leading to goal',16
-        ],
-        [
-          'Own goals',26
-        ]
-      ]
-
-    }
     this.getCharts();
   }
 
