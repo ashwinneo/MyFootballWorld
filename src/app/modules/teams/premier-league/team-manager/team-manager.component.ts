@@ -109,6 +109,11 @@ export class TeamManagerComponent implements OnInit {
       "teamName": "Leicester City",
       "src": "assets/images/managers/claude.jpg",
       "managerInfo": "Claude Puel is a French football manager and former player who is currently the manager of Premier League club Leicester City."
+    },
+    {
+      "teamName": "AC Milan",
+      "src": "assets/images/managers/gattuso.webp",
+      "managerInfo": "Gennaro Ivan Rino Gattuso, Ufficiale OMRI is a retired Italian footballer and current manager of Milan. As a player, he mainly played in the centre as a defensive midfielder, although he was also capable of playing on the wing."
     }
   ]
 
