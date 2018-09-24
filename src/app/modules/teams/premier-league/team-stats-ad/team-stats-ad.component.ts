@@ -8,17 +8,18 @@ import { Chart } from 'angular-highcharts';
 })
 export class TeamStatsAdComponent implements OnInit {
 
-  @Input("attackDefense") attackDefense;
+  @Input("teamInfoArr") teamInfoArr;
   pieData = [];
   pieTeamPlayData = [];
   pieDefenseData = [];
   pieDisciplineData = [];
-  chart: Chart;
+  attackChart: Chart;
   defenseChart: Chart;
   constructor() { }
 
   ngOnInit() {
-    this.getTeamList(this.attackDefense);
+    console.log(this.teamInfoArr);
+    this.getTeamList(this.teamInfoArr[0]);
   }
 
   drawAttackPiechart() {
@@ -39,7 +40,7 @@ export class TeamStatsAdComponent implements OnInit {
          }
        ]
      });
-     this.chart = chart;
+     this.attackChart = chart;
    }
 
    drawDefensePiechart() {
@@ -107,19 +108,19 @@ export class TeamStatsAdComponent implements OnInit {
             'Blocked shots',val.blockedShots
           ],
           [
-            'Interceptions',val.interception
+            'Interceptions',val.interceptions
           ],
           [
             'Clearances',val.clearances
           ],
           [
-            'Headed Clearance',val.headedClearance
+            'Headed Clearance',val.headedClearances
           ],
           [
-            'Aerial Battles/Duels Won',val.arielBattles
+            'Aerial Battles/Duels Won',val.areilBattlesWon
           ],
           [
-            'Errors leading to goal',val.errorsLeading
+            'Errors leading to goal',val.errorsLeadingtoGoal
           ],
           [
             'Own goals',val.ownGoals

@@ -38,11 +38,11 @@ export class ModalUpdateProfileComponent implements OnInit {
     this.name = this.userList.fullName;
       this.email = this.userList.email;
       this.userName = this.userList.userName;
-      this.address = this.userList.userDetails.address;
-      this.state = this.userList.userDetails.state;
-      this.city = this.userList.userDetails.city;
-      this.zipCode = this.userList.userDetails.zipcode;
-      this.country = this.userList.userDetails.country;
+      this.address = this.userList.address;
+      this.state = this.userList.state;
+      this.city = this.userList.city;
+      this.zipCode = this.userList.zipCode;
+      this.country = this.userList.country;
       this.id = this.userList.id;
       this.password = this.userList.password;
   }

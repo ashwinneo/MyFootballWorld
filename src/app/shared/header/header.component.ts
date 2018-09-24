@@ -80,11 +80,11 @@ export class HeaderComponent implements OnInit {
       this.name = data.leagueResponse.fullName;
       this.email = data.leagueResponse.email;
       this.userName = data.leagueResponse.userName;
-      this.address = data.leagueResponse.userDetails.address;
-      this.state = data.leagueResponse.userDetails.state;
-      this.city = data.leagueResponse.userDetails.city;
-      this.zipCode = data.leagueResponse.userDetails.zipcode;
-      this.country = data.leagueResponse.userDetails.country;
+      this.address = data.leagueResponse.address;
+      this.state = data.leagueResponse.state;
+      this.city = data.leagueResponse.city;
+      this.zipCode = data.leagueResponse.zipCode;
+      this.country = data.leagueResponse.country;
       this.id = data.leagueResponse.id;
       this.password = data.leagueResponse.password;
       if (val.value === 'Update Profile') {

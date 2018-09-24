@@ -1,9 +1,9 @@
-<div class="content-panel mt-5" *ngIf="attackDefense.interception >0">
+<div class="content-panel mt-5">
   <div class="content-header">
       <span class="content-header-text">Team Stats - Attack & Defense</span>
   </div>
   <div class="row mb-3 mt-3">
-      <div class="col-sm-5"><div [chart]="chart"></div></div>
+      <div class="col-sm-5"><div [chart]="attackChart"></div></div>
       
       <div class="col-sm-7"><div [chart]="defenseChart"></div></div>
   </div>

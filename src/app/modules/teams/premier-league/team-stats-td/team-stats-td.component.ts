@@ -12,12 +12,12 @@ export class TeamStatsTdComponent implements OnInit {
   pieDisciplineData = [];
   teamPlayChart: Chart;
   disciplineChart: Chart;
-  @Input("teamPlayDiscipline") teamPlayDiscipline;
+  @Input("teamInfoArr") teamInfoArr;
   constructor() { }
 
   ngOnInit() {
-    console.log(this.teamPlayDiscipline);
-    this.getTeamList(this.teamPlayDiscipline);
+    console.log(this.teamInfoArr);
+    this.getTeamList(this.teamInfoArr[0]);
   }
 
   drawTeamPlayPiechart() {
