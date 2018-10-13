@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Validators } from '@angular/forms';
+import { ExportServiceService } from '../../../../core/common-service/export-service.service';
 
 @Component({
   selector: 'app-team-squad',
@@ -10,7 +11,7 @@ export class TeamSquadComponent implements OnInit {
 
   @Input("manutdData") manutdData;
   squadList = [];
-  constructor() { }
+  constructor(private exportService: ExportServiceService) { }
   
   key: String = 'playerName';
   reverse: Boolean = false;
@@ -22,6 +23,10 @@ export class TeamSquadComponent implements OnInit {
     
     this.squadList = this.manutdData;
     
+  }
+
+  export() {
+    this.exportService.exportAsExcelFile(this.squadList[0], this.squadList[0][0].teamName);
   }
 
   
