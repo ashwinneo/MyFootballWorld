@@ -1,6 +1,17 @@
-# Login
+# My Football World
+
+The application provides users about their favorite football team and their favorite players from the team too. It also provides them with the statistics of the team to know how the team is performing.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
+
+# INSTALLATION
+
+1. Download and install NodeJs which is the prerequisite for Angular.
+2. Open command prompt / terminal(MAC OS) and install AngularCLI by running the following command, npm install -g @angular/cli.
+3. Download and install Visual Studio Code.
+4. Import the project into your workspace.
+5. Open the integrated terminal of the visual studio code (ctrl + ~), run the following command 'npm install' to install the  node_modules which downloads the dependencies needed for the project.
+6. Follow the steps provided below to run the application.
 
 ## Development server
 
