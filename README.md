@@ -1,6 +1,6 @@
 # My Football World
 
-The application provides information users about their favorite football team and their favorite players from the team too. It also provides them with the statistics of the team to know how the team is performing.
+The application provides information to users about their favorite football team and their favorite players from the team too. It also provides them with the statistics of the team to know how the team is performing.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
 
